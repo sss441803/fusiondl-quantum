@@ -42,3 +42,7 @@ __pycache__
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Slurm generated files #
+#########################
+*.out
