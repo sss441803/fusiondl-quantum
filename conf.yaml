@@ -36,7 +36,7 @@ data:
 env:
   name: torch-env
   type: anaconda3
-fs_path: tigress
+fs_path: /tigress
 model:
   backend: tensorflow
   cell_order: 5

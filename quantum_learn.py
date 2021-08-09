@@ -25,9 +25,6 @@ import random
 import sys
 import os
 
-import matplotlib
-matplotlib.use('Agg')
-
 pprint(conf)
 
 if 'torch' in conf['model'].keys() and conf['model']['torch']:

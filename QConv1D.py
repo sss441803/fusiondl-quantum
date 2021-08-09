@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import pennylane as qml
 
+import time
+
 # Need decompose a multichannel quantum convolution layer into many single channel quantum convolution. This is because each torch.nn.Module converted from a qml.qnode must be associated with a device that contains all the needed qubits. Having all the qubits in one layer is too many for one device.
 
 # This kernel is for classical CNN and can be used inplace of the quantum kernel
@@ -93,11 +95,11 @@ class Q_MulIn1Out_Conv1D(nn.Module):
 
 # Quantum convolution 2D layer
 class QConv1D(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size, stride=1):
+    def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding='valid'):
         super(QConv1D, self).__init__()
         self.out_channels = out_channels
         n_qubits = kernel_size
-        dev = qml.device("default.qubit.tf", wires=n_qubits)
+        dev = qml.device("default.qubit", wires=n_qubits)
         self.convs = []
         for _ in range(self.out_channels):
             self.convs.append(Q_MulIn1Out_Conv1D(dev, in_channels, kernel_size, stride))
@@ -111,10 +113,13 @@ class QConv1D(nn.Module):
         return output
 
 # Testing code
-kernel_size = 3
+kernel_size = 5
 n_qubits = kernel_size
-dev = qml.device("default.qubit", wires=n_qubits) 
-qconv1d = QConv1D(in_channels=5, out_channels=3, kernel_size=kernel_size)
-x = torch.randn(10,5,50)
-out = qconv1d(x)
-print(out.shape)
+for _ in range(1):
+    x = torch.randn((5,10,100))
+    start = time.time()
+    #out = CustomKernel_1In1Out_Conv1D(x, qk, kernel_size, strides=1, padding='valid')
+    conv = QConv1D(10, 5, kernel_size, stride=1, padding='valid')
+    out = conv(x)
+    stop = time.time()
+    print('Successfully computed the output with shape: ', out.shape, '. Total time elapsed: ', stop - start, ' seconds.')
