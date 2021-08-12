@@ -1,8 +1,5 @@
 from __future__ import print_function
 import random
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 from torchsummary import summary
 import numpy as np
 import sys
