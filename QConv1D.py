@@ -1,19 +1,13 @@
 import torch
 import torch.nn as nn
+
 import pennylane as qml
 
-# Need decompose a multichannel quantum convolution layer into many single channel quantum convolution. This is because each torch.nn.Module converted from a qml.qnode must be associated with a device that contains all the needed qubits. Having all the qubits in one layer is too many for one device.
+import time
 
-# This kernel is for classical CNN and can be used inplace of the quantum kernel
-class kernel_module(nn.Module):
-    def __init__(self, kernel_size):
-        super(kernel_module, self).__init__()
-        self.kernel_size = kernel_size
-        self.kernel = torch.randn(kernel_size)
-        self.flat_kernel = self.kernel.reshape(-1)
-    def forward(self, x):
-        out = torch.tensordot(x, self.flat_kernel, dims=([-1],[0]))
-        return out
+device = 'cpu'
+
+# Need decompose a multichannel quantum convolution layer into many single channel quantum convolution. This is because each torch.nn.Module converted from a qml.qnode must be associated with a device that contains all the needed qubits. Having all the qubits in one layer is too many for one device.
 
 # defines the quantum convolutional kernel (a variational circuit)
 def build_qconv(dev, kernel_size) -> nn.Module:
@@ -53,9 +47,11 @@ class CustomKernel_1In1Out_Conv1D(nn.Module):
         return out
     def forward(self, x):
         output_shape = x.shape[-1] - self.kernel_size + 1
+        n_batch = x.size(0)
         x = self.memory_strided_im2col(x, self.kernel_size, self.stride)
+        x = x.reshape(-1, self.kernel_size)
         out = self.kernel_module(x)
-        out = out.reshape(x.size(0), output_shape)
+        out = out.reshape(n_batch, -1, output_shape)
         return out
 
 # 1In1Out channel quantum convolution 2D
@@ -63,7 +59,6 @@ class Q_1In1Out_Conv1D(nn.Module):
     def __init__(self, dev, kernel_size, stride=(1,1)):
         super(Q_1In1Out_Conv1D, self).__init__()
         q_kernel = build_qconv(dev, kernel_size)
-        #q_kernel = kernel_module(kernel_size)
         self.conv = CustomKernel_1In1Out_Conv1D(q_kernel, kernel_size, stride=stride)
     def forward(self, x):
         out = self.conv(x)
@@ -108,13 +103,18 @@ class QConv1D(nn.Module):
             out = conv(x)
             output = torch.cat((output, out), dim=1)
             print('out_channel: ', channel)
+        output = output.squeeze(-2)
         return output
 
+test = False
 # Testing code
-kernel_size = 3
-n_qubits = kernel_size
-dev = qml.device("default.qubit", wires=n_qubits) 
-qconv1d = QConv1D(in_channels=5, out_channels=3, kernel_size=kernel_size)
-x = torch.randn(10,5,50)
-out = qconv1d(x)
-print(out.shape)
+if test:
+    kernel_size = 3
+    n_qubits = kernel_size
+    dev = qml.device("default.qubit", wires=n_qubits) 
+    qconv1d = QConv1D(in_channels=5, out_channels=3, kernel_size=kernel_size)
+    x = torch.randn(10,5,50)
+    start = time.time()
+    out = qconv1d(x)
+    stop = time.time()
+    print(out.shape, '. Time taken ', stop - start, ' seconds for pennylane with cpu')

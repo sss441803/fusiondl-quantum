@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
 from convlstmnet import *
-from QConv1D import QConv1D
+from torch_QConv1D import QConv1D, device
 import numpy as np
 
 class FLSTM(nn.Module):
@@ -82,6 +82,7 @@ class FTCN(nn.Module):
         self.model = nn.Sequential(self.input_layer,self.tcn)
     
     def forward(self,x):
+        x = x.to(device)
         return self.model(x)
 
 

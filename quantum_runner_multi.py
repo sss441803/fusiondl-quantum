@@ -210,7 +210,7 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
     step = 0
     while True:
         x, y, mask = Variable(torch.from_numpy(x_).float()).to(device), Variable(torch.from_numpy(y_).float()).to(device),Variable(torch.from_numpy(mask_).byte()).to(device)
-        x, y, mask = x[:,:10], y[:,:10], mask[:,:10]
+        #x, y, mask = x[:,:10], y[:,:10], mask[:,:10]
         optimizer.zero_grad()
         output = model(x)
         output_masked = torch.masked_select(output,mask)
