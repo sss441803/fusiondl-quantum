@@ -36,7 +36,7 @@ data:
 env:
   name: torch-env
   type: anaconda3
-fs_path: tigress
+fs_path: D:\Cloud\pytorch-plasma\FRNN_pytorch_TTLSTM_noiseaware\tigress
 model:
   backend: tensorflow
   cell_order: 5
