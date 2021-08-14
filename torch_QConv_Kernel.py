@@ -10,7 +10,7 @@ if torch.cuda.is_available():
     dev = "cuda:0"
 else:  
     dev = "cpu"
-dev='cpu'
+#dev='cpu'
 print(dev)
 device = torch.device(dev) 
 

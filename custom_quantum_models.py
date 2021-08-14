@@ -82,7 +82,6 @@ class FTCN(nn.Module):
         self.model = nn.Sequential(self.input_layer,self.tcn)
     
     def forward(self,x):
-        x = x.to(device)
         return self.model(x)
 
 
