@@ -33,7 +33,7 @@ from torch.nn.utils import weight_norm
 from convlstmnet import * #Conv_LSTM_net NVdia
 from custom_quantum_models import * #FTCN #FLSTM
 
-from torch_QConv_Kernel import device
+#from torch_QConv_Kernel import device
 
 model_filename = 'torch_modelfull_model.pt'
 
@@ -205,10 +205,10 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
             x_=add_noise(x_,conf = conf)
     num_so_far = num_so_far_start
     step = 0
-    sampling_index = torch.arange(0, 5700, 10).to(device)
+    #sampling_index = torch.arange(0, 5700, 10).to(device)
     while True:
-        x, y, mask = Variable(torch.from_numpy(x_).float()).to(device), Variable(torch.from_numpy(y_).float()).to(device),Variable(torch.from_numpy(mask_).byte()).to(device)
-        x, y, mask = torch.index_select(x, 1, sampling_index), torch.index_select(y, 1, sampling_index), torch.index_select(mask, 1, sampling_index)
+        x, y, mask = Variable(torch.from_numpy(x_).float()).to(device), Variable(torch.from_numpy(y_).float()).to(device),Variable(torch.from_numpy(mask_).byte()).to(device).to(torch.bool)
+        #x, y, mask = torch.index_select(x, 1, sampling_index), torch.index_select(y, 1, sampling_index), torch.index_select(mask, 1, sampling_index)
         optimizer.zero_grad()
         output = model(x)
         output_masked = torch.masked_select(output,mask)
@@ -234,7 +234,8 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
 def train(conf,shot_list_train,shot_list_validate,loader):
 
     np.random.seed(1)
-
+    use_cuda=False
+    device = torch.device("cuda")
     #data_gen = ProcessGenerator(partial(loader.training_batch_generator_full_shot_partial_reset,shot_list=shot_list_train)())
     data_gen = partial(loader.training_batch_generator_full_shot_partial_reset,shot_list=shot_list_train)()
 
@@ -242,7 +243,7 @@ def train(conf,shot_list_train,shot_list_validate,loader):
     loader.set_inference_mode(False)
 
     train_model = build_torch_model(conf)
-    print(train_model)
+    #print(train_model)
     if torch.cuda.device_count() > 1:
        print('Using multiple GPUs................',torch.cuda.device_count())
        print('Using multiple GPUs................',torch.cuda.device_count())

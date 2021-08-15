@@ -4,7 +4,7 @@ from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
 from convlstmnet import *
-from torch_QConv1D import QConv1D, device
+from torch_QConv1D import QConv1D
 import numpy as np
 
 class FLSTM(nn.Module):
@@ -83,6 +83,13 @@ class FTCN(nn.Module):
     
     def forward(self,x):
         return self.model(x)
+    
+    def to(self, *args, **kwargs):
+        print('FTCN to device')
+        self = super().to(*args, **kwargs)
+        for _, layer in enumerate(self.model):
+            layer = layer.to(*args, **kwargs)
+        return self
 
 
 
@@ -143,6 +150,7 @@ class InputBlock(nn.Module):
 #             self.downsample.weight.data.normal_(0, 0.01)
 
     def forward(self, x):
+        #print('inputblock x device ', x.device)
         if self.n_profiles == 0:
             full_features = x#x_scalars
         else:
@@ -151,8 +159,11 @@ class InputBlock(nn.Module):
             else:
                 x_scalars = x[:,:self.n_scalars]
                 x_profiles = x[:,self.n_scalars:]
+            #print('inputblock x_profiles device ', x_profiles.device)
             x_profiles = x_profiles.contiguous().view(x.size(0),self.n_profiles,self.profile_size)
+            #print('inputblock x_profiles device ', x_profiles.device)
             profile_features = self.net(x_profiles).view(x.size(0),-1)
+            #print('inputblock profile_features device ', profile_features.device)
             profile_features = self.linear_net(profile_features)
             if self.n_scalars == 0:
                 full_features = profile_features
@@ -161,6 +172,15 @@ class InputBlock(nn.Module):
 #         out = self.net(x)
 #         res = x if self.downsample is None else self.downsample(x)
         return full_features
+
+    def to(self, *args, **kwargs):
+        print('Inputblock to device')
+        self = super().to(*args, **kwargs) 
+        for _, layer in enumerate(self.net):
+            layer = layer.to(*args, **kwargs)
+        for _, layer in enumerate(self.linear_net):
+            layer = layer.to(*args, **kwargs)
+        return self
 
 
 
@@ -181,14 +201,14 @@ class Chomp1d(nn.Module):
 class TemporalBlock(nn.Module):
     def __init__(self, n_inputs, n_outputs, kernel_size, stride, dilation, padding, dropout=0.2):
         super(TemporalBlock, self).__init__()
-        self.conv1 = weight_norm(nn.Conv1d(n_inputs, n_outputs, kernel_size,
-                                           stride=stride, padding=padding, dilation=dilation))
+        #self.conv1 = weight_norm(nn.Conv1d(n_inputs, n_outputs, kernel_size,stride=stride, padding=padding, dilation=dilation))
+        self.conv1 = nn.Conv1d(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         self.chomp1 = Chomp1d(padding)
         self.relu1 = nn.ReLU()
         self.dropout1 = nn.Dropout2d(dropout)
 
-        self.conv2 = weight_norm(nn.Conv1d(n_outputs, n_outputs, kernel_size,
-                                           stride=stride, padding=padding, dilation=dilation))
+        #self.conv2 = weight_norm(nn.Conv1d(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation))
+        self.conv2 = nn.Conv1d(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         self.chomp2 = Chomp1d(padding)
         self.relu2 = nn.ReLU()
         self.dropout2 = nn.Dropout2d(dropout)
@@ -269,6 +289,11 @@ class TimeDistributed(nn.Module):
         if self.is_half:
          y=y.half()
         return y
+    def to(self, *args, **kwargs):
+        print('TimeDistributed to device')
+        self = super().to(*args, **kwargs) 
+        self.module = self.module.to(*args, **kwargs) 
+        return self
 
 
 

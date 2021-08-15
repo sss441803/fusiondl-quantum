@@ -6,13 +6,19 @@ from torch.autograd import Function
 
 import time
 
+if torch.cuda.is_available():
+    dev = "cuda:0"
+else:  
+    dev = "cpu"
+#dev='cpu'
+print(dev)
+device = torch.device(dev) 
+
 def dec2bin(n_bits, x):
-    device = x.device
     mask = 2 ** torch.arange(n_bits - 1, -1, -1).to(device)
     return x.unsqueeze(-1).bitwise_and(mask).ne(0)
 
 def bin2dec(n_bits, b):
-    device = b.device
     mask = 2 ** torch.arange(n_bits - 1, -1, -1).to(device)
     return torch.sum(mask * b, -1)
 '''
@@ -42,20 +48,19 @@ class Encoder(nn.Module):
     def __init__(self):
         super().__init__()
     def forward(self, ry_angles: torch.Tensor, rz_angles: torch.Tensor) -> torch.Tensor:
-        device = ry_angles.device
         ry_angles = ry_angles/2
         rz_angles = rz_angles/2
         '''Parallel compute entries for the ry matrix'''
-        ry_entry11 = torch.cos(ry_angles).unsqueeze(-1)
-        ry_entry12 = -torch.sin(ry_angles).unsqueeze(-1)
-        ry_entry21 = torch.sin(ry_angles).unsqueeze(-1)
-        ry_entry22 = torch.cos(ry_angles).unsqueeze(-1)
+        ry_entry11 = torch.cos(ry_angles).unsqueeze(-1).to(device)
+        ry_entry12 = -torch.sin(ry_angles).unsqueeze(-1).to(device)
+        ry_entry21 = torch.sin(ry_angles).unsqueeze(-1).to(device)
+        ry_entry22 = torch.cos(ry_angles).unsqueeze(-1).to(device)
 
         '''Parallel compute entries for the rz matrix'''
-        rz_entry11 = torch.exp(-1j*rz_angles).unsqueeze(-1)
+        rz_entry11 = torch.exp(-1j*rz_angles).unsqueeze(-1).to(device)
         #rz_entry12 = torch.zeros(n_batch, n_qubits).unsqueeze(-1)
         #rz_entry21 = torch.zeros(n_batch, n_qubits).unsqueeze(-1)
-        rz_entry22 = torch.exp(1j*rz_angles).unsqueeze(-1)
+        rz_entry22 = torch.exp(1j*rz_angles).unsqueeze(-1).to(device)
         '''Parallel compute entries for the composite rz*ry matrix'''
         entry11 = ry_entry11 * rz_entry11
         entry12 = ry_entry12 * rz_entry11
@@ -64,7 +69,7 @@ class Encoder(nn.Module):
 
         mat = torch.cat((entry11, entry12, entry21, entry22), -1) # mat.shape (n_batch, n_qubits, 4)
 
-        n_batch, n_qubits = torch.tensor(mat.size(0)), torch.tensor(mat.size(1))
+        n_batch, n_qubits = torch.tensor(mat.size(0)).to(device), torch.tensor(mat.size(1)).to(device)
         #tensor_mat = torch.zeros(n_batch, 2**n_qubits, 2**n_qubits, dtype=torch.cfloat)
         '''Initialize the state vector for encoding'''
         vector = torch.zeros(n_batch, 2**n_qubits, dtype=torch.cfloat).to(device)
@@ -87,7 +92,7 @@ class Encoder(nn.Module):
             vector[:, row] = torch.prod(entries, dim=1)
         return vector
 
-def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int, device) -> torch.Tensor:
+def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int) -> torch.Tensor:
     # Initialize output col vector
     vector = torch.zeros(2**n_qubits, dtype=torch.bool).to(device)
     col_bin = dec2bin(n_qubits, col)
@@ -98,15 +103,15 @@ def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int, devi
     vector[bin2dec(n_qubits, col_bin)] = 1
     return vector
 
-def CNOT_mat(n_qubits: int, c_bit: int, t_bit: int, device) -> torch.Tensor:
+def CNOT_mat(n_qubits: int, c_bit: int, t_bit: int) -> torch.Tensor:
         cnot_mat =  torch.zeros(2**n_qubits, 2**n_qubits).to(device)
-        for col in torch.arange(2**n_qubits):
-            cnot_mat[:, col] = col_vector_constructor(n_qubits, col, c_bit, t_bit, device)
+        for col in torch.arange(2**n_qubits).to(device):
+            cnot_mat[:, col] = col_vector_constructor(n_qubits, col, c_bit, t_bit)
         return cnot_mat
 
-def entangle_mat(n_qubits: int, device) -> torch.Tensor:
+def entangle_mat(n_qubits: int) -> torch.Tensor:
     for qubit in torch.arange(n_qubits):
-        mat = torch.matmul(CNOT_mat(n_qubits, qubit, (qubit+1)%n_qubits, device), mat) if qubit != 0 else CNOT_mat(n_qubits, 0, 1, device)
+        mat = torch.matmul(CNOT_mat(n_qubits, qubit, (qubit+1)%n_qubits), mat) if qubit != 0 else CNOT_mat(n_qubits, 0, 1)
     return mat.cfloat()
 
 def list_mat_mul(mat_list1: list, mat_list2: list) -> list:
@@ -119,21 +124,20 @@ def list_mat_mul(mat_list1: list, mat_list2: list) -> list:
 
 def rx_mat_list(theta: nn.Parameter) -> list:
     angle = theta/2
-    mat_list = [[torch.cos(angle), -1j*torch.sin(angle)], [-1j*torch.sin(angle), torch.cos(angle)]]
+    mat_list = [[torch.cos(angle).to(device), -1j*torch.sin(angle).to(device)], [-1j*torch.sin(angle).to(device), torch.cos(angle).to(device)]]
     return mat_list
 
 def ry_mat_list(theta: nn.Parameter) -> list:
     angle = theta/2
-    mat_list = [[torch.cos(angle), -torch.sin(angle)], [torch.sin(angle), torch.cos(angle)]]
+    mat_list = [[torch.cos(angle).to(device), -torch.sin(angle).to(device)], [torch.sin(angle).to(device), torch.cos(angle).to(device)]]
     return mat_list
 
 def rz_mat_list(theta: nn.Parameter) -> list:
     angle = theta/2
-    mat_list = [[torch.exp(-1j*angle), torch.tensor(0.0)], [torch.tensor(0.0), torch.exp(1j*angle)]]
+    mat_list = [[torch.exp(-1j*angle).to(device), torch.tensor(0.0).to(device)], [torch.tensor(0.0).to(device), torch.exp(1j*angle).to(device)]]
     return mat_list
 
 def rot_mat(n_qubits: int, thetas: nn.Parameter) -> torch.Tensor:
-    device = thetas.device
     rx_matrix_list = ry_mat_list(thetas[0])
     ry_matrix_list = ry_mat_list(thetas[1])
     rz_matrix_list = ry_mat_list(thetas[2])
@@ -148,37 +152,28 @@ def rot_mat(n_qubits: int, thetas: nn.Parameter) -> torch.Tensor:
 class ConvKernel(nn.Module):
     def __init__(self, n_qubits):
         super().__init__()
-        self.device = 'cpu'
-        self.n_qubits = n_qubits
+        self.n_qubits = torch.tensor(n_qubits).to(device)
         self.encoding = Encoder()
-        self.weights = nn.Parameter(torch.randn(3, dtype=torch.cfloat))#
+        self.entangle_matrix = entangle_mat(self.n_qubits) # entangle_matrix.shape (2**n_qubits, 2**n_qubits)
+        self.weights = nn.Parameter(torch.randn(3, dtype=torch.cfloat))#.to(device)
     def forward(self, inputs):
         # inputs.shape (n_batch, n_qubits)
         '''Calculate angles of rotation for variational encoding'''
         ry_angles = torch.arctan(inputs)
         rz_angles = torch.arctan(torch.square(inputs))
-        '''Initialize the collection of individual rotated states'''
-        zero_state = torch.zeros(2**self.n_qubits, dtype=torch.cfloat).to(self.device)
-        zero_state[0] = 1
         '''Calculate rotated states'''
         vector = self.encoding(ry_angles, rz_angles) # vector.shape (n_batch, 2**n_qubits)
-        entangle_matrix = entangle_mat(self.n_qubits, self.device)
-        #print('vector device ', vector.device, ' entangle_matrix device ', entangle_matrix.device)
         '''Entangling'''
-        vector = torch.tensordot(vector, entangle_matrix, dims=([-1],[-1]))
+        vector = torch.tensordot(vector, self.entangle_matrix, dims=([-1],[-1]))
         '''Final rotation'''
         rot_matrix = rot_mat(self.n_qubits, self.weights)
         vector = torch.tensordot(vector, rot_matrix, dims=([-1],[-1]))
+        del rot_matrix
         '''Measurement'''
         # The expectation value of <vector|Z0|vector> is 1*sum_of_mag_for_the_first_half_of_amplitudes + 0*sum_of_mag_for_the_second_half_of_amplitudes
         vector[:, 2**(self.n_qubits-1):] = 0
         return torch.sum(torch.square(vector.abs()), -1)
         #return self.weights[0]
-    def to(self, *args, **kwargs):
-        print('ConvKernel to device')
-        self = super().to(*args, **kwargs)
-        self.device = args[0]
-        return self
 
 '''
 
@@ -191,8 +186,8 @@ k=ConvKernel(5)
 criterion = nn.MSELoss()
 optimizer = torch.optim.SGD(k.parameters(), lr=0.001, momentum=0.9)
 
-input = torch.ones(n_batch, n_qubits)
-target = torch.zeros(n_batch)
+input = torch.ones(n_batch, n_qubits).to(device)
+target = torch.zeros(n_batch).to(device)
 
 start = time.time()
 
@@ -213,8 +208,8 @@ k=ConvKernel(5)
 criterion = nn.MSELoss()
 optimizer = torch.optim.SGD(k.parameters(), lr=0.001, momentum=0.9)
 
-input = torch.ones(n_batch, n_qubits)
-target = torch.zeros(n_batch)
+input = torch.ones(n_batch, n_qubits).to(device)
+target = torch.zeros(n_batch).to(device)
 
 start = time.time()
 
