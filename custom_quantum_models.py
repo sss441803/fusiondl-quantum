@@ -7,6 +7,8 @@ from convlstmnet import *
 from torch_QConv1D import QConv1D
 import numpy as np
 
+QConv1D = nn.Conv1d
+
 class FLSTM(nn.Module):
   def __init__(self,input_dim=14,output_dim=1,rnn_size=200,dense_size=8,dropout=0.1,batch_first=True,bidirectional=False,rnn_layers=2,n_scalars=14,n_profiles=2,profile_size=64,layer_sizes_spatial=[16,8,8], kernel_size_spatial=3, linear_size=5, linear_layer_num=2,device=None): 
       super(FLSTM, self).__init__()
@@ -122,6 +124,7 @@ class InputBlock(nn.Module):
                 self.layers.append(nn.MaxPool1d(kernel_size=self.pooling_size))
                 self.conv_output_size = calculate_conv_output_size(self.conv_output_size,0,1,self.pooling_size,self.pooling_size)
                 self.layers.append(nn.Dropout2d(dropout))
+            self.layers = nn.ModuleList(self.layers)
             self.net = nn.Sequential(*self.layers)
             self.conv_output_size = self.conv_output_size*layer_size_i
             self.linear_layers = []
@@ -139,8 +142,8 @@ class InputBlock(nn.Module):
                self.linear_layers.append(nn.ReLU())
                linear_size_ll_pre=linear_size_ll
             self.linear_size_f=linear_size_ll
-            self.tcn_in_size=self.linear_size_f+self.n_scalars       
-        
+            self.tcn_in_size=self.linear_size_f+self.n_scalars
+            self.linear_layers = nn.ModuleList(self.linear_layers)
             self.linear_net = nn.Sequential(*self.linear_layers)
 
 #     def init_weights(self):
@@ -234,16 +237,17 @@ class TemporalBlock(nn.Module):
 class TemporalConvNet(nn.Module):
     def __init__(self, num_inputs, num_channels, kernel_size=2, dropout=0.2):
         super(TemporalConvNet, self).__init__()
-        layers = []
+        self.layers = []
         num_levels = len(num_channels)
         for i in range(num_levels):
             dilation_size = 2 ** i
             in_channels = num_inputs if i == 0 else num_channels[i-1]
             out_channels = num_channels[i]
-            layers += [TemporalBlock(in_channels, out_channels, kernel_size, stride=1, dilation=dilation_size,
+            self.layers += [TemporalBlock(in_channels, out_channels, kernel_size, stride=1, dilation=dilation_size,
                                      padding=(kernel_size-1) * dilation_size, dropout=dropout)]
-
-        self.network = nn.Sequential(*layers)
+        
+        self.layers = nn.ModuleList(self.layers)
+        self.network = nn.Sequential(*self.layers)
 
     def forward(self, x):
         return self.network(x)

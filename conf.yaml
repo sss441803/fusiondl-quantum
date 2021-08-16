@@ -36,7 +36,7 @@ data:
 env:
   name: torch-env
   type: anaconda3
-fs_path: D:\Cloud\pytorch-plasma\FRNN_pytorch_TTLSTM_noiseaware\tigress
+fs_path: /tigress
 model:
   backend: tensorflow
   cell_order: 5
@@ -113,12 +113,12 @@ training:
   noise: 0.1
   as_array_of_shots: true
   batch_generator_warmup_steps: 0
-  batch_size: 1
+  batch_size: 32
   data_parallel: false
   hyperparam_tuning: true
   max_patch_length: 100000
   num_batches_minimum: 200
-  num_epochs: 2
+  num_epochs: 100
   num_shots_at_once: 200
   ranking_difficulty_fac: 1.0
   shuffle_training: true

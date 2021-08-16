@@ -66,10 +66,8 @@ class Encoder(nn.Module):
 
         n_batch, n_qubits = torch.tensor(mat.size(0)), torch.tensor(mat.size(1))
         #tensor_mat = torch.zeros(n_batch, 2**n_qubits, 2**n_qubits, dtype=torch.cfloat)
-        '''Initialize the state vector for encoding'''
-        vector = torch.zeros(n_batch, 2**n_qubits, dtype=torch.cfloat).to(device)
         '''Since the initial state is |00...000>, i.e. (1,0,0,...), the first column of the rz*ry matrix is the result'''
-        for row in torch.arange(2**n_qubits).to(device):
+        for row in torch.arange(2**n_qubits):
             row_bin = dec2bin(n_qubits, row) # Returns a tensor of bool that stands for the basis for the nth qubit
             #print('row_bin ', row_bin)
             #for col in range(2**n_qubits):
@@ -79,17 +77,20 @@ class Encoder(nn.Module):
             #    entries = torch.cat([mat[:, qubit, 2*int(row_bin[qubit])+int(col_bin[qubit])].unsqueeze(1) for qubit in range(n_qubits)], 1)
             #    tensor_mat[:, row, col] = torch.prod(entries, dim=1)
 
-            col = torch.tensor(0).to(device)
+            col = torch.tensor(0)
             col_bin = dec2bin(n_qubits, col)
             #print('col_bin ', col_bin)
             val_list = [mat[:, qubit, 2*row_bin[qubit]+col_bin[qubit]].unsqueeze(1) for qubit in range(n_qubits)] # List of values that needs to be multiplied to obtain the row_th row of the resulting state vector. 2*int(row_bin[qubit])+int(col_bin[qubit]) computes which entry of the 2 by 2 matrix for this qubit should be chosen.
             entries = torch.cat(val_list, 1)
-            vector[:, row] = torch.prod(entries, dim=1)
+            if row == 0:
+                vector = torch.prod(entries, dim=1).unsqueeze(-1)
+            else:
+                vector = torch.cat((vector, torch.prod(entries, dim=1).unsqueeze(-1)), 1)
         return vector
 
-def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int, device) -> torch.Tensor:
+def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int) -> torch.Tensor:
     # Initialize output col vector
-    vector = torch.zeros(2**n_qubits, dtype=torch.bool).to(device)
+    vector = torch.zeros(2**n_qubits, dtype=torch.bool)
     col_bin = dec2bin(n_qubits, col)
     # Implement CNOT
     if col_bin[c_bit]:
@@ -98,15 +99,15 @@ def col_vector_constructor(n_qubits: int, col: int, c_bit: int, t_bit: int, devi
     vector[bin2dec(n_qubits, col_bin)] = 1
     return vector
 
-def CNOT_mat(n_qubits: int, c_bit: int, t_bit: int, device) -> torch.Tensor:
-        cnot_mat =  torch.zeros(2**n_qubits, 2**n_qubits).to(device)
+def CNOT_mat(n_qubits: int, c_bit: int, t_bit: int) -> torch.Tensor:
+        cnot_mat =  torch.zeros(2**n_qubits, 2**n_qubits)
         for col in torch.arange(2**n_qubits):
-            cnot_mat[:, col] = col_vector_constructor(n_qubits, col, c_bit, t_bit, device)
+            cnot_mat[:, col] = col_vector_constructor(n_qubits, col, c_bit, t_bit)
         return cnot_mat
 
-def entangle_mat(n_qubits: int, device) -> torch.Tensor:
+def entangle_mat(n_qubits: int) -> torch.Tensor:
     for qubit in torch.arange(n_qubits):
-        mat = torch.matmul(CNOT_mat(n_qubits, qubit, (qubit+1)%n_qubits, device), mat) if qubit != 0 else CNOT_mat(n_qubits, 0, 1, device)
+        mat = torch.matmul(CNOT_mat(n_qubits, qubit, (qubit+1)%n_qubits), mat) if qubit != 0 else CNOT_mat(n_qubits, 0, 1)
     return mat.cfloat()
 
 def list_mat_mul(mat_list1: list, mat_list2: list) -> list:
@@ -133,13 +134,12 @@ def rz_mat_list(theta: nn.Parameter) -> list:
     return mat_list
 
 def rot_mat(n_qubits: int, thetas: nn.Parameter) -> torch.Tensor:
-    device = thetas.device
     rx_matrix_list = ry_mat_list(thetas[0])
     ry_matrix_list = ry_mat_list(thetas[1])
     rz_matrix_list = ry_mat_list(thetas[2])
     rot_matrix_list = list_mat_mul(ry_matrix_list, rx_matrix_list)
     rot_matrix_list = list_mat_mul(rz_matrix_list, rot_matrix_list)
-    identity_mat = torch.eye(2**(n_qubits-1), 2**(n_qubits-1), dtype = torch.cfloat, requires_grad=False).to(device)
+    identity_mat = torch.eye(2**(n_qubits-1), 2**(n_qubits-1), dtype = torch.cfloat, requires_grad=False).to(thetas.device)
     tensor_mat_top = torch.cat((rot_matrix_list[0][0]*identity_mat, rot_matrix_list[0][1]*identity_mat), 1)
     tensor_mat_bottom  = torch.cat((rot_matrix_list[1][0]*identity_mat, rot_matrix_list[1][1]*identity_mat), 1)
     tensor_mat = torch.cat((tensor_mat_top, tensor_mat_bottom), 0)
@@ -148,24 +148,22 @@ def rot_mat(n_qubits: int, thetas: nn.Parameter) -> torch.Tensor:
 class ConvKernel(nn.Module):
     def __init__(self, n_qubits):
         super().__init__()
-        self.device = 'cpu'
+        #self.device = 'cpu'
         self.n_qubits = n_qubits
         self.encoding = Encoder()
         self.weights = nn.Parameter(torch.randn(3, dtype=torch.cfloat))#
+        self.register_buffer('entangle_matrix', entangle_mat(self.n_qubits))
     def forward(self, inputs):
         # inputs.shape (n_batch, n_qubits)
         '''Calculate angles of rotation for variational encoding'''
         ry_angles = torch.arctan(inputs)
         rz_angles = torch.arctan(torch.square(inputs))
-        '''Initialize the collection of individual rotated states'''
-        zero_state = torch.zeros(2**self.n_qubits, dtype=torch.cfloat).to(self.device)
-        zero_state[0] = 1
         '''Calculate rotated states'''
         vector = self.encoding(ry_angles, rz_angles) # vector.shape (n_batch, 2**n_qubits)
-        entangle_matrix = entangle_mat(self.n_qubits, self.device)
-        #print('vector device ', vector.device, ' entangle_matrix device ', entangle_matrix.device)
+        #entangle_matrix = torch.Variable(entangle_mat(self.n_qubits, self.device).to(self.device))
+        print('vector device ', vector.device, ' entangle_matrix device ', self.entangle_matrix.device)
         '''Entangling'''
-        vector = torch.tensordot(vector, entangle_matrix, dims=([-1],[-1]))
+        vector = torch.tensordot(vector, self.entangle_matrix, dims=([-1],[-1]))
         '''Final rotation'''
         rot_matrix = rot_mat(self.n_qubits, self.weights)
         vector = torch.tensordot(vector, rot_matrix, dims=([-1],[-1]))

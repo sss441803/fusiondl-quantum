@@ -219,12 +219,18 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
     #    print('y.shape:',y.shape)
     #    print('output.shape:',output.shape)
         loss = loss_fn(output_masked,y_masked)
-        total_loss += loss.data.item()
+        if loss < 10:
+            total_loss += loss.data.item()        
+            loss.backward()
+            optimizer.step()
+            step += 1
+            print("[{}]  [{}/{}] loss: {:.3f}, ave_loss: {:.3f}".format(step,num_so_far-num_so_far_start,num_total,loss.data.item(),total_loss/step))
+        else:
+            total_loss = total_loss/step
+            step += 1
+            total_loss = total_loss*step
+            print("[{}]  [{}/{}] loss anomaly, ave_loss: {:.3f}".format(step,num_so_far-num_so_far_start,num_total,total_loss/step))
         
-        loss.backward()
-        optimizer.step()
-        step += 1
-        print("[{}]  [{}/{}] loss: {:.3f}, ave_loss: {:.3f}".format(step,num_so_far-num_so_far_start,num_total,loss.data.item(),total_loss/step))
         if num_so_far-num_so_far_start >= num_total:
             break
         x_,y_,mask_,num_so_far,num_total = next(data_gen)
@@ -234,8 +240,12 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
 def train(conf,shot_list_train,shot_list_validate,loader):
 
     np.random.seed(1)
-    use_cuda=False
-    device = torch.device("cuda")
+    use_cuda=True
+    if torch.cuda.is_available() and use_cuda:
+        device = torch.device('cuda:0')
+    else:
+        device = 'cpu'
+
     #data_gen = ProcessGenerator(partial(loader.training_batch_generator_full_shot_partial_reset,shot_list=shot_list_train)())
     data_gen = partial(loader.training_batch_generator_full_shot_partial_reset,shot_list=shot_list_train)()
 
@@ -296,7 +306,7 @@ def train(conf,shot_list_train,shot_list_validate,loader):
         (step,curr_loss,ave_loss,num_so_far,effective_epochs) = train_epoch(train_model,data_gen,optimizer,loss_fn,device=device,conf  = conf)
         e = effective_epochs
     
-        print('\nFiniehsed Training'.format(e,num_epochs),'finishing at',datetime.datetime.now())
+        print('\nFinished Training'.format(e,num_epochs),'finishing at',datetime.datetime.now())
         loader.verbose=False #True during the first iteration
         print('printing_out epoch ', e,'learning rate:',lr)
         for param_group in optimizer.param_groups:

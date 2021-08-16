@@ -62,6 +62,7 @@ class Q_MulIn1Out_Conv1D(nn.Module):
         self.convs = []
         for _ in range(self.in_channels):
             self.convs.append(Q_1In1Out_Conv1D(kernel_size, stride))
+        self.convs = nn.ModuleList(self.convs)
     def forward(self, x):
         device = x.device
         output = torch.tensor([]).to(device)
@@ -92,6 +93,7 @@ class QConv1D(nn.Module):
         self.convs = []
         for _ in range(self.out_channels):
             self.convs.append(Q_MulIn1Out_Conv1D(in_channels, kernel_size, stride))
+        self.convs = nn.ModuleList(self.convs)
     def forward(self, x):
         device = x.device
         output = torch.tensor([]).to(device)
