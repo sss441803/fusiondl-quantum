@@ -1,9 +1,10 @@
 import torch
 import torch.nn as nn
+from torch.nn.utils import weight_norm
 
 import time
 
-from torch_QConv_Kernel import ConvKernel, entangle_mat
+from torch_QConv_Kernel_copy import ConvKernel, entangle_mat
 
 # Need decompose a multichannel quantum convolution layer into many single channel quantum convolution. This is because each torch.nn.Module converted from a qml.qnode must be associated with a device that contains all the needed qubits. Having all the qubits in one layer is too many for one device.
 
@@ -126,7 +127,8 @@ class Q_MulIn1Out_Conv1D(nn.Module):
         self.in_channels = in_channels
         self.kernel_size = kernel_size
         self.stride = stride
-        self.q_kernel = ConvKernel(entangle_matrix, kernel_size*in_channels)
+        self.q_kernel = weight_norm(ConvKernel(entangle_matrix, kernel_size*in_channels))
+        #self.weight = self.q_kernel.weight
     def memory_strided_im2col(self, x, in_channels, kernel_size, stride):
         # x has dimension (n_batch, n_channels, length)
         output_shape = x.shape[-1] - kernel_size + 1
@@ -158,6 +160,7 @@ class QConv1D(nn.Module):
         for _ in range(self.out_channels):
             self.convs.append(Q_MulIn1Out_Conv1D(self.entangle_matrix, in_channels, kernel_size, stride))
         self.convs = nn.ModuleList(self.convs)
+        #self.weight = nn.Parameter([conv.weight for conv in self.convs])
     def forward(self, x):
         device = x.device
         output = torch.tensor([]).to(device)
