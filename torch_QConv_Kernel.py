@@ -146,14 +146,15 @@ def rot_mat(n_qubits: int, thetas: nn.Parameter) -> torch.Tensor:
     return tensor_mat
 
 class ConvKernel(nn.Module):
-    def __init__(self, n_qubits):
+    def __init__(self, entangle_matrix, n_qubits):
         super().__init__()
         #self.device = 'cpu'
         self.n_qubits = n_qubits
         self.encoding = Encoder()
-        self.weights = nn.Parameter(torch.randn(3, dtype=torch.cfloat))#
-        self.register_buffer('entangle_matrix', entangle_mat(self.n_qubits))
+        self.weights = nn.Parameter(torch.randn(3, dtype=torch.float32))#
+        self.entangle_matrix = entangle_matrix
     def forward(self, inputs):
+        device = str(inputs.device)
         # inputs.shape (n_batch, n_qubits)
         '''Calculate angles of rotation for variational encoding'''
         ry_angles = torch.arctan(inputs)
@@ -161,9 +162,12 @@ class ConvKernel(nn.Module):
         '''Calculate rotated states'''
         vector = self.encoding(ry_angles, rz_angles) # vector.shape (n_batch, 2**n_qubits)
         #entangle_matrix = torch.Variable(entangle_mat(self.n_qubits, self.device).to(self.device))
-        print('vector device ', vector.device, ' entangle_matrix device ', self.entangle_matrix.device)
+        #print('vector device ', vector.device, ' entangle_matrix device ', self.entangle_matrix.device)
         '''Entangling'''
-        vector = torch.tensordot(vector, self.entangle_matrix, dims=([-1],[-1]))
+        if device == 'cpu':
+            vector = torch.tensordot(vector, self.entangle_matrix, dims=([-1],[-1]))
+        else:
+            vector = torch.tensordot(vector, self.entangle_matrix[int(device[-1])], dims=([-1],[-1]))
         '''Final rotation'''
         rot_matrix = rot_mat(self.n_qubits, self.weights)
         vector = torch.tensordot(vector, rot_matrix, dims=([-1],[-1]))

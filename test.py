@@ -1,8 +1,19 @@
 import torch
-from torch.utils.tensorboard import SummaryWriter
+#from torch.utils.tensorboard import SummaryWriter
+from custom_quantum_models import InputBlock
 
-from Custom_QConv import ConvKernel
+n_scalars, n_profiles,profile_size, layer_sizes, kernel_size, linear_size = 10, 2, 10, [2,3], 3, 10
+ib = InputBlock(n_scalars, n_profiles,profile_size, layer_sizes, kernel_size, linear_size)
+inputs = torch.randn(2, 30, requires_grad=True)
+targets = torch.randn(2, 13)
+criterion = torch.nn.MSELoss()
+out = ib(inputs)
+print(out.shape, targets.shape)
+loss = criterion(out, targets)
+loss.backward()
+print(inputs.grad)
 
+'''
 # Writer will output to ./runs/ directory by default
 writer = SummaryWriter()
 
@@ -13,7 +24,7 @@ writer.add_graph(model, inputs)
 writer.add_scalar('val', 1)
 writer.close()
 
-'''
+
 import torch
 from torch import nn
 

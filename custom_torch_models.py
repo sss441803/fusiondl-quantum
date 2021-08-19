@@ -4,7 +4,6 @@ from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
 from convlstmnet import *
-from torch_QConv1D import QConv1D
 import numpy as np
 
 class FLSTM(nn.Module):
@@ -116,7 +115,7 @@ class InputBlock(nn.Module):
                     input_size = n_profiles
                 else:
                     input_size = layer_sizes[i-1]
-                self.layers.append(QConv1D(input_size, layer_size_i, kernel_size))
+                self.layers.append(weight_norm(nn.Conv1d(input_size, layer_size_i, kernel_size)))
                 self.layers.append(nn.ReLU())
                 self.conv_output_size = calculate_conv_output_size(self.conv_output_size,0,1,1,kernel_size)
                 self.layers.append(nn.MaxPool1d(kernel_size=self.pooling_size))

@@ -50,7 +50,7 @@ model:
   dropout_prob: 0.08
   extra_dense_input: false
   ignore_timesteps: 100
-  kernel_size_spatial: 4
+  kernel_size_spatial: 3
   kernel_size_temporal: 11
   length: 128
   loss_scale_factor: 1.0
@@ -59,8 +59,8 @@ model:
   lr_decay_factor: 1.1
   lr_decay_patience: 6
   model_type: TCN
-  num_conv_filters: 128
-  num_conv_layers: 1
+  num_conv_filters: 2
+  num_conv_layers: 2
   optimizer: adam
   pool_size: 2
   pred_batch_size: 8
@@ -88,8 +88,8 @@ model:
   tcn_activation: linear
   tcn_batch_norm: false
   tcn_dropout: 0.05
-  tcn_hidden: 60
-  tcn_layers: 13
+  tcn_hidden: 20
+  tcn_layers: 5
   tcn_nbstacks: 2
   tcn_pack_layers: 1
   tcn_skip_connect: true
@@ -113,7 +113,7 @@ training:
   noise: 0.1
   as_array_of_shots: true
   batch_generator_warmup_steps: 0
-  batch_size: 32
+  batch_size: 20
   data_parallel: false
   hyperparam_tuning: true
   max_patch_length: 100000

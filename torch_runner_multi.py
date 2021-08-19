@@ -31,7 +31,7 @@ from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
 from convlstmnet import * #Conv_LSTM_net NVdia
-from custom_quantum_models import * #FTCN #FLSTM
+from custom_torch_models import * #FTCN #FLSTM
 
 #from torch_QConv_Kernel import device
 
