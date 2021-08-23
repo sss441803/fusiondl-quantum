@@ -1,0 +1,19 @@
+reading from multiple data folder!**********************************************
+Selected signals (determines which signals are used for training):
+[q95 safety factor, internal inductance, plasma current, Locked mode amplitude, Normalized Beta, stored energy, Plasma density, Radiated Power Core, Radiated Power Edge, Input Power (beam for d3d), Input Beam Torque, plasma current direction, plasma current target, plasma current error, Electron temperature profile, Electron density profile]
+...done
+Training on 1724 shots, testing on 857 shots
+n_scalars,n_profiles,profile_size= 14 2 64
+Classical convolution with channels  2 2
+channels:  2 2
+Quantum convolution with channels  2 2
+channels:  2 2
+Quantum convolution with channels  2 2
+channels:  2 2
+Quantum convolution with channels  2 2
+InputBlock parameters:  14 2 64 ['c2', 'q2', 'q2', 'q2'] 4 10 0.08 2
+TCN parameters:  17 1 [20, 20, 20, 20, 20] 11 0.08
+Using single GPU..........................................
+99 epochs left to go
+
+Training Epoch 0/100 starting at 2021-08-23 17:05:25.989361

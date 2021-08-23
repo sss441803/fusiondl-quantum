@@ -25,18 +25,12 @@ import random
 import sys
 import os
 
-pprint(conf)
+#pprint(conf)
 
 if 'torch' in conf['model'].keys() and conf['model']['torch']:
-    from quantum_runner_multi import (
+    from quantum.runner import (
         train, make_predictions_and_evaluate_gpu
         )
-elif conf['model']['shallow']:
-    from shallow_runner import (
-        train, make_predictions_and_evaluate_gpu
-        )
-else:
-    from runner import train, make_predictions_and_evaluate_gpu
 
 if conf['data']['normalizer'] == 'minmax':
     from normalize import MinMaxNormalizer as Normalizer
