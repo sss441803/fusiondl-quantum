@@ -5,7 +5,8 @@ deleted/
 model_checkpoints/
 model_checkpointsslurm-6763593/
 
-*.out
+slurm*
+outputs/
 
 runs/
 
