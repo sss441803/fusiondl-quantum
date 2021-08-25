@@ -65,8 +65,8 @@ def build_torch_model(conf):
     #  linear_size = conf['model']['dense_size_1d']
     #  linear_layer_num = conf['model']['dense_layers_1d']
     #except:
-    layer_sizes_spatial = ['c2', 'q2', 'q2', 'q2']
-    kernel_size_spatial= 4
+    layer_sizes_spatial = ['c4','c3']
+    kernel_size_spatial= 3
     linear_size = 10
     linear_layer_num = 2
     
@@ -148,7 +148,7 @@ def make_predictions(conf,shot_list,loader,custom_path=None,inference_model=None
     while True:
         x,y,mask,disr,lengths,num_so_far,num_total = next(generator)
         #x, y, mask = Variable(torch.from_numpy(x_).float()), Variable(torch.from_numpy(y_).float()),Variable(torch.from_numpy(mask_).byte())
-        x, y, mask = x[:,::10], y[:,::10], mask[:,::10]
+        x, y, mask = x[:,::10]/5, y[:,::10], mask[:,::10]
         if no_scalars:
             x = x[:,:,n_scalars:]
         output = apply_model_to_np(inference_model,x,device=device)
@@ -194,7 +194,7 @@ def train_epoch(model,data_gen,optimizer,loss_fn,device=None,conf = {}):
     #sampling_index = torch.arange(0, 5700, 10).to(device)
     while True:
         x, y, mask = Variable(torch.from_numpy(x_).float()).to(device), Variable(torch.from_numpy(y_).float()).to(device),Variable(torch.from_numpy(mask_).byte()).to(device).to(torch.bool)
-        x, y, mask = x.unfold(1, 1, 10).squeeze(-1), y.unfold(1, 1, 10).squeeze(-1), mask.unfold(1, 1, 10).squeeze(-1)
+        x, y, mask = x.unfold(1, 1, 10).squeeze(-1)/5, y.unfold(1, 1, 10).squeeze(-1), mask.unfold(1, 1, 10).squeeze(-1)
         if no_scalars:
             x = x[:,:,n_scalars:]
         #x, y, mask = torch.index_select(x, 1, sampling_index), torch.index_select(y, 1, sampling_index), torch.index_select(mask, 1, sampling_index)

@@ -3,7 +3,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
-from .QConv1D import QConv1D
+from .QConv1D import QConv1D, newQConv1D
 import numpy as np
 
 class FTCN(nn.Module):
@@ -46,6 +46,11 @@ class InputBlock(nn.Module):
                     self.conv_output_size = calculate_conv_output_size(self.conv_output_size,0,1,1,kernel_size)
                     self.layers.append(nn.MaxPool1d(kernel_size=self.pooling_size))
                     print('Quantum convolution with channels ', previous_layer_size, layer_size)
+                elif layer_type == 'n':
+                    self.layers.append(newQConv1D(previous_layer_size, layer_size, kernel_size))
+                    self.conv_output_size = calculate_conv_output_size(self.conv_output_size,0,1,1,kernel_size)
+                    self.layers.append(nn.MaxPool1d(kernel_size=self.pooling_size))
+                    print('New Quantum convolution with channels ', previous_layer_size, layer_size)
                 else:
                     self.layers.append(nn.Conv1d(previous_layer_size, layer_size, kernel_size))
                     self.layers.append(nn.ReLU())

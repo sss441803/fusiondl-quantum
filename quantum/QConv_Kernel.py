@@ -183,8 +183,8 @@ class ConvKernel(nn.Module):
         # inputs.shape (n_batch, n_qubits)
         '''Calculate angles of rotation for variational encoding'''
         if self.initial:
-            ry_angles = torch.arctan(inputs/5)
-            rz_angles = torch.arctan(torch.square(inputs/5))
+            ry_angles = torch.arctan(inputs)
+            rz_angles = torch.arctan(torch.square(inputs))
         else:
             ry_angles = inputs
             rz_angles = torch.square(inputs)
