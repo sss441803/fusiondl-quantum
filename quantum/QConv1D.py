@@ -66,15 +66,15 @@ class EasyQConv1D(nn.Module):
 
 # Multichannel input one channel output quantum convolution 2D
 class Dense_Q_MulIn1Out_Conv1D(nn.Module):
-    def __init__(self, entangle_matrix, in_channels, kernel_size, dilation=1, padding=0, stride=1):
+    def __init__(self, entangle_matrix, in_channels, kernel_size, ancillas=2, dilation=1, padding=0, stride=1):
         super().__init__()
         self.in_channels = in_channels
         self.kernel_size = kernel_size
         if not isPowerOfTwo(kernel_size*in_channels):
             print('You need to have an input size (kernel_size*in_channels) of a power of two for efficient encoding.')
             quit()
-        n_qubits = int(torch.log2(torch.tensor(kernel_size*in_channels)))+2
-        self.q_kernel = DenseConvKernel(entangle_matrix, n_qubits)
+        n_qubits = int(torch.log2(torch.tensor(kernel_size*in_channels)))+ancillas
+        self.q_kernel = DenseConvKernel(entangle_matrix, n_qubits, ancillas=ancillas)
         self.unfold = nn.Unfold(kernel_size=(kernel_size,1), dilation=(dilation,1), padding=(padding,0), stride=(stride,1))
         #print('unfold ', kernel_size, dilation, padding, stride)
         #self.weight = self.q_kernel.weight
@@ -96,16 +96,16 @@ class Dense_Q_MulIn1Out_Conv1D(nn.Module):
 
 # Quantum convolution 2D layer
 class DenseQConv1D(nn.Module):
-    def __init__(self, in_channels, out_channels, kernel_size, dilation=1, padding=0, stride=1):
+    def __init__(self, in_channels, out_channels, kernel_size, ancillas=2, dilation=1, padding=0, stride=1):
         super().__init__()
         #print('channels: ', in_channels, out_channels)
         self.out_channels = out_channels
-        n_qubits = int(torch.log2(torch.tensor(kernel_size*in_channels)))+2
+        n_qubits = int(torch.log2(torch.tensor(kernel_size*in_channels)))+ancillas
         ngpus = torch.cuda.device_count()
         self.entangle_matrix = dense_entangle_mat(n_qubits) if ngpus == 0 else [dense_entangle_mat(n_qubits).to('cuda:'+str(gpu)) for gpu in range(ngpus)]
         self.convs = []
         for _ in range(self.out_channels):
-            self.convs.append(Dense_Q_MulIn1Out_Conv1D(self.entangle_matrix, in_channels, kernel_size, dilation=dilation, padding=padding, stride=stride))
+            self.convs.append(Dense_Q_MulIn1Out_Conv1D(self.entangle_matrix, in_channels, kernel_size, ancillas=ancillas, dilation=dilation, padding=padding, stride=stride))
         self.convs = nn.ModuleList(self.convs)
         #self.weight = nn.Parameter([conv.weight for conv in self.convs])
     def forward(self, x):

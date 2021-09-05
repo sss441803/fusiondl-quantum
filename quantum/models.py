@@ -7,14 +7,14 @@ from .QConv1D import QConv1D, EasyQConv1D, DenseQConv1D, MoreParamDenseQConv1D
 import numpy as np
 
 class FTCN(nn.Module):
-    def __init__(self, n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, channels_temporal, kernel_temporal, output_size, dropout=0.1):
+    def __init__(self, n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, channels_temporal, kernel_temporal, output_size, ancillas=2, dropout=0.1):
         super(FTCN, self).__init__()
         self.inputblock = InputBlock(n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, dropout)
         print('InputBlock parameters: ', n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, dropout)
         self.input_layer = TimeDistributed(self.inputblock, batch_first=True)
         self.tcn_in_size = self.inputblock.out_size
-        self.tcn = TCN(self.tcn_in_size, channels_temporal, kernel_temporal, output_size, dropout)
-        print('TCN parameters: ', self.tcn_in_size, output_size, channels_temporal, kernel_temporal, dropout)
+        self.tcn = TCN(self.tcn_in_size, channels_temporal, kernel_temporal, output_size, ancillas=ancillas, dropout=dropout)
+        print('TCN parameters: ', self.tcn_in_size, channels_temporal, kernel_temporal, output_size, ancillas, dropout)
         self.model = nn.Sequential(self.input_layer,self.tcn)
     def forward(self,x):
         return self.model(x)
@@ -112,19 +112,23 @@ class Chomp1d(nn.Module):
 
 
 class TemporalBlock(nn.Module):
-    def __init__(self, layer_type, n_inputs, n_outputs, kernel_size, stride, dilation, padding, dropout=0.2):
+    def __init__(self, layer_type, n_inputs, n_outputs, kernel_size, stride, dilation, padding, ancillas=2, dropout=0.2):
         super(TemporalBlock, self).__init__()
         #self.conv1 = weight_norm(nn.Conv1d(n_inputs, n_outputs, kernel_size,stride=stride, padding=padding, dilation=dilation))
         if layer_type == 'q':
+            print('Quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size)
             self.conv1 = QConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
             self.conv2 = QConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         elif layer_type == 'e':
+            print('Easy quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size)
             self.conv1 = EasyQConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
             self.conv2 = EasyQConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         elif layer_type == 'd':
-            self.conv1 = DenseQConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
-            self.conv2 = DenseQConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
+            print('Dense quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size, ' and ', ancillas, 'ancilla qubit(s).')
+            self.conv1 = DenseQConv1D(n_inputs, n_outputs, kernel_size, ancillas=ancillas, stride=stride, padding=padding, dilation=dilation)
+            self.conv2 = DenseQConv1D(n_outputs, n_outputs, kernel_size, ancillas=ancillas, stride=stride, padding=padding, dilation=dilation)
         elif layer_type == 'm':
+            print('More Param Dense quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size)
             self.conv1 = MoreParamDenseQConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
             self.conv2 = MoreParamDenseQConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         else:
@@ -143,11 +147,11 @@ class TemporalBlock(nn.Module):
         self.relu = nn.ReLU()
         #self.init_weights()
 
-#    def init_weights(self):
-#        self.conv1.weight.data.normal_(0, 0.01)
-#        self.conv2.weight.data.normal_(0, 0.01)
-#        if self.downsample is not None:
-#            self.downsample.weight.data.normal_(0, 0.01)
+    #def init_weights(self):
+    #    self.conv1.weight.data.normal_(0, 0.01)
+    #    self.conv2.weight.data.normal_(0, 0.01)
+    #    if self.downsample is not None:
+    #        self.downsample.weight.data.normal_(0, 0.01)
 
     def forward(self, x):
         out = self.net(x)
@@ -156,7 +160,7 @@ class TemporalBlock(nn.Module):
 
 #dimensions are batch,channels,length
 class TemporalConvNet(nn.Module):
-    def __init__(self, num_inputs, channels, kernel_size=2, dropout=0.2):
+    def __init__(self, num_inputs, channels, kernel_size=2, ancillas=2, dropout=0.2):
         super(TemporalConvNet, self).__init__()
         self.layers = nn.ModuleList()
         in_channels = num_inputs
@@ -164,7 +168,7 @@ class TemporalConvNet(nn.Module):
             layer_type = layer[0]
             out_channels = int(layer[1:])
             dilation_size = 2 ** i
-            self.layers += [TemporalBlock(layer_type, in_channels, out_channels, kernel_size, stride=1, dilation=dilation_size,
+            self.layers += [TemporalBlock(layer_type, in_channels, out_channels, kernel_size, ancillas=ancillas, stride=1, dilation=dilation_size,
                                      padding=(kernel_size-1) * dilation_size, dropout=dropout)]
             in_channels = out_channels
         self.network = nn.Sequential(*self.layers)
@@ -174,9 +178,9 @@ class TemporalConvNet(nn.Module):
     
     
 class TCN(nn.Module):
-    def __init__(self, input_size, channels, kernel_size, output_size, dropout):
+    def __init__(self, input_size, channels, kernel_size, output_size, ancillas=2, dropout=0.1):
         super(TCN, self).__init__()
-        self.tcn = TemporalConvNet(input_size, channels, kernel_size, dropout=dropout)
+        self.tcn = TemporalConvNet(input_size, channels, kernel_size, ancillas=ancillas, dropout=dropout)
         last_layer = channels[-1]
         self.linear = nn.Linear(int(last_layer[1:]), output_size)
 #         self.sig = nn.Sigmoid()

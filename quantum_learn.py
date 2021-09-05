@@ -29,7 +29,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--kernel_spatial', type=int, help='Kernel size of spatial convolution.', default=4)
 parser.add_argument('--channels_spatial', nargs="+", help='List of spatial convolution output channel sizes. Format should be \'c4\' \'q3\'...\'e2\' classical convolution with 4 output channels, quantum with 3 channels ... and easy quantum with 2 channels.', default=['c16', 'c8', 'c4', 'c2'])
-parser.add_argument('--linear_sizes', type=list, help='List of linear layer output sizes after CNN before TCN. The last layer is input size for TCN.', default=[20, 5])
+parser.add_argument('--linear_sizes', type=int, nargs="+", help='List of linear layer output sizes after CNN before TCN. The last layer is input size for TCN.', default=[20, 5])
 parser.add_argument('--kernel_temporal', type=int, help='Kernel size of temporal convolution.', default=5)
 parser.add_argument('--channels_temporal', nargs="+", help='List of temporal convolution output channel sizes. Format should be \'c4\' \'q3\' ... \'e2\' classical convolution with 4 output channels, quantum with 3 channels ... and easy quantum with 2 channels.', default=['c5','c5','c5','c5'])
 parser.add_argument('--no_scalars', type=bool, help='If Ture, then no 0D scalar signals will be used.', default=False)
@@ -38,6 +38,7 @@ parser.add_argument('--subsampling', type=int, help='Input data timestep Subsamp
 parser.add_argument('--tcn_type', type=str, help='Type of tcn. choose from c (classical), e (easy quantum), q (quantum), d (dense quantum) or m (more parameter dense quantum). If this is used, it overrides the channels_temporal argument. Must be used in conjunction with tcn_hidden and tcn_layers.', default='c')
 parser.add_argument('--tcn_hidden', type=int, help='Number of channels per tcn layer. If this is used, it overrides the channels_temporal argument. Must be used in conjunction with tcn_layers and tcn_type.', default=0)
 parser.add_argument('--tcn_layers', type=int, help='Number of tcn layers. If this is used, it overrides the channels_temporal argument. Must be used in conjunction with tcn_hidden and tcn type.', default=0)
+parser.add_argument('--ancillas', type=int, help='Number of ancilla qubits to use if using dense quantum convolution.', default=2)
 args = parser.parse_args()
 if args.tcn_hidden != 0:
     args.channels_temporal = ['c' + str(args.tcn_hidden)]

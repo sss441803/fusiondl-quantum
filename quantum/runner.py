@@ -42,12 +42,13 @@ def build_torch_model(conf, args):
     linear_sizes = args.linear_sizes
     channels_temporal = args.channels_temporal
     kernel_temporal = args.kernel_temporal
+    ancillas = args.ancillas
     output_size = 1
     dropout = conf['model']['dropout_prob']
     if args.no_scalars:
         n_scalars = 0
         print('NO SCALARS ARE USED, ONLY 1D SIGNALS')
-    model = FTCN(n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, channels_temporal, kernel_temporal, output_size, dropout)
+    model = FTCN(n_scalars, n_profiles, profile_size, channels_spatial, kernel_spatial, linear_sizes, channels_temporal, kernel_temporal, output_size, ancillas=ancillas, dropout=dropout)
     return model
 
 
@@ -289,4 +290,3 @@ def train(conf, shot_list_train, shot_list_validate, loader, args):
         if not_updated > patience:
             print("Stopping training due to early stopping")
             break
-

@@ -21,15 +21,16 @@ def isPowerOfTwo(x):
 
 '''Amplitude encoding'''
 class Encoder(nn.Module):
-    def __init__(self):
+    def __init__(self, ancillas=2):
         super().__init__()
+        self.ancillas = ancillas
     def forward(self, inputs: torch.Tensor) -> torch.Tensor:
         device = inputs.device
         num_basis = inputs.size(1)
         if not isPowerOfTwo(num_basis):
             print('You need to have an input size of a power of two for efficient encoding.')
             quit()
-        top = torch.ones( (inputs.size(0), inputs.size(1)*3) ).to(device)
+        top = torch.ones( (inputs.size(0), inputs.size(1)*(2**self.ancillas - 1)) ).to(device)
         vector = torch.cat((top, inputs), 1)
         vector = torch.div(vector, vector.square().sum(1).sqrt().reshape(-1,1))
         return vector.cfloat()
@@ -201,11 +202,11 @@ def parity_vec(n_qubits) -> torch.Tensor:
     return vector
 
 class ConvKernel(nn.Module):
-    def __init__(self, entangle_matrix, n_qubits):
+    def __init__(self, entangle_matrix, n_qubits, ancillas=2):
         super().__init__()
         # Determine how to embed the angles
         self.n_qubits = n_qubits
-        self.encoding = Encoder()
+        self.encoding = Encoder(ancillas=ancillas)
         self.weight = nn.Parameter(torch.randn(3+2*n_qubits, dtype=torch.float32))
         self.entangle_matrix = entangle_matrix
         self.parity_vector = parity_vec(n_qubits)

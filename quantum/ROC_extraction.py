@@ -23,10 +23,11 @@ def calc_param(tcn_type,h,l,k):
         tot_params = l * layer_params * 2
     return tot_params
 
-tcn_type='smallTCN'
-tcn_hidden = [2,3]
-tcn_layers = [2,3,4]
-tcn_kernel = [4]
+tcn_type='DTCN'
+tcn_hidden = [2,4,8]
+tcn_layers = [2,4,6,8]
+tcn_kernel = [4,8]
+ancillas = 1
 ROCs = np.zeros((len(tcn_hidden)*len(tcn_layers)*len(tcn_kernel), 30))
 num_params = np.zeros(len(tcn_hidden)*len(tcn_layers)*len(tcn_kernel))
 largest_ROC = 0
@@ -34,9 +35,9 @@ for h, hidden in enumerate(tcn_hidden):
     for l, layers in enumerate(tcn_layers):
         for k, kernel in enumerate(tcn_kernel):
             try:
-                file1 = open('outputs/{}_h{}l{}k{}.out'.format(tcn_type,hidden,layers,kernel), 'r')
+                file1 = open('outputs/{}_h{}l{}k{}a{}.out'.format(tcn_type,hidden,layers,kernel,ancillas), 'r')
             except:
-                print('file \'outputs/{}_h{}l{}k{}.out\' doesn\'t exist'.format(tcn_type,hidden,layers,kernel))
+                print('file \'outputs/{}_h{}l{}k{}a{}.out\' doesn\'t exist'.format(tcn_type,hidden,layers,kernel,ancillas))
                 continue
             file_num = h*len(tcn_layers)*len(tcn_kernel)+l*len(tcn_kernel)+k
             num_params[file_num] = calc_param(tcn_type,hidden,layers,kernel)
