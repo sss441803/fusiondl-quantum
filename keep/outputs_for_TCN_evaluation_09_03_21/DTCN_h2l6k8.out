@@ -1,0 +1,3000 @@
+reading from multiple data folder!**********************************************
+Selected signals (determines which signals are used for training):
+[q95 safety factor, internal inductance, plasma current, Locked mode amplitude, Normalized Beta, stored energy, Plasma density, Radiated Power Core, Radiated Power Edge, Input Power (beam for d3d), Input Beam Torque, plasma current direction, plasma current target, plasma current error, Electron temperature profile, Electron density profile]
+Arguments:  Namespace(channels_spatial=['c16', 'c8', 'c4', 'c2'], channels_temporal=['c2', 'd2', 'd2', 'd2', 'd2', 'd2', 'd2'], input_div=1.0, kernel_spatial=4, kernel_temporal=8, linear_sizes=[20, 5], no_scalars=False, subsampling=10, tcn_hidden=2, tcn_layers=6, tcn_type='d')
+...done
+Training on 1724 shots, testing on 857 shots
+Classical convolution with channels  2 16
+Classical convolution with channels  16 8
+Classical convolution with channels  8 4
+Classical convolution with channels  4 2
+InputBlock parameters:  14 2 64 ['c16', 'c8', 'c4', 'c2'] 4 [20, 5] 0.08
+TCN parameters:  19 1 ['c2', 'd2', 'd2', 'd2', 'd2', 'd2', 'd2'] 8 0.08
+29 epochs left to go
+
+Training Epoch 0/30 starting at 2021-08-29 18:29:55.187480
+[1]  [0/1724] loss: 0.683, ave_loss: 0.683
+[2]  [20/1724] loss: 0.860, ave_loss: 0.771
+[3]  [40/1724] loss: 0.889, ave_loss: 0.811
+[4]  [60/1724] loss: 0.943, ave_loss: 0.844
+[5]  [80/1724] loss: 0.926, ave_loss: 0.860
+[6]  [100/1724] loss: 0.835, ave_loss: 0.856
+[7]  [120/1724] loss: 0.731, ave_loss: 0.838
+[8]  [140/1724] loss: 0.848, ave_loss: 0.840
+[9]  [160/1724] loss: 0.682, ave_loss: 0.822
+[10]  [180/1724] loss: 0.848, ave_loss: 0.825
+[11]  [200/1724] loss: 0.799, ave_loss: 0.822
+[12]  [220/1724] loss: 0.653, ave_loss: 0.808
+[13]  [240/1724] loss: 0.829, ave_loss: 0.810
+[14]  [260/1724] loss: 0.839, ave_loss: 0.812
+[15]  [280/1724] loss: 0.719, ave_loss: 0.806
+[16]  [300/1724] loss: 0.861, ave_loss: 0.809
+[17]  [320/1724] loss: 0.586, ave_loss: 0.796
+[18]  [340/1724] loss: 0.826, ave_loss: 0.798
+[19]  [360/1724] loss: 0.723, ave_loss: 0.794
+[20]  [380/1724] loss: 0.695, ave_loss: 0.789
+[21]  [400/1724] loss: 0.736, ave_loss: 0.786
+[22]  [420/1724] loss: 0.664, ave_loss: 0.781
+[23]  [440/1724] loss: 0.707, ave_loss: 0.778
+[24]  [460/1724] loss: 0.742, ave_loss: 0.776
+[25]  [480/1724] loss: 0.662, ave_loss: 0.771
+[26]  [500/1724] loss: 0.655, ave_loss: 0.767
+[27]  [520/1724] loss: 0.778, ave_loss: 0.767
+[28]  [540/1724] loss: 0.670, ave_loss: 0.764
+[29]  [560/1724] loss: 0.737, ave_loss: 0.763
+[30]  [580/1724] loss: 0.686, ave_loss: 0.760
+[31]  [600/1724] loss: 0.695, ave_loss: 0.758
+[32]  [620/1724] loss: 0.673, ave_loss: 0.756
+[33]  [640/1724] loss: 0.633, ave_loss: 0.752
+[34]  [660/1724] loss: 0.688, ave_loss: 0.750
+[35]  [680/1724] loss: 0.703, ave_loss: 0.749
+[36]  [700/1724] loss: 0.724, ave_loss: 0.748
+[37]  [720/1724] loss: 0.767, ave_loss: 0.749
+[38]  [740/1724] loss: 0.669, ave_loss: 0.746
+[39]  [760/1724] loss: 0.756, ave_loss: 0.747
+[40]  [780/1724] loss: 0.683, ave_loss: 0.745
+[41]  [800/1724] loss: 0.753, ave_loss: 0.745
+[42]  [820/1724] loss: 0.617, ave_loss: 0.742
+[43]  [840/1724] loss: 0.720, ave_loss: 0.742
+[44]  [860/1724] loss: 0.660, ave_loss: 0.740
+[45]  [880/1724] loss: 0.768, ave_loss: 0.740
+[46]  [900/1724] loss: 0.723, ave_loss: 0.740
+[47]  [920/1724] loss: 0.652, ave_loss: 0.738
+[48]  [940/1724] loss: 0.623, ave_loss: 0.736
+[49]  [960/1724] loss: 0.692, ave_loss: 0.735
+[50]  [980/1724] loss: 0.690, ave_loss: 0.734
+[51]  [1000/1724] loss: 0.765, ave_loss: 0.735
+[52]  [1020/1724] loss: 0.665, ave_loss: 0.733
+[53]  [1040/1724] loss: 0.644, ave_loss: 0.732
+[54]  [1060/1724] loss: 0.617, ave_loss: 0.729
+[55]  [1080/1724] loss: 0.719, ave_loss: 0.729
+[56]  [1100/1724] loss: 0.636, ave_loss: 0.728
+[57]  [1120/1724] loss: 0.614, ave_loss: 0.726
+[58]  [1140/1724] loss: 0.656, ave_loss: 0.724
+[59]  [1160/1724] loss: 0.659, ave_loss: 0.723
+[60]  [1180/1724] loss: 0.690, ave_loss: 0.723
+[61]  [1200/1724] loss: 0.619, ave_loss: 0.721
+[62]  [1220/1724] loss: 0.695, ave_loss: 0.721
+[63]  [1240/1724] loss: 0.637, ave_loss: 0.719
+[64]  [1260/1724] loss: 0.662, ave_loss: 0.718
+[65]  [1280/1724] loss: 0.633, ave_loss: 0.717
+[66]  [1300/1724] loss: 0.641, ave_loss: 0.716
+[67]  [1320/1724] loss: 0.608, ave_loss: 0.714
+[68]  [1340/1724] loss: 0.756, ave_loss: 0.715
+[69]  [1360/1724] loss: 0.716, ave_loss: 0.715
+[70]  [1380/1724] loss: 0.602, ave_loss: 0.713
+[71]  [1400/1724] loss: 0.609, ave_loss: 0.712
+[72]  [1420/1724] loss: 0.640, ave_loss: 0.711
+[73]  [1440/1724] loss: 0.735, ave_loss: 0.711
+[74]  [1460/1724] loss: 0.727, ave_loss: 0.711
+[75]  [1480/1724] loss: 0.668, ave_loss: 0.711
+[76]  [1500/1724] loss: 0.650, ave_loss: 0.710
+[77]  [1520/1724] loss: 0.594, ave_loss: 0.709
+[78]  [1540/1724] loss: 0.661, ave_loss: 0.708
+[79]  [1560/1724] loss: 0.664, ave_loss: 0.707
+[80]  [1580/1724] loss: 0.631, ave_loss: 0.706
+[81]  [1600/1724] loss: 0.641, ave_loss: 0.706
+[82]  [1620/1724] loss: 0.661, ave_loss: 0.705
+[83]  [1640/1724] loss: 0.611, ave_loss: 0.704
+[84]  [1660/1724] loss: 0.618, ave_loss: 0.703
+[85]  [1680/1724] loss: 0.680, ave_loss: 0.703
+[86]  [1700/1724] loss: 0.599, ave_loss: 0.701
+[87]  [1720/1724] loss: 0.686, ave_loss: 0.701
+[88]  [1740/1724] loss: 0.677, ave_loss: 0.701
+
+Finished Training finishing at 2021-08-29 18:34:00.881494
+printing_out epoch  1.0208816705336428 learning rate: 0.0005153561248318907
+0.000499895441086934
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 7.010e-01
+Validation Loss: 4.468e+03
+Validation ROC: 0.5902
+Saving model
+27.979118329466356 epochs left to go
+
+Training Epoch 1.0208816705336428/30 starting at 2021-08-29 18:36:30.811280
+[1]  [0/1724] loss: 0.666, ave_loss: 0.666
+[2]  [20/1724] loss: 0.703, ave_loss: 0.684
+[3]  [40/1724] loss: 0.642, ave_loss: 0.670
+[4]  [60/1724] loss: 0.602, ave_loss: 0.653
+[5]  [80/1724] loss: 0.589, ave_loss: 0.640
+[6]  [100/1724] loss: 0.690, ave_loss: 0.649
+[7]  [120/1724] loss: 0.693, ave_loss: 0.655
+[8]  [140/1724] loss: 0.569, ave_loss: 0.644
+[9]  [160/1724] loss: 0.597, ave_loss: 0.639
+[10]  [180/1724] loss: 0.536, ave_loss: 0.629
+[11]  [200/1724] loss: 0.539, ave_loss: 0.620
+[12]  [220/1724] loss: 0.708, ave_loss: 0.628
+[13]  [240/1724] loss: 0.547, ave_loss: 0.622
+[14]  [260/1724] loss: 0.697, ave_loss: 0.627
+[15]  [280/1724] loss: 0.645, ave_loss: 0.628
+[16]  [300/1724] loss: 0.633, ave_loss: 0.628
+[17]  [320/1724] loss: 0.610, ave_loss: 0.627
+[18]  [340/1724] loss: 0.593, ave_loss: 0.625
+[19]  [360/1724] loss: 0.667, ave_loss: 0.628
+[20]  [380/1724] loss: 0.706, ave_loss: 0.632
+[21]  [400/1724] loss: 0.760, ave_loss: 0.638
+[22]  [420/1724] loss: 0.637, ave_loss: 0.638
+[23]  [440/1724] loss: 0.649, ave_loss: 0.638
+[24]  [460/1724] loss: 0.634, ave_loss: 0.638
+[25]  [480/1724] loss: 0.649, ave_loss: 0.638
+[26]  [500/1724] loss: 0.607, ave_loss: 0.637
+[27]  [520/1724] loss: 0.675, ave_loss: 0.639
+[28]  [540/1724] loss: 0.605, ave_loss: 0.637
+[29]  [560/1724] loss: 0.635, ave_loss: 0.637
+[30]  [580/1724] loss: 0.639, ave_loss: 0.637
+[31]  [600/1724] loss: 0.561, ave_loss: 0.635
+[32]  [620/1724] loss: 0.681, ave_loss: 0.636
+[33]  [640/1724] loss: 0.646, ave_loss: 0.637
+[34]  [660/1724] loss: 0.612, ave_loss: 0.636
+[35]  [680/1724] loss: 0.616, ave_loss: 0.635
+[36]  [700/1724] loss: 0.685, ave_loss: 0.637
+[37]  [720/1724] loss: 0.638, ave_loss: 0.637
+[38]  [740/1724] loss: 0.616, ave_loss: 0.636
+[39]  [760/1724] loss: 0.675, ave_loss: 0.637
+[40]  [780/1724] loss: 0.619, ave_loss: 0.637
+[41]  [800/1724] loss: 0.620, ave_loss: 0.636
+[42]  [820/1724] loss: 0.693, ave_loss: 0.638
+[43]  [840/1724] loss: 0.582, ave_loss: 0.636
+[44]  [860/1724] loss: 0.605, ave_loss: 0.636
+[45]  [880/1724] loss: 0.624, ave_loss: 0.635
+[46]  [900/1724] loss: 0.650, ave_loss: 0.636
+[47]  [920/1724] loss: 0.645, ave_loss: 0.636
+[48]  [940/1724] loss: 0.576, ave_loss: 0.635
+[49]  [960/1724] loss: 0.612, ave_loss: 0.634
+[50]  [980/1724] loss: 0.610, ave_loss: 0.634
+[51]  [1000/1724] loss: 0.606, ave_loss: 0.633
+[52]  [1020/1724] loss: 0.610, ave_loss: 0.633
+[53]  [1040/1724] loss: 0.531, ave_loss: 0.631
+[54]  [1060/1724] loss: 0.594, ave_loss: 0.630
+[55]  [1080/1724] loss: 0.618, ave_loss: 0.630
+[56]  [1100/1724] loss: 0.597, ave_loss: 0.629
+[57]  [1120/1724] loss: 0.599, ave_loss: 0.629
+[58]  [1140/1724] loss: 0.684, ave_loss: 0.630
+[59]  [1160/1724] loss: 0.610, ave_loss: 0.629
+[60]  [1180/1724] loss: 0.741, ave_loss: 0.631
+[61]  [1200/1724] loss: 0.571, ave_loss: 0.630
+[62]  [1220/1724] loss: 0.742, ave_loss: 0.632
+[63]  [1240/1724] loss: 0.573, ave_loss: 0.631
+[64]  [1260/1724] loss: 0.569, ave_loss: 0.630
+[65]  [1280/1724] loss: 0.556, ave_loss: 0.629
+[66]  [1300/1724] loss: 0.742, ave_loss: 0.631
+[67]  [1320/1724] loss: 0.638, ave_loss: 0.631
+[68]  [1340/1724] loss: 0.654, ave_loss: 0.631
+[69]  [1360/1724] loss: 0.626, ave_loss: 0.631
+[70]  [1380/1724] loss: 0.589, ave_loss: 0.631
+[71]  [1400/1724] loss: 0.525, ave_loss: 0.629
+[72]  [1420/1724] loss: 0.621, ave_loss: 0.629
+[73]  [1440/1724] loss: 0.693, ave_loss: 0.630
+[74]  [1460/1724] loss: 0.626, ave_loss: 0.630
+[75]  [1480/1724] loss: 0.624, ave_loss: 0.630
+[76]  [1500/1724] loss: 0.602, ave_loss: 0.629
+[77]  [1520/1724] loss: 0.671, ave_loss: 0.630
+[78]  [1540/1724] loss: 0.623, ave_loss: 0.630
+[79]  [1560/1724] loss: 0.544, ave_loss: 0.629
+[80]  [1580/1724] loss: 0.636, ave_loss: 0.629
+[81]  [1600/1724] loss: 0.556, ave_loss: 0.628
+[82]  [1620/1724] loss: 0.507, ave_loss: 0.626
+[83]  [1640/1724] loss: 0.632, ave_loss: 0.626
+[84]  [1660/1724] loss: 0.690, ave_loss: 0.627
+[85]  [1680/1724] loss: 0.619, ave_loss: 0.627
+[86]  [1700/1724] loss: 0.601, ave_loss: 0.627
+[87]  [1720/1724] loss: 0.694, ave_loss: 0.628
+[88]  [1740/1724] loss: 0.671, ave_loss: 0.628
+
+Finished Training finishing at 2021-08-29 18:39:33.853542
+printing_out epoch  2.0417633410672855 learning rate: 0.0005153561248318907
+0.00048489857785432596
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 6.281e-01
+Validation Loss: 5.328e+03
+Validation ROC: 0.6367
+Saving model
+26.958236658932716 epochs left to go
+
+Training Epoch 2.0417633410672855/30 starting at 2021-08-29 18:40:31.304246
+[1]  [0/1724] loss: 0.573, ave_loss: 0.573
+[2]  [20/1724] loss: 0.568, ave_loss: 0.571
+[3]  [40/1724] loss: 0.575, ave_loss: 0.572
+[4]  [60/1724] loss: 0.671, ave_loss: 0.597
+[5]  [80/1724] loss: 0.590, ave_loss: 0.596
+[6]  [100/1724] loss: 0.564, ave_loss: 0.590
+[7]  [120/1724] loss: 0.626, ave_loss: 0.595
+[8]  [140/1724] loss: 0.622, ave_loss: 0.599
+[9]  [160/1724] loss: 0.550, ave_loss: 0.593
+[10]  [180/1724] loss: 0.546, ave_loss: 0.589
+[11]  [200/1724] loss: 0.550, ave_loss: 0.585
+[12]  [220/1724] loss: 0.619, ave_loss: 0.588
+[13]  [240/1724] loss: 0.609, ave_loss: 0.590
+[14]  [260/1724] loss: 0.530, ave_loss: 0.585
+[15]  [280/1724] loss: 0.660, ave_loss: 0.590
+[16]  [300/1724] loss: 0.538, ave_loss: 0.587
+[17]  [320/1724] loss: 0.548, ave_loss: 0.585
+[18]  [340/1724] loss: 0.630, ave_loss: 0.587
+[19]  [360/1724] loss: 0.582, ave_loss: 0.587
+[20]  [380/1724] loss: 0.769, ave_loss: 0.596
+[21]  [400/1724] loss: 0.621, ave_loss: 0.597
+[22]  [420/1724] loss: 0.640, ave_loss: 0.599
+[23]  [440/1724] loss: 0.600, ave_loss: 0.599
+[24]  [460/1724] loss: 0.603, ave_loss: 0.599
+[25]  [480/1724] loss: 0.538, ave_loss: 0.597
+[26]  [500/1724] loss: 0.520, ave_loss: 0.594
+[27]  [520/1724] loss: 0.593, ave_loss: 0.594
+[28]  [540/1724] loss: 0.502, ave_loss: 0.591
+[29]  [560/1724] loss: 0.579, ave_loss: 0.590
+[30]  [580/1724] loss: 0.552, ave_loss: 0.589
+[31]  [600/1724] loss: 0.582, ave_loss: 0.589
+[32]  [620/1724] loss: 0.694, ave_loss: 0.592
+[33]  [640/1724] loss: 0.598, ave_loss: 0.592
+[34]  [660/1724] loss: 0.498, ave_loss: 0.590
+[35]  [680/1724] loss: 0.721, ave_loss: 0.593
+[36]  [700/1724] loss: 0.689, ave_loss: 0.596
+[37]  [720/1724] loss: 0.519, ave_loss: 0.594
+[38]  [740/1724] loss: 0.595, ave_loss: 0.594
+[39]  [760/1724] loss: 0.472, ave_loss: 0.591
+[40]  [780/1724] loss: 0.535, ave_loss: 0.589
+[41]  [800/1724] loss: 0.595, ave_loss: 0.589
+[42]  [820/1724] loss: 0.644, ave_loss: 0.591
+[43]  [840/1724] loss: 0.633, ave_loss: 0.592
+[44]  [860/1724] loss: 0.611, ave_loss: 0.592
+[45]  [880/1724] loss: 0.542, ave_loss: 0.591
+[46]  [900/1724] loss: 0.470, ave_loss: 0.588
+[47]  [920/1724] loss: 0.540, ave_loss: 0.587
+[48]  [940/1724] loss: 0.516, ave_loss: 0.586
+[49]  [960/1724] loss: 0.635, ave_loss: 0.587
+[50]  [980/1724] loss: 0.608, ave_loss: 0.587
+[51]  [1000/1724] loss: 0.608, ave_loss: 0.588
+[52]  [1020/1724] loss: 0.709, ave_loss: 0.590
+[53]  [1040/1724] loss: 0.634, ave_loss: 0.591
+[54]  [1060/1724] loss: 0.642, ave_loss: 0.592
+[55]  [1080/1724] loss: 0.615, ave_loss: 0.592
+[56]  [1100/1724] loss: 0.606, ave_loss: 0.593
+[57]  [1120/1724] loss: 0.505, ave_loss: 0.591
+[58]  [1140/1724] loss: 0.601, ave_loss: 0.591
+[59]  [1160/1724] loss: 0.503, ave_loss: 0.590
+[60]  [1180/1724] loss: 0.566, ave_loss: 0.589
+[61]  [1200/1724] loss: 0.531, ave_loss: 0.588
+[62]  [1220/1724] loss: 0.569, ave_loss: 0.588
+[63]  [1240/1724] loss: 0.632, ave_loss: 0.589
+[64]  [1260/1724] loss: 0.596, ave_loss: 0.589
+[65]  [1280/1724] loss: 0.586, ave_loss: 0.589
+[66]  [1300/1724] loss: 0.610, ave_loss: 0.589
+[67]  [1320/1724] loss: 0.464, ave_loss: 0.587
+[68]  [1340/1724] loss: 0.572, ave_loss: 0.587
+[69]  [1360/1724] loss: 0.559, ave_loss: 0.587
+[70]  [1380/1724] loss: 0.516, ave_loss: 0.586
+[71]  [1400/1724] loss: 0.599, ave_loss: 0.586
+[72]  [1420/1724] loss: 0.518, ave_loss: 0.585
+[73]  [1440/1724] loss: 0.502, ave_loss: 0.584
+[74]  [1460/1724] loss: 0.524, ave_loss: 0.583
+[75]  [1480/1724] loss: 0.591, ave_loss: 0.583
+[76]  [1500/1724] loss: 0.536, ave_loss: 0.582
+[77]  [1520/1724] loss: 0.578, ave_loss: 0.582
+[78]  [1540/1724] loss: 0.519, ave_loss: 0.582
+[79]  [1560/1724] loss: 0.577, ave_loss: 0.581
+[80]  [1580/1724] loss: 0.581, ave_loss: 0.581
+[81]  [1600/1724] loss: 0.634, ave_loss: 0.582
+[82]  [1620/1724] loss: 0.543, ave_loss: 0.582
+[83]  [1640/1724] loss: 0.603, ave_loss: 0.582
+[84]  [1660/1724] loss: 0.647, ave_loss: 0.583
+[85]  [1680/1724] loss: 0.579, ave_loss: 0.583
+[86]  [1700/1724] loss: 0.552, ave_loss: 0.582
+[87]  [1720/1724] loss: 0.692, ave_loss: 0.584
+[88]  [1740/1724] loss: 0.564, ave_loss: 0.583
+
+Finished Training finishing at 2021-08-29 18:43:18.492812
+printing_out epoch  3.062645011600928 learning rate: 0.0005153561248318907
+0.00047035162051869614
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 5.833e-01
+Validation Loss: 8.419e+03
+Validation ROC: 0.6680
+Saving model
+25.937354988399072 epochs left to go
+
+Training Epoch 3.062645011600928/30 starting at 2021-08-29 18:44:38.898525
+[1]  [0/1724] loss: 0.543, ave_loss: 0.543
+[2]  [20/1724] loss: 0.540, ave_loss: 0.541
+[3]  [40/1724] loss: 0.549, ave_loss: 0.544
+[4]  [60/1724] loss: 0.789, ave_loss: 0.605
+[5]  [80/1724] loss: 0.619, ave_loss: 0.608
+[6]  [100/1724] loss: 0.614, ave_loss: 0.609
+[7]  [120/1724] loss: 0.596, ave_loss: 0.607
+[8]  [140/1724] loss: 0.509, ave_loss: 0.595
+[9]  [160/1724] loss: 0.623, ave_loss: 0.598
+[10]  [180/1724] loss: 0.557, ave_loss: 0.594
+[11]  [200/1724] loss: 0.582, ave_loss: 0.593
+[12]  [220/1724] loss: 0.590, ave_loss: 0.592
+[13]  [240/1724] loss: 0.566, ave_loss: 0.590
+[14]  [260/1724] loss: 0.573, ave_loss: 0.589
+[15]  [280/1724] loss: 0.671, ave_loss: 0.595
+[16]  [300/1724] loss: 0.584, ave_loss: 0.594
+[17]  [320/1724] loss: 0.603, ave_loss: 0.594
+[18]  [340/1724] loss: 0.497, ave_loss: 0.589
+[19]  [360/1724] loss: 0.560, ave_loss: 0.587
+[20]  [380/1724] loss: 0.585, ave_loss: 0.587
+[21]  [400/1724] loss: 0.556, ave_loss: 0.586
+[22]  [420/1724] loss: 0.566, ave_loss: 0.585
+[23]  [440/1724] loss: 0.799, ave_loss: 0.594
+[24]  [460/1724] loss: 0.583, ave_loss: 0.594
+[25]  [480/1724] loss: 0.604, ave_loss: 0.594
+[26]  [500/1724] loss: 0.640, ave_loss: 0.596
+[27]  [520/1724] loss: 0.514, ave_loss: 0.593
+[28]  [540/1724] loss: 0.444, ave_loss: 0.588
+[29]  [560/1724] loss: 0.649, ave_loss: 0.590
+[30]  [580/1724] loss: 0.513, ave_loss: 0.587
+[31]  [600/1724] loss: 0.516, ave_loss: 0.585
+[32]  [620/1724] loss: 0.542, ave_loss: 0.584
+[33]  [640/1724] loss: 0.538, ave_loss: 0.582
+[34]  [660/1724] loss: 0.654, ave_loss: 0.584
+[35]  [680/1724] loss: 0.420, ave_loss: 0.580
+[36]  [700/1724] loss: 0.516, ave_loss: 0.578
+[37]  [720/1724] loss: 0.570, ave_loss: 0.578
+[38]  [740/1724] loss: 0.634, ave_loss: 0.579
+[39]  [760/1724] loss: 0.563, ave_loss: 0.579
+[40]  [780/1724] loss: 0.586, ave_loss: 0.579
+[41]  [800/1724] loss: 0.505, ave_loss: 0.577
+[42]  [820/1724] loss: 0.523, ave_loss: 0.576
+[43]  [840/1724] loss: 0.576, ave_loss: 0.576
+[44]  [860/1724] loss: 0.620, ave_loss: 0.577
+[45]  [880/1724] loss: 0.510, ave_loss: 0.575
+[46]  [900/1724] loss: 0.580, ave_loss: 0.575
+[47]  [920/1724] loss: 0.603, ave_loss: 0.576
+[48]  [940/1724] loss: 0.581, ave_loss: 0.576
+[49]  [960/1724] loss: 0.553, ave_loss: 0.576
+[50]  [980/1724] loss: 0.487, ave_loss: 0.574
+[51]  [1000/1724] loss: 0.597, ave_loss: 0.574
+[52]  [1020/1724] loss: 0.503, ave_loss: 0.573
+[53]  [1040/1724] loss: 0.542, ave_loss: 0.572
+[54]  [1060/1724] loss: 0.496, ave_loss: 0.571
+[55]  [1080/1724] loss: 0.515, ave_loss: 0.570
+[56]  [1100/1724] loss: 0.479, ave_loss: 0.568
+[57]  [1120/1724] loss: 0.605, ave_loss: 0.569
+[58]  [1140/1724] loss: 0.406, ave_loss: 0.566
+[59]  [1160/1724] loss: 0.480, ave_loss: 0.565
+[60]  [1180/1724] loss: 0.570, ave_loss: 0.565
+[61]  [1200/1724] loss: 0.470, ave_loss: 0.563
+[62]  [1220/1724] loss: 0.568, ave_loss: 0.563
+[63]  [1240/1724] loss: 0.575, ave_loss: 0.563
+[64]  [1260/1724] loss: 0.551, ave_loss: 0.563
+[65]  [1280/1724] loss: 0.516, ave_loss: 0.563
+[66]  [1300/1724] loss: 0.608, ave_loss: 0.563
+[67]  [1320/1724] loss: 0.503, ave_loss: 0.562
+[68]  [1340/1724] loss: 0.544, ave_loss: 0.562
+[69]  [1360/1724] loss: 0.536, ave_loss: 0.562
+[70]  [1380/1724] loss: 0.525, ave_loss: 0.561
+[71]  [1400/1724] loss: 0.422, ave_loss: 0.559
+[72]  [1420/1724] loss: 0.526, ave_loss: 0.559
+[73]  [1440/1724] loss: 0.558, ave_loss: 0.559
+[74]  [1460/1724] loss: 0.524, ave_loss: 0.558
+[75]  [1480/1724] loss: 0.601, ave_loss: 0.559
+[76]  [1500/1724] loss: 0.529, ave_loss: 0.558
+[77]  [1520/1724] loss: 0.666, ave_loss: 0.560
+[78]  [1540/1724] loss: 0.498, ave_loss: 0.559
+[79]  [1560/1724] loss: 0.521, ave_loss: 0.559
+[80]  [1580/1724] loss: 0.531, ave_loss: 0.558
+[81]  [1600/1724] loss: 0.548, ave_loss: 0.558
+[82]  [1620/1724] loss: 0.700, ave_loss: 0.560
+[83]  [1640/1724] loss: 0.583, ave_loss: 0.560
+[84]  [1660/1724] loss: 0.497, ave_loss: 0.559
+[85]  [1680/1724] loss: 0.445, ave_loss: 0.558
+[86]  [1700/1724] loss: 0.510, ave_loss: 0.557
+[87]  [1720/1724] loss: 0.412, ave_loss: 0.556
+[88]  [1740/1724] loss: 0.488, ave_loss: 0.555
+
+Finished Training finishing at 2021-08-29 18:47:27.609278
+printing_out epoch  4.083526682134571 learning rate: 0.0005153561248318907
+0.00045624107190313527
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 5.550e-01
+Validation Loss: 1.312e+04
+Validation ROC: 0.6992
+Saving model
+24.916473317865428 epochs left to go
+
+Training Epoch 4.083526682134571/30 starting at 2021-08-29 18:48:19.483987
+[1]  [0/1724] loss: 0.489, ave_loss: 0.489
+[2]  [20/1724] loss: 0.592, ave_loss: 0.541
+[3]  [40/1724] loss: 0.522, ave_loss: 0.535
+[4]  [60/1724] loss: 0.610, ave_loss: 0.553
+[5]  [80/1724] loss: 0.537, ave_loss: 0.550
+[6]  [100/1724] loss: 0.486, ave_loss: 0.539
+[7]  [120/1724] loss: 0.417, ave_loss: 0.522
+[8]  [140/1724] loss: 0.630, ave_loss: 0.535
+[9]  [160/1724] loss: 0.464, ave_loss: 0.528
+[10]  [180/1724] loss: 0.499, ave_loss: 0.525
+[11]  [200/1724] loss: 0.492, ave_loss: 0.522
+[12]  [220/1724] loss: 0.577, ave_loss: 0.526
+[13]  [240/1724] loss: 0.597, ave_loss: 0.532
+[14]  [260/1724] loss: 0.480, ave_loss: 0.528
+[15]  [280/1724] loss: 0.535, ave_loss: 0.528
+[16]  [300/1724] loss: 0.550, ave_loss: 0.530
+[17]  [320/1724] loss: 0.550, ave_loss: 0.531
+[18]  [340/1724] loss: 0.474, ave_loss: 0.528
+[19]  [360/1724] loss: 0.536, ave_loss: 0.528
+[20]  [380/1724] loss: 0.711, ave_loss: 0.537
+[21]  [400/1724] loss: 0.682, ave_loss: 0.544
+[22]  [420/1724] loss: 0.527, ave_loss: 0.544
+[23]  [440/1724] loss: 0.581, ave_loss: 0.545
+[24]  [460/1724] loss: 0.760, ave_loss: 0.554
+[25]  [480/1724] loss: 0.593, ave_loss: 0.556
+[26]  [500/1724] loss: 0.558, ave_loss: 0.556
+[27]  [520/1724] loss: 0.565, ave_loss: 0.556
+[28]  [540/1724] loss: 0.471, ave_loss: 0.553
+[29]  [560/1724] loss: 0.559, ave_loss: 0.553
+[30]  [580/1724] loss: 0.572, ave_loss: 0.554
+[31]  [600/1724] loss: 0.650, ave_loss: 0.557
+[32]  [620/1724] loss: 0.465, ave_loss: 0.554
+[33]  [640/1724] loss: 0.454, ave_loss: 0.551
+[34]  [660/1724] loss: 0.650, ave_loss: 0.554
+[35]  [680/1724] loss: 0.458, ave_loss: 0.551
+[36]  [700/1724] loss: 0.571, ave_loss: 0.552
+[37]  [720/1724] loss: 0.499, ave_loss: 0.550
+[38]  [740/1724] loss: 0.473, ave_loss: 0.548
+[39]  [760/1724] loss: 0.540, ave_loss: 0.548
+[40]  [780/1724] loss: 0.627, ave_loss: 0.550
+[41]  [800/1724] loss: 0.458, ave_loss: 0.548
+[42]  [820/1724] loss: 0.509, ave_loss: 0.547
+[43]  [840/1724] loss: 0.713, ave_loss: 0.551
+[44]  [860/1724] loss: 0.469, ave_loss: 0.549
+[45]  [880/1724] loss: 0.461, ave_loss: 0.547
+[46]  [900/1724] loss: 0.568, ave_loss: 0.547
+[47]  [920/1724] loss: 0.404, ave_loss: 0.544
+[48]  [940/1724] loss: 0.506, ave_loss: 0.544
+[49]  [960/1724] loss: 0.513, ave_loss: 0.543
+[50]  [980/1724] loss: 0.549, ave_loss: 0.543
+[51]  [1000/1724] loss: 0.532, ave_loss: 0.543
+[52]  [1020/1724] loss: 0.637, ave_loss: 0.545
+[53]  [1040/1724] loss: 0.537, ave_loss: 0.545
+[54]  [1060/1724] loss: 0.613, ave_loss: 0.546
+[55]  [1080/1724] loss: 0.455, ave_loss: 0.544
+[56]  [1100/1724] loss: 0.484, ave_loss: 0.543
+[57]  [1120/1724] loss: 0.472, ave_loss: 0.542
+[58]  [1140/1724] loss: 0.549, ave_loss: 0.542
+[59]  [1160/1724] loss: 0.511, ave_loss: 0.541
+[60]  [1180/1724] loss: 0.748, ave_loss: 0.545
+[61]  [1200/1724] loss: 0.487, ave_loss: 0.544
+[62]  [1220/1724] loss: 0.600, ave_loss: 0.545
+[63]  [1240/1724] loss: 0.564, ave_loss: 0.545
+[64]  [1260/1724] loss: 0.618, ave_loss: 0.546
+[65]  [1280/1724] loss: 0.437, ave_loss: 0.545
+[66]  [1300/1724] loss: 0.623, ave_loss: 0.546
+[67]  [1320/1724] loss: 0.654, ave_loss: 0.547
+[68]  [1340/1724] loss: 0.489, ave_loss: 0.547
+[69]  [1360/1724] loss: 0.536, ave_loss: 0.546
+[70]  [1380/1724] loss: 0.477, ave_loss: 0.545
+[71]  [1400/1724] loss: 0.494, ave_loss: 0.545
+[72]  [1420/1724] loss: 0.522, ave_loss: 0.544
+[73]  [1440/1724] loss: 0.568, ave_loss: 0.545
+[74]  [1460/1724] loss: 0.534, ave_loss: 0.544
+[75]  [1480/1724] loss: 0.377, ave_loss: 0.542
+[76]  [1500/1724] loss: 0.548, ave_loss: 0.542
+[77]  [1520/1724] loss: 0.478, ave_loss: 0.541
+[78]  [1540/1724] loss: 0.491, ave_loss: 0.541
+[79]  [1560/1724] loss: 0.502, ave_loss: 0.540
+[80]  [1580/1724] loss: 0.518, ave_loss: 0.540
+[81]  [1600/1724] loss: 0.525, ave_loss: 0.540
+[82]  [1620/1724] loss: 0.409, ave_loss: 0.538
+[83]  [1640/1724] loss: 0.553, ave_loss: 0.538
+[84]  [1660/1724] loss: 0.443, ave_loss: 0.537
+[85]  [1680/1724] loss: 0.617, ave_loss: 0.538
+[86]  [1700/1724] loss: 0.511, ave_loss: 0.538
+[87]  [1720/1724] loss: 0.537, ave_loss: 0.538
+[88]  [1740/1724] loss: 0.633, ave_loss: 0.539
+
+Finished Training finishing at 2021-08-29 18:50:54.227602
+printing_out epoch  5.104408352668213 learning rate: 0.0005153561248318907
+0.0004425538397460412
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 5.390e-01
+Validation Loss: 1.751e+04
+Validation ROC: 0.7217
+Saving model
+23.895591647331788 epochs left to go
+
+Training Epoch 5.104408352668213/30 starting at 2021-08-29 18:52:19.263024
+[1]  [0/1724] loss: 0.774, ave_loss: 0.774
+[2]  [20/1724] loss: 0.413, ave_loss: 0.594
+[3]  [40/1724] loss: 0.544, ave_loss: 0.577
+[4]  [60/1724] loss: 0.452, ave_loss: 0.546
+[5]  [80/1724] loss: 0.516, ave_loss: 0.540
+[6]  [100/1724] loss: 0.610, ave_loss: 0.552
+[7]  [120/1724] loss: 0.462, ave_loss: 0.539
+[8]  [140/1724] loss: 0.518, ave_loss: 0.536
+[9]  [160/1724] loss: 0.498, ave_loss: 0.532
+[10]  [180/1724] loss: 0.526, ave_loss: 0.531
+[11]  [200/1724] loss: 0.407, ave_loss: 0.520
+[12]  [220/1724] loss: 0.326, ave_loss: 0.504
+[13]  [240/1724] loss: 0.540, ave_loss: 0.507
+[14]  [260/1724] loss: 0.530, ave_loss: 0.508
+[15]  [280/1724] loss: 0.503, ave_loss: 0.508
+[16]  [300/1724] loss: 0.407, ave_loss: 0.502
+[17]  [320/1724] loss: 0.582, ave_loss: 0.506
+[18]  [340/1724] loss: 0.693, ave_loss: 0.517
+[19]  [360/1724] loss: 0.637, ave_loss: 0.523
+[20]  [380/1724] loss: 0.547, ave_loss: 0.524
+[21]  [400/1724] loss: 0.462, ave_loss: 0.521
+[22]  [420/1724] loss: 0.583, ave_loss: 0.524
+[23]  [440/1724] loss: 0.500, ave_loss: 0.523
+[24]  [460/1724] loss: 0.540, ave_loss: 0.524
+[25]  [480/1724] loss: 0.526, ave_loss: 0.524
+[26]  [500/1724] loss: 0.716, ave_loss: 0.531
+[27]  [520/1724] loss: 0.486, ave_loss: 0.530
+[28]  [540/1724] loss: 0.653, ave_loss: 0.534
+[29]  [560/1724] loss: 0.583, ave_loss: 0.536
+[30]  [580/1724] loss: 0.530, ave_loss: 0.535
+[31]  [600/1724] loss: 0.519, ave_loss: 0.535
+[32]  [620/1724] loss: 0.467, ave_loss: 0.533
+[33]  [640/1724] loss: 0.433, ave_loss: 0.530
+[34]  [660/1724] loss: 0.487, ave_loss: 0.529
+[35]  [680/1724] loss: 0.468, ave_loss: 0.527
+[36]  [700/1724] loss: 0.515, ave_loss: 0.526
+[37]  [720/1724] loss: 0.520, ave_loss: 0.526
+[38]  [740/1724] loss: 0.566, ave_loss: 0.527
+[39]  [760/1724] loss: 0.666, ave_loss: 0.531
+[40]  [780/1724] loss: 0.660, ave_loss: 0.534
+[41]  [800/1724] loss: 0.441, ave_loss: 0.532
+[42]  [820/1724] loss: 0.377, ave_loss: 0.528
+[43]  [840/1724] loss: 0.539, ave_loss: 0.528
+[44]  [860/1724] loss: 0.555, ave_loss: 0.529
+[45]  [880/1724] loss: 0.469, ave_loss: 0.528
+[46]  [900/1724] loss: 0.573, ave_loss: 0.529
+[47]  [920/1724] loss: 0.528, ave_loss: 0.529
+[48]  [940/1724] loss: 0.579, ave_loss: 0.530
+[49]  [960/1724] loss: 0.592, ave_loss: 0.531
+[50]  [980/1724] loss: 0.579, ave_loss: 0.532
+[51]  [1000/1724] loss: 0.481, ave_loss: 0.531
+[52]  [1020/1724] loss: 0.463, ave_loss: 0.530
+[53]  [1040/1724] loss: 0.383, ave_loss: 0.527
+[54]  [1060/1724] loss: 0.565, ave_loss: 0.528
+[55]  [1080/1724] loss: 0.435, ave_loss: 0.526
+[56]  [1100/1724] loss: 0.529, ave_loss: 0.526
+[57]  [1120/1724] loss: 0.576, ave_loss: 0.527
+[58]  [1140/1724] loss: 0.594, ave_loss: 0.528
+[59]  [1160/1724] loss: 0.548, ave_loss: 0.528
+[60]  [1180/1724] loss: 0.466, ave_loss: 0.527
+[61]  [1200/1724] loss: 0.514, ave_loss: 0.527
+[62]  [1220/1724] loss: 0.554, ave_loss: 0.528
+[63]  [1240/1724] loss: 0.483, ave_loss: 0.527
+[64]  [1260/1724] loss: 0.476, ave_loss: 0.526
+[65]  [1280/1724] loss: 0.611, ave_loss: 0.527
+[66]  [1300/1724] loss: 0.475, ave_loss: 0.527
+[67]  [1320/1724] loss: 0.572, ave_loss: 0.527
+[68]  [1340/1724] loss: 0.482, ave_loss: 0.527
+[69]  [1360/1724] loss: 0.453, ave_loss: 0.525
+[70]  [1380/1724] loss: 0.487, ave_loss: 0.525
+[71]  [1400/1724] loss: 0.465, ave_loss: 0.524
+[72]  [1420/1724] loss: 0.527, ave_loss: 0.524
+[73]  [1440/1724] loss: 0.463, ave_loss: 0.523
+[74]  [1460/1724] loss: 0.438, ave_loss: 0.522
+[75]  [1480/1724] loss: 0.473, ave_loss: 0.521
+[76]  [1500/1724] loss: 0.628, ave_loss: 0.523
+[77]  [1520/1724] loss: 0.388, ave_loss: 0.521
+[78]  [1540/1724] loss: 0.545, ave_loss: 0.521
+[79]  [1560/1724] loss: 0.437, ave_loss: 0.520
+[80]  [1580/1724] loss: 0.420, ave_loss: 0.519
+[81]  [1600/1724] loss: 0.617, ave_loss: 0.520
+[82]  [1620/1724] loss: 0.571, ave_loss: 0.521
+[83]  [1640/1724] loss: 0.736, ave_loss: 0.524
+[84]  [1660/1724] loss: 0.487, ave_loss: 0.523
+[85]  [1680/1724] loss: 0.328, ave_loss: 0.521
+[86]  [1700/1724] loss: 0.464, ave_loss: 0.520
+[87]  [1720/1724] loss: 0.510, ave_loss: 0.520
+[88]  [1740/1724] loss: 0.617, ave_loss: 0.521
+
+Finished Training finishing at 2021-08-29 18:55:13.949195
+printing_out epoch  6.125290023201856 learning rate: 0.0005153561248318907
+0.00042927722455365994
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 5.211e-01
+Validation Loss: 2.306e+04
+Validation ROC: 0.7348
+Saving model
+22.874709976798144 epochs left to go
+
+Training Epoch 6.125290023201856/30 starting at 2021-08-29 18:56:07.959496
+[1]  [0/1724] loss: 0.572, ave_loss: 0.572
+[2]  [20/1724] loss: 0.354, ave_loss: 0.463
+[3]  [40/1724] loss: 0.406, ave_loss: 0.444
+[4]  [60/1724] loss: 0.571, ave_loss: 0.476
+[5]  [80/1724] loss: 0.512, ave_loss: 0.483
+[6]  [100/1724] loss: 0.503, ave_loss: 0.486
+[7]  [120/1724] loss: 0.539, ave_loss: 0.494
+[8]  [140/1724] loss: 0.415, ave_loss: 0.484
+[9]  [160/1724] loss: 0.534, ave_loss: 0.489
+[10]  [180/1724] loss: 0.701, ave_loss: 0.511
+[11]  [200/1724] loss: 0.579, ave_loss: 0.517
+[12]  [220/1724] loss: 0.638, ave_loss: 0.527
+[13]  [240/1724] loss: 0.428, ave_loss: 0.519
+[14]  [260/1724] loss: 0.567, ave_loss: 0.523
+[15]  [280/1724] loss: 0.623, ave_loss: 0.529
+[16]  [300/1724] loss: 0.424, ave_loss: 0.523
+[17]  [320/1724] loss: 0.491, ave_loss: 0.521
+[18]  [340/1724] loss: 0.515, ave_loss: 0.521
+[19]  [360/1724] loss: 0.603, ave_loss: 0.525
+[20]  [380/1724] loss: 0.527, ave_loss: 0.525
+[21]  [400/1724] loss: 0.480, ave_loss: 0.523
+[22]  [420/1724] loss: 0.539, ave_loss: 0.524
+[23]  [440/1724] loss: 0.417, ave_loss: 0.519
+[24]  [460/1724] loss: 0.518, ave_loss: 0.519
+[25]  [480/1724] loss: 0.407, ave_loss: 0.515
+[26]  [500/1724] loss: 0.522, ave_loss: 0.515
+[27]  [520/1724] loss: 0.537, ave_loss: 0.516
+[28]  [540/1724] loss: 0.660, ave_loss: 0.521
+[29]  [560/1724] loss: 0.568, ave_loss: 0.522
+[30]  [580/1724] loss: 0.467, ave_loss: 0.521
+[31]  [600/1724] loss: 0.495, ave_loss: 0.520
+[32]  [620/1724] loss: 0.451, ave_loss: 0.518
+[33]  [640/1724] loss: 0.440, ave_loss: 0.515
+[34]  [660/1724] loss: 0.490, ave_loss: 0.514
+[35]  [680/1724] loss: 0.451, ave_loss: 0.513
+[36]  [700/1724] loss: 0.510, ave_loss: 0.513
+[37]  [720/1724] loss: 0.523, ave_loss: 0.513
+[38]  [740/1724] loss: 0.542, ave_loss: 0.514
+[39]  [760/1724] loss: 0.412, ave_loss: 0.511
+[40]  [780/1724] loss: 0.541, ave_loss: 0.512
+[41]  [800/1724] loss: 0.439, ave_loss: 0.510
+[42]  [820/1724] loss: 0.467, ave_loss: 0.509
+[43]  [840/1724] loss: 0.526, ave_loss: 0.509
+[44]  [860/1724] loss: 0.535, ave_loss: 0.510
+[45]  [880/1724] loss: 0.608, ave_loss: 0.512
+[46]  [900/1724] loss: 0.569, ave_loss: 0.513
+[47]  [920/1724] loss: 0.429, ave_loss: 0.512
+[48]  [940/1724] loss: 0.540, ave_loss: 0.512
+[49]  [960/1724] loss: 0.475, ave_loss: 0.511
+[50]  [980/1724] loss: 0.408, ave_loss: 0.509
+[51]  [1000/1724] loss: 0.498, ave_loss: 0.509
+[52]  [1020/1724] loss: 0.444, ave_loss: 0.508
+[53]  [1040/1724] loss: 0.373, ave_loss: 0.505
+[54]  [1060/1724] loss: 0.665, ave_loss: 0.508
+[55]  [1080/1724] loss: 0.457, ave_loss: 0.507
+[56]  [1100/1724] loss: 0.453, ave_loss: 0.506
+[57]  [1120/1724] loss: 0.472, ave_loss: 0.506
+[58]  [1140/1724] loss: 0.555, ave_loss: 0.507
+[59]  [1160/1724] loss: 0.478, ave_loss: 0.506
+[60]  [1180/1724] loss: 0.776, ave_loss: 0.511
+[61]  [1200/1724] loss: 0.458, ave_loss: 0.510
+[62]  [1220/1724] loss: 0.386, ave_loss: 0.508
+[63]  [1240/1724] loss: 0.481, ave_loss: 0.507
+[64]  [1260/1724] loss: 0.542, ave_loss: 0.508
+[65]  [1280/1724] loss: 0.435, ave_loss: 0.507
+[66]  [1300/1724] loss: 0.536, ave_loss: 0.507
+[67]  [1320/1724] loss: 0.459, ave_loss: 0.506
+[68]  [1340/1724] loss: 0.510, ave_loss: 0.507
+[69]  [1360/1724] loss: 0.464, ave_loss: 0.506
+[70]  [1380/1724] loss: 0.521, ave_loss: 0.506
+[71]  [1400/1724] loss: 0.475, ave_loss: 0.506
+[72]  [1420/1724] loss: 0.578, ave_loss: 0.507
+[73]  [1440/1724] loss: 0.568, ave_loss: 0.508
+[74]  [1460/1724] loss: 0.726, ave_loss: 0.510
+[75]  [1480/1724] loss: 0.722, ave_loss: 0.513
+[76]  [1500/1724] loss: 0.570, ave_loss: 0.514
+[77]  [1520/1724] loss: 0.401, ave_loss: 0.513
+[78]  [1540/1724] loss: 0.528, ave_loss: 0.513
+[79]  [1560/1724] loss: 0.318, ave_loss: 0.510
+[80]  [1580/1724] loss: 0.478, ave_loss: 0.510
+[81]  [1600/1724] loss: 0.439, ave_loss: 0.509
+[82]  [1620/1724] loss: 0.490, ave_loss: 0.509
+[83]  [1640/1724] loss: 0.590, ave_loss: 0.510
+[84]  [1660/1724] loss: 0.369, ave_loss: 0.508
+[85]  [1680/1724] loss: 0.690, ave_loss: 0.510
+[86]  [1700/1724] loss: 0.557, ave_loss: 0.511
+[87]  [1720/1724] loss: 0.611, ave_loss: 0.512
+[88]  [1740/1724] loss: 0.796, ave_loss: 0.515
+
+Finished Training finishing at 2021-08-29 18:58:50.258755
+printing_out epoch  7.146171693735499 learning rate: 0.0005153561248318907
+0.0004163989078170501
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 5.152e-01
+Validation Loss: 3.124e+04
+Validation ROC: 0.7327
+No improvement, still saving model
+21.8538283062645 epochs left to go
+
+Training Epoch 7.146171693735499/30 starting at 2021-08-29 19:00:02.093198
+[1]  [0/1724] loss: 0.450, ave_loss: 0.450
+[2]  [20/1724] loss: 0.502, ave_loss: 0.476
+[3]  [40/1724] loss: 0.488, ave_loss: 0.480
+[4]  [60/1724] loss: 0.469, ave_loss: 0.477
+[5]  [80/1724] loss: 0.419, ave_loss: 0.465
+[6]  [100/1724] loss: 0.486, ave_loss: 0.469
+[7]  [120/1724] loss: 0.340, ave_loss: 0.451
+[8]  [140/1724] loss: 0.587, ave_loss: 0.468
+[9]  [160/1724] loss: 0.556, ave_loss: 0.477
+[10]  [180/1724] loss: 0.511, ave_loss: 0.481
+[11]  [200/1724] loss: 0.487, ave_loss: 0.481
+[12]  [220/1724] loss: 0.544, ave_loss: 0.487
+[13]  [240/1724] loss: 0.554, ave_loss: 0.492
+[14]  [260/1724] loss: 0.607, ave_loss: 0.500
+[15]  [280/1724] loss: 0.547, ave_loss: 0.503
+[16]  [300/1724] loss: 0.515, ave_loss: 0.504
+[17]  [320/1724] loss: 0.799, ave_loss: 0.521
+[18]  [340/1724] loss: 0.579, ave_loss: 0.524
+[19]  [360/1724] loss: 0.491, ave_loss: 0.523
+[20]  [380/1724] loss: 0.489, ave_loss: 0.521
+[21]  [400/1724] loss: 0.449, ave_loss: 0.518
+[22]  [420/1724] loss: 0.469, ave_loss: 0.515
+[23]  [440/1724] loss: 0.584, ave_loss: 0.518
+[24]  [460/1724] loss: 0.425, ave_loss: 0.514
+[25]  [480/1724] loss: 0.435, ave_loss: 0.511
+[26]  [500/1724] loss: 0.466, ave_loss: 0.510
+[27]  [520/1724] loss: 0.398, ave_loss: 0.505
+[28]  [540/1724] loss: 0.437, ave_loss: 0.503
+[29]  [560/1724] loss: 0.389, ave_loss: 0.499
+[30]  [580/1724] loss: 0.487, ave_loss: 0.499
+[31]  [600/1724] loss: 0.490, ave_loss: 0.498
+[32]  [620/1724] loss: 0.406, ave_loss: 0.495
+[33]  [640/1724] loss: 0.562, ave_loss: 0.497
+[34]  [660/1724] loss: 0.360, ave_loss: 0.493
+[35]  [680/1724] loss: 0.441, ave_loss: 0.492
+[36]  [700/1724] loss: 0.506, ave_loss: 0.492
+[37]  [720/1724] loss: 0.520, ave_loss: 0.493
+[38]  [740/1724] loss: 0.495, ave_loss: 0.493
+[39]  [760/1724] loss: 0.400, ave_loss: 0.491
+[40]  [780/1724] loss: 0.469, ave_loss: 0.490
+[41]  [800/1724] loss: 0.324, ave_loss: 0.486
+[42]  [820/1724] loss: 0.406, ave_loss: 0.484
+[43]  [840/1724] loss: 0.710, ave_loss: 0.489
+[44]  [860/1724] loss: 0.510, ave_loss: 0.490
+[45]  [880/1724] loss: 0.584, ave_loss: 0.492
+[46]  [900/1724] loss: 0.395, ave_loss: 0.490
+[47]  [920/1724] loss: 0.543, ave_loss: 0.491
+[48]  [940/1724] loss: 0.492, ave_loss: 0.491
+[49]  [960/1724] loss: 0.703, ave_loss: 0.495
+[50]  [980/1724] loss: 0.330, ave_loss: 0.492
+[51]  [1000/1724] loss: 0.433, ave_loss: 0.491
+[52]  [1020/1724] loss: 0.641, ave_loss: 0.494
+[53]  [1040/1724] loss: 0.483, ave_loss: 0.494
+[54]  [1060/1724] loss: 0.505, ave_loss: 0.494
+[55]  [1080/1724] loss: 0.591, ave_loss: 0.496
+[56]  [1100/1724] loss: 0.403, ave_loss: 0.494
+[57]  [1120/1724] loss: 0.857, ave_loss: 0.500
+[58]  [1140/1724] loss: 0.597, ave_loss: 0.502
+[59]  [1160/1724] loss: 0.487, ave_loss: 0.502
+[60]  [1180/1724] loss: 0.391, ave_loss: 0.500
+[61]  [1200/1724] loss: 0.468, ave_loss: 0.499
+[62]  [1220/1724] loss: 0.469, ave_loss: 0.499
+[63]  [1240/1724] loss: 0.522, ave_loss: 0.499
+[64]  [1260/1724] loss: 0.498, ave_loss: 0.499
+[65]  [1280/1724] loss: 0.513, ave_loss: 0.499
+[66]  [1300/1724] loss: 0.481, ave_loss: 0.499
+[67]  [1320/1724] loss: 0.551, ave_loss: 0.500
+[68]  [1340/1724] loss: 0.434, ave_loss: 0.499
+[69]  [1360/1724] loss: 0.395, ave_loss: 0.497
+[70]  [1380/1724] loss: 0.370, ave_loss: 0.496
+[71]  [1400/1724] loss: 0.552, ave_loss: 0.496
+[72]  [1420/1724] loss: 0.497, ave_loss: 0.496
+[73]  [1440/1724] loss: 0.391, ave_loss: 0.495
+[74]  [1460/1724] loss: 0.517, ave_loss: 0.495
+[75]  [1480/1724] loss: 0.479, ave_loss: 0.495
+[76]  [1500/1724] loss: 0.487, ave_loss: 0.495
+[77]  [1520/1724] loss: 0.630, ave_loss: 0.497
+[78]  [1540/1724] loss: 0.492, ave_loss: 0.497
+[79]  [1560/1724] loss: 0.446, ave_loss: 0.496
+[80]  [1580/1724] loss: 0.389, ave_loss: 0.495
+[81]  [1600/1724] loss: 0.535, ave_loss: 0.495
+[82]  [1620/1724] loss: 0.415, ave_loss: 0.494
+[83]  [1640/1724] loss: 0.518, ave_loss: 0.494
+[84]  [1660/1724] loss: 0.445, ave_loss: 0.494
+[85]  [1680/1724] loss: 0.348, ave_loss: 0.492
+[86]  [1700/1724] loss: 0.513, ave_loss: 0.492
+[87]  [1720/1724] loss: 0.397, ave_loss: 0.491
+[88]  [1740/1724] loss: 0.540, ave_loss: 0.492
+
+Finished Training finishing at 2021-08-29 19:02:38.036098
+printing_out epoch  8.167053364269142 learning rate: 0.0005153561248318907
+0.0004039069405825386
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.918e-01
+Validation Loss: 3.332e+04
+Validation ROC: 0.7461
+Saving model
+20.832946635730856 epochs left to go
+
+Training Epoch 8.167053364269142/30 starting at 2021-08-29 19:03:39.783454
+[1]  [0/1724] loss: 0.434, ave_loss: 0.434
+[2]  [20/1724] loss: 0.537, ave_loss: 0.485
+[3]  [40/1724] loss: 0.459, ave_loss: 0.477
+[4]  [60/1724] loss: 0.395, ave_loss: 0.456
+[5]  [80/1724] loss: 0.581, ave_loss: 0.481
+[6]  [100/1724] loss: 0.521, ave_loss: 0.488
+[7]  [120/1724] loss: 0.402, ave_loss: 0.476
+[8]  [140/1724] loss: 0.473, ave_loss: 0.475
+[9]  [160/1724] loss: 0.573, ave_loss: 0.486
+[10]  [180/1724] loss: 0.464, ave_loss: 0.484
+[11]  [200/1724] loss: 0.252, ave_loss: 0.463
+[12]  [220/1724] loss: 0.568, ave_loss: 0.472
+[13]  [240/1724] loss: 0.533, ave_loss: 0.476
+[14]  [260/1724] loss: 0.469, ave_loss: 0.476
+[15]  [280/1724] loss: 0.388, ave_loss: 0.470
+[16]  [300/1724] loss: 0.444, ave_loss: 0.468
+[17]  [320/1724] loss: 0.328, ave_loss: 0.460
+[18]  [340/1724] loss: 0.470, ave_loss: 0.461
+[19]  [360/1724] loss: 0.363, ave_loss: 0.456
+[20]  [380/1724] loss: 0.469, ave_loss: 0.456
+[21]  [400/1724] loss: 0.450, ave_loss: 0.456
+[22]  [420/1724] loss: 0.436, ave_loss: 0.455
+[23]  [440/1724] loss: 0.488, ave_loss: 0.456
+[24]  [460/1724] loss: 0.523, ave_loss: 0.459
+[25]  [480/1724] loss: 0.448, ave_loss: 0.459
+[26]  [500/1724] loss: 0.446, ave_loss: 0.458
+[27]  [520/1724] loss: 0.433, ave_loss: 0.457
+[28]  [540/1724] loss: 0.385, ave_loss: 0.455
+[29]  [560/1724] loss: 0.469, ave_loss: 0.455
+[30]  [580/1724] loss: 0.420, ave_loss: 0.454
+[31]  [600/1724] loss: 0.453, ave_loss: 0.454
+[32]  [620/1724] loss: 0.395, ave_loss: 0.452
+[33]  [640/1724] loss: 0.484, ave_loss: 0.453
+[34]  [660/1724] loss: 0.590, ave_loss: 0.457
+[35]  [680/1724] loss: 0.417, ave_loss: 0.456
+[36]  [700/1724] loss: 0.501, ave_loss: 0.457
+[37]  [720/1724] loss: 0.378, ave_loss: 0.455
+[38]  [740/1724] loss: 0.423, ave_loss: 0.454
+[39]  [760/1724] loss: 0.301, ave_loss: 0.450
+[40]  [780/1724] loss: 0.463, ave_loss: 0.451
+[41]  [800/1724] loss: 0.421, ave_loss: 0.450
+[42]  [820/1724] loss: 0.455, ave_loss: 0.450
+[43]  [840/1724] loss: 0.439, ave_loss: 0.450
+[44]  [860/1724] loss: 0.514, ave_loss: 0.451
+[45]  [880/1724] loss: 0.488, ave_loss: 0.452
+[46]  [900/1724] loss: 0.379, ave_loss: 0.451
+[47]  [920/1724] loss: 0.586, ave_loss: 0.453
+[48]  [940/1724] loss: 0.374, ave_loss: 0.452
+[49]  [960/1724] loss: 0.374, ave_loss: 0.450
+[50]  [980/1724] loss: 0.473, ave_loss: 0.451
+[51]  [1000/1724] loss: 0.656, ave_loss: 0.455
+[52]  [1020/1724] loss: 0.393, ave_loss: 0.453
+[53]  [1040/1724] loss: 0.611, ave_loss: 0.456
+[54]  [1060/1724] loss: 0.460, ave_loss: 0.456
+[55]  [1080/1724] loss: 0.328, ave_loss: 0.454
+[56]  [1100/1724] loss: 0.406, ave_loss: 0.453
+[57]  [1120/1724] loss: 0.454, ave_loss: 0.453
+[58]  [1140/1724] loss: 0.505, ave_loss: 0.454
+[59]  [1160/1724] loss: 0.911, ave_loss: 0.462
+[60]  [1180/1724] loss: 0.590, ave_loss: 0.464
+[61]  [1200/1724] loss: 0.549, ave_loss: 0.465
+[62]  [1220/1724] loss: 0.646, ave_loss: 0.468
+[63]  [1240/1724] loss: 0.457, ave_loss: 0.468
+[64]  [1260/1724] loss: 0.364, ave_loss: 0.467
+[65]  [1280/1724] loss: 0.449, ave_loss: 0.466
+[66]  [1300/1724] loss: 0.558, ave_loss: 0.468
+[67]  [1320/1724] loss: 0.464, ave_loss: 0.468
+[68]  [1340/1724] loss: 0.511, ave_loss: 0.468
+[69]  [1360/1724] loss: 0.432, ave_loss: 0.468
+[70]  [1380/1724] loss: 0.462, ave_loss: 0.468
+[71]  [1400/1724] loss: 0.460, ave_loss: 0.468
+[72]  [1420/1724] loss: 0.417, ave_loss: 0.467
+[73]  [1440/1724] loss: 0.397, ave_loss: 0.466
+[74]  [1460/1724] loss: 0.473, ave_loss: 0.466
+[75]  [1480/1724] loss: 0.450, ave_loss: 0.466
+[76]  [1500/1724] loss: 0.513, ave_loss: 0.466
+[77]  [1520/1724] loss: 0.553, ave_loss: 0.468
+[78]  [1540/1724] loss: 0.487, ave_loss: 0.468
+[79]  [1560/1724] loss: 0.589, ave_loss: 0.469
+[80]  [1580/1724] loss: 0.486, ave_loss: 0.470
+[81]  [1600/1724] loss: 0.399, ave_loss: 0.469
+[82]  [1620/1724] loss: 0.345, ave_loss: 0.467
+[83]  [1640/1724] loss: 0.685, ave_loss: 0.470
+[84]  [1660/1724] loss: 0.509, ave_loss: 0.470
+[85]  [1680/1724] loss: 0.466, ave_loss: 0.470
+[86]  [1700/1724] loss: 0.436, ave_loss: 0.470
+[87]  [1720/1724] loss: 0.390, ave_loss: 0.469
+[88]  [1740/1724] loss: 0.639, ave_loss: 0.471
+
+Finished Training finishing at 2021-08-29 19:06:16.523467
+printing_out epoch  9.187935034802784 learning rate: 0.0005153561248318907
+0.00039178973236506245
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.708e-01
+Validation Loss: 3.623e+04
+Validation ROC: 0.7474
+Saving model
+19.812064965197216 epochs left to go
+
+Training Epoch 9.187935034802784/30 starting at 2021-08-29 19:07:23.369362
+[1]  [0/1724] loss: 0.532, ave_loss: 0.532
+[2]  [20/1724] loss: 0.517, ave_loss: 0.525
+[3]  [40/1724] loss: 0.547, ave_loss: 0.532
+[4]  [60/1724] loss: 0.535, ave_loss: 0.533
+[5]  [80/1724] loss: 0.417, ave_loss: 0.510
+[6]  [100/1724] loss: 0.433, ave_loss: 0.497
+[7]  [120/1724] loss: 0.551, ave_loss: 0.505
+[8]  [140/1724] loss: 0.433, ave_loss: 0.496
+[9]  [160/1724] loss: 0.594, ave_loss: 0.507
+[10]  [180/1724] loss: 0.387, ave_loss: 0.495
+[11]  [200/1724] loss: 0.518, ave_loss: 0.497
+[12]  [220/1724] loss: 0.377, ave_loss: 0.487
+[13]  [240/1724] loss: 0.383, ave_loss: 0.479
+[14]  [260/1724] loss: 0.569, ave_loss: 0.485
+[15]  [280/1724] loss: 0.675, ave_loss: 0.498
+[16]  [300/1724] loss: 0.338, ave_loss: 0.488
+[17]  [320/1724] loss: 0.601, ave_loss: 0.495
+[18]  [340/1724] loss: 0.585, ave_loss: 0.500
+[19]  [360/1724] loss: 0.490, ave_loss: 0.499
+[20]  [380/1724] loss: 0.498, ave_loss: 0.499
+[21]  [400/1724] loss: 0.374, ave_loss: 0.493
+[22]  [420/1724] loss: 0.316, ave_loss: 0.485
+[23]  [440/1724] loss: 0.454, ave_loss: 0.484
+[24]  [460/1724] loss: 0.566, ave_loss: 0.487
+[25]  [480/1724] loss: 0.545, ave_loss: 0.489
+[26]  [500/1724] loss: 0.469, ave_loss: 0.489
+[27]  [520/1724] loss: 0.605, ave_loss: 0.493
+[28]  [540/1724] loss: 0.432, ave_loss: 0.491
+[29]  [560/1724] loss: 0.400, ave_loss: 0.488
+[30]  [580/1724] loss: 0.520, ave_loss: 0.489
+[31]  [600/1724] loss: 0.493, ave_loss: 0.489
+[32]  [620/1724] loss: 0.527, ave_loss: 0.490
+[33]  [640/1724] loss: 0.577, ave_loss: 0.493
+[34]  [660/1724] loss: 0.576, ave_loss: 0.495
+[35]  [680/1724] loss: 0.649, ave_loss: 0.500
+[36]  [700/1724] loss: 0.354, ave_loss: 0.495
+[37]  [720/1724] loss: 0.363, ave_loss: 0.492
+[38]  [740/1724] loss: 0.664, ave_loss: 0.496
+[39]  [760/1724] loss: 0.566, ave_loss: 0.498
+[40]  [780/1724] loss: 0.617, ave_loss: 0.501
+[41]  [800/1724] loss: 0.336, ave_loss: 0.497
+[42]  [820/1724] loss: 0.493, ave_loss: 0.497
+[43]  [840/1724] loss: 0.465, ave_loss: 0.496
+[44]  [860/1724] loss: 0.457, ave_loss: 0.495
+[45]  [880/1724] loss: 0.423, ave_loss: 0.494
+[46]  [900/1724] loss: 0.527, ave_loss: 0.495
+[47]  [920/1724] loss: 0.478, ave_loss: 0.494
+[48]  [940/1724] loss: 0.545, ave_loss: 0.495
+[49]  [960/1724] loss: 0.579, ave_loss: 0.497
+[50]  [980/1724] loss: 0.409, ave_loss: 0.495
+[51]  [1000/1724] loss: 0.500, ave_loss: 0.495
+[52]  [1020/1724] loss: 0.535, ave_loss: 0.496
+[53]  [1040/1724] loss: 0.460, ave_loss: 0.495
+[54]  [1060/1724] loss: 0.565, ave_loss: 0.497
+[55]  [1080/1724] loss: 0.387, ave_loss: 0.495
+[56]  [1100/1724] loss: 0.417, ave_loss: 0.493
+[57]  [1120/1724] loss: 0.495, ave_loss: 0.493
+[58]  [1140/1724] loss: 0.433, ave_loss: 0.492
+[59]  [1160/1724] loss: 0.519, ave_loss: 0.493
+[60]  [1180/1724] loss: 0.574, ave_loss: 0.494
+[61]  [1200/1724] loss: 0.631, ave_loss: 0.496
+[62]  [1220/1724] loss: 0.378, ave_loss: 0.494
+[63]  [1240/1724] loss: 0.544, ave_loss: 0.495
+[64]  [1260/1724] loss: 0.358, ave_loss: 0.493
+[65]  [1280/1724] loss: 0.482, ave_loss: 0.493
+[66]  [1300/1724] loss: 0.496, ave_loss: 0.493
+[67]  [1320/1724] loss: 0.439, ave_loss: 0.492
+[68]  [1340/1724] loss: 0.516, ave_loss: 0.493
+[69]  [1360/1724] loss: 0.523, ave_loss: 0.493
+[70]  [1380/1724] loss: 0.438, ave_loss: 0.492
+[71]  [1400/1724] loss: 0.558, ave_loss: 0.493
+[72]  [1420/1724] loss: 0.614, ave_loss: 0.495
+[73]  [1440/1724] loss: 0.430, ave_loss: 0.494
+[74]  [1460/1724] loss: 0.378, ave_loss: 0.492
+[75]  [1480/1724] loss: 0.434, ave_loss: 0.492
+[76]  [1500/1724] loss: 0.409, ave_loss: 0.490
+[77]  [1520/1724] loss: 0.425, ave_loss: 0.490
+[78]  [1540/1724] loss: 0.396, ave_loss: 0.488
+[79]  [1560/1724] loss: 0.421, ave_loss: 0.488
+[80]  [1580/1724] loss: 0.497, ave_loss: 0.488
+[81]  [1600/1724] loss: 0.600, ave_loss: 0.489
+[82]  [1620/1724] loss: 0.466, ave_loss: 0.489
+[83]  [1640/1724] loss: 0.390, ave_loss: 0.488
+[84]  [1660/1724] loss: 0.483, ave_loss: 0.488
+[85]  [1680/1724] loss: 0.400, ave_loss: 0.487
+[86]  [1700/1724] loss: 0.426, ave_loss: 0.486
+[87]  [1720/1724] loss: 0.500, ave_loss: 0.486
+[88]  [1740/1724] loss: 0.494, ave_loss: 0.486
+
+Finished Training finishing at 2021-08-29 19:10:07.860184
+printing_out epoch  10.208816705336426 learning rate: 0.0005153561248318907
+0.0003800360403941106
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.861e-01
+Validation Loss: 3.827e+04
+Validation ROC: 0.7525
+Saving model
+18.791183294663576 epochs left to go
+
+Training Epoch 10.208816705336426/30 starting at 2021-08-29 19:11:06.776536
+[1]  [0/1724] loss: 0.769, ave_loss: 0.769
+[2]  [20/1724] loss: 0.512, ave_loss: 0.640
+[3]  [40/1724] loss: 0.566, ave_loss: 0.616
+[4]  [60/1724] loss: 0.689, ave_loss: 0.634
+[5]  [80/1724] loss: 0.403, ave_loss: 0.588
+[6]  [100/1724] loss: 0.320, ave_loss: 0.543
+[7]  [120/1724] loss: 0.476, ave_loss: 0.534
+[8]  [140/1724] loss: 0.326, ave_loss: 0.508
+[9]  [160/1724] loss: 0.422, ave_loss: 0.498
+[10]  [180/1724] loss: 0.620, ave_loss: 0.510
+[11]  [200/1724] loss: 0.419, ave_loss: 0.502
+[12]  [220/1724] loss: 0.350, ave_loss: 0.489
+[13]  [240/1724] loss: 0.349, ave_loss: 0.479
+[14]  [260/1724] loss: 0.397, ave_loss: 0.473
+[15]  [280/1724] loss: 0.378, ave_loss: 0.466
+[16]  [300/1724] loss: 0.373, ave_loss: 0.461
+[17]  [320/1724] loss: 0.406, ave_loss: 0.457
+[18]  [340/1724] loss: 0.723, ave_loss: 0.472
+[19]  [360/1724] loss: 0.322, ave_loss: 0.464
+[20]  [380/1724] loss: 0.350, ave_loss: 0.459
+[21]  [400/1724] loss: 0.507, ave_loss: 0.461
+[22]  [420/1724] loss: 0.401, ave_loss: 0.458
+[23]  [440/1724] loss: 0.498, ave_loss: 0.460
+[24]  [460/1724] loss: 0.377, ave_loss: 0.456
+[25]  [480/1724] loss: 0.699, ave_loss: 0.466
+[26]  [500/1724] loss: 0.405, ave_loss: 0.464
+[27]  [520/1724] loss: 0.688, ave_loss: 0.472
+[28]  [540/1724] loss: 0.604, ave_loss: 0.477
+[29]  [560/1724] loss: 0.462, ave_loss: 0.476
+[30]  [580/1724] loss: 0.350, ave_loss: 0.472
+[31]  [600/1724] loss: 0.408, ave_loss: 0.470
+[32]  [620/1724] loss: 0.539, ave_loss: 0.472
+[33]  [640/1724] loss: 0.582, ave_loss: 0.475
+[34]  [660/1724] loss: 0.461, ave_loss: 0.475
+[35]  [680/1724] loss: 0.506, ave_loss: 0.476
+[36]  [700/1724] loss: 0.631, ave_loss: 0.480
+[37]  [720/1724] loss: 0.582, ave_loss: 0.483
+[38]  [740/1724] loss: 0.464, ave_loss: 0.483
+[39]  [760/1724] loss: 0.471, ave_loss: 0.482
+[40]  [780/1724] loss: 0.456, ave_loss: 0.482
+[41]  [800/1724] loss: 0.510, ave_loss: 0.482
+[42]  [820/1724] loss: 0.508, ave_loss: 0.483
+[43]  [840/1724] loss: 0.374, ave_loss: 0.480
+[44]  [860/1724] loss: 0.362, ave_loss: 0.478
+[45]  [880/1724] loss: 0.511, ave_loss: 0.478
+[46]  [900/1724] loss: 0.454, ave_loss: 0.478
+[47]  [920/1724] loss: 0.475, ave_loss: 0.478
+[48]  [940/1724] loss: 0.400, ave_loss: 0.476
+[49]  [960/1724] loss: 0.458, ave_loss: 0.476
+[50]  [980/1724] loss: 0.472, ave_loss: 0.476
+[51]  [1000/1724] loss: 0.301, ave_loss: 0.472
+[52]  [1020/1724] loss: 0.616, ave_loss: 0.475
+[53]  [1040/1724] loss: 0.587, ave_loss: 0.477
+[54]  [1060/1724] loss: 0.651, ave_loss: 0.480
+[55]  [1080/1724] loss: 0.499, ave_loss: 0.481
+[56]  [1100/1724] loss: 0.321, ave_loss: 0.478
+[57]  [1120/1724] loss: 0.484, ave_loss: 0.478
+[58]  [1140/1724] loss: 0.519, ave_loss: 0.479
+[59]  [1160/1724] loss: 0.554, ave_loss: 0.480
+[60]  [1180/1724] loss: 0.602, ave_loss: 0.482
+[61]  [1200/1724] loss: 0.299, ave_loss: 0.479
+[62]  [1220/1724] loss: 0.439, ave_loss: 0.478
+[63]  [1240/1724] loss: 0.535, ave_loss: 0.479
+[64]  [1260/1724] loss: 0.573, ave_loss: 0.481
+[65]  [1280/1724] loss: 0.419, ave_loss: 0.480
+[66]  [1300/1724] loss: 0.430, ave_loss: 0.479
+[67]  [1320/1724] loss: 0.430, ave_loss: 0.478
+[68]  [1340/1724] loss: 0.460, ave_loss: 0.478
+[69]  [1360/1724] loss: 0.421, ave_loss: 0.477
+[70]  [1380/1724] loss: 0.553, ave_loss: 0.478
+[71]  [1400/1724] loss: 0.541, ave_loss: 0.479
+[72]  [1420/1724] loss: 0.502, ave_loss: 0.479
+[73]  [1440/1724] loss: 0.514, ave_loss: 0.480
+[74]  [1460/1724] loss: 0.441, ave_loss: 0.479
+[75]  [1480/1724] loss: 0.350, ave_loss: 0.478
+[76]  [1500/1724] loss: 0.523, ave_loss: 0.478
+[77]  [1520/1724] loss: 0.419, ave_loss: 0.478
+[78]  [1540/1724] loss: 0.343, ave_loss: 0.476
+[79]  [1560/1724] loss: 0.538, ave_loss: 0.477
+[80]  [1580/1724] loss: 0.346, ave_loss: 0.475
+[81]  [1600/1724] loss: 0.423, ave_loss: 0.474
+[82]  [1620/1724] loss: 0.509, ave_loss: 0.475
+[83]  [1640/1724] loss: 0.587, ave_loss: 0.476
+[84]  [1660/1724] loss: 0.549, ave_loss: 0.477
+[85]  [1680/1724] loss: 0.501, ave_loss: 0.477
+[86]  [1700/1724] loss: 0.456, ave_loss: 0.477
+[87]  [1720/1724] loss: 0.529, ave_loss: 0.478
+[88]  [1740/1724] loss: 0.453, ave_loss: 0.477
+
+Finished Training finishing at 2021-08-29 19:13:44.350180
+printing_out epoch  11.22969837587007 learning rate: 0.0005153561248318907
+0.00036863495918228726
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.773e-01
+Validation Loss: 3.738e+04
+Validation ROC: 0.7568
+Saving model
+17.770301624129928 epochs left to go
+
+Training Epoch 11.22969837587007/30 starting at 2021-08-29 19:14:56.507582
+[1]  [0/1724] loss: 0.649, ave_loss: 0.649
+[2]  [20/1724] loss: 0.458, ave_loss: 0.554
+[3]  [40/1724] loss: 0.345, ave_loss: 0.484
+[4]  [60/1724] loss: 0.359, ave_loss: 0.453
+[5]  [80/1724] loss: 0.395, ave_loss: 0.441
+[6]  [100/1724] loss: 0.619, ave_loss: 0.471
+[7]  [120/1724] loss: 0.466, ave_loss: 0.470
+[8]  [140/1724] loss: 0.568, ave_loss: 0.482
+[9]  [160/1724] loss: 0.391, ave_loss: 0.472
+[10]  [180/1724] loss: 0.528, ave_loss: 0.478
+[11]  [200/1724] loss: 0.488, ave_loss: 0.479
+[12]  [220/1724] loss: 0.367, ave_loss: 0.469
+[13]  [240/1724] loss: 0.395, ave_loss: 0.464
+[14]  [260/1724] loss: 0.493, ave_loss: 0.466
+[15]  [280/1724] loss: 0.459, ave_loss: 0.465
+[16]  [300/1724] loss: 0.437, ave_loss: 0.464
+[17]  [320/1724] loss: 0.601, ave_loss: 0.472
+[18]  [340/1724] loss: 0.504, ave_loss: 0.473
+[19]  [360/1724] loss: 0.311, ave_loss: 0.465
+[20]  [380/1724] loss: 0.384, ave_loss: 0.461
+[21]  [400/1724] loss: 0.392, ave_loss: 0.458
+[22]  [420/1724] loss: 0.356, ave_loss: 0.453
+[23]  [440/1724] loss: 0.518, ave_loss: 0.456
+[24]  [460/1724] loss: 0.376, ave_loss: 0.452
+[25]  [480/1724] loss: 0.323, ave_loss: 0.447
+[26]  [500/1724] loss: 0.378, ave_loss: 0.445
+[27]  [520/1724] loss: 0.363, ave_loss: 0.442
+[28]  [540/1724] loss: 0.440, ave_loss: 0.442
+[29]  [560/1724] loss: 0.451, ave_loss: 0.442
+[30]  [580/1724] loss: 0.498, ave_loss: 0.444
+[31]  [600/1724] loss: 0.545, ave_loss: 0.447
+[32]  [620/1724] loss: 0.361, ave_loss: 0.444
+[33]  [640/1724] loss: 0.405, ave_loss: 0.443
+[34]  [660/1724] loss: 0.486, ave_loss: 0.444
+[35]  [680/1724] loss: 0.316, ave_loss: 0.441
+[36]  [700/1724] loss: 0.658, ave_loss: 0.447
+[37]  [720/1724] loss: 0.482, ave_loss: 0.448
+[38]  [740/1724] loss: 0.495, ave_loss: 0.449
+[39]  [760/1724] loss: 0.425, ave_loss: 0.448
+[40]  [780/1724] loss: 0.290, ave_loss: 0.444
+[41]  [800/1724] loss: 0.381, ave_loss: 0.443
+[42]  [820/1724] loss: 0.486, ave_loss: 0.444
+[43]  [840/1724] loss: 0.419, ave_loss: 0.443
+[44]  [860/1724] loss: 0.656, ave_loss: 0.448
+[45]  [880/1724] loss: 0.453, ave_loss: 0.448
+[46]  [900/1724] loss: 0.493, ave_loss: 0.449
+[47]  [920/1724] loss: 0.496, ave_loss: 0.450
+[48]  [940/1724] loss: 0.385, ave_loss: 0.449
+[49]  [960/1724] loss: 0.462, ave_loss: 0.449
+[50]  [980/1724] loss: 0.410, ave_loss: 0.448
+[51]  [1000/1724] loss: 0.579, ave_loss: 0.451
+[52]  [1020/1724] loss: 0.453, ave_loss: 0.451
+[53]  [1040/1724] loss: 0.478, ave_loss: 0.451
+[54]  [1060/1724] loss: 0.410, ave_loss: 0.451
+[55]  [1080/1724] loss: 0.537, ave_loss: 0.452
+[56]  [1100/1724] loss: 0.442, ave_loss: 0.452
+[57]  [1120/1724] loss: 0.460, ave_loss: 0.452
+[58]  [1140/1724] loss: 0.541, ave_loss: 0.454
+[59]  [1160/1724] loss: 0.396, ave_loss: 0.453
+[60]  [1180/1724] loss: 0.284, ave_loss: 0.450
+[61]  [1200/1724] loss: 0.477, ave_loss: 0.450
+[62]  [1220/1724] loss: 0.339, ave_loss: 0.449
+[63]  [1240/1724] loss: 0.478, ave_loss: 0.449
+[64]  [1260/1724] loss: 0.557, ave_loss: 0.451
+[65]  [1280/1724] loss: 0.542, ave_loss: 0.452
+[66]  [1300/1724] loss: 0.423, ave_loss: 0.452
+[67]  [1320/1724] loss: 0.595, ave_loss: 0.454
+[68]  [1340/1724] loss: 0.335, ave_loss: 0.452
+[69]  [1360/1724] loss: 0.263, ave_loss: 0.449
+[70]  [1380/1724] loss: 0.484, ave_loss: 0.450
+[71]  [1400/1724] loss: 0.484, ave_loss: 0.450
+[72]  [1420/1724] loss: 0.408, ave_loss: 0.450
+[73]  [1440/1724] loss: 0.491, ave_loss: 0.450
+[74]  [1460/1724] loss: 0.341, ave_loss: 0.449
+[75]  [1480/1724] loss: 0.363, ave_loss: 0.448
+[76]  [1500/1724] loss: 0.649, ave_loss: 0.450
+[77]  [1520/1724] loss: 0.476, ave_loss: 0.451
+[78]  [1540/1724] loss: 0.329, ave_loss: 0.449
+[79]  [1560/1724] loss: 0.407, ave_loss: 0.449
+[80]  [1580/1724] loss: 0.554, ave_loss: 0.450
+[81]  [1600/1724] loss: 0.493, ave_loss: 0.450
+[82]  [1620/1724] loss: 0.416, ave_loss: 0.450
+[83]  [1640/1724] loss: 0.414, ave_loss: 0.450
+[84]  [1660/1724] loss: 0.337, ave_loss: 0.448
+[85]  [1680/1724] loss: 0.470, ave_loss: 0.449
+[86]  [1700/1724] loss: 0.600, ave_loss: 0.450
+[87]  [1720/1724] loss: 0.751, ave_loss: 0.454
+[88]  [1740/1724] loss: 0.440, ave_loss: 0.454
+
+Finished Training finishing at 2021-08-29 19:17:33.337953
+printing_out epoch  12.250580046403712 learning rate: 0.0005153561248318907
+0.0003575759104068186
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.536e-01
+Validation Loss: 4.589e+04
+Validation ROC: 0.7578
+Saving model
+16.749419953596288 epochs left to go
+
+Training Epoch 12.250580046403712/30 starting at 2021-08-29 19:18:29.803874
+[1]  [0/1724] loss: 0.875, ave_loss: 0.875
+[2]  [20/1724] loss: 0.381, ave_loss: 0.628
+[3]  [40/1724] loss: 0.468, ave_loss: 0.574
+[4]  [60/1724] loss: 0.315, ave_loss: 0.509
+[5]  [80/1724] loss: 0.401, ave_loss: 0.488
+[6]  [100/1724] loss: 0.486, ave_loss: 0.488
+[7]  [120/1724] loss: 0.391, ave_loss: 0.474
+[8]  [140/1724] loss: 0.377, ave_loss: 0.462
+[9]  [160/1724] loss: 0.520, ave_loss: 0.468
+[10]  [180/1724] loss: 0.610, ave_loss: 0.482
+[11]  [200/1724] loss: 0.466, ave_loss: 0.481
+[12]  [220/1724] loss: 0.530, ave_loss: 0.485
+[13]  [240/1724] loss: 0.485, ave_loss: 0.485
+[14]  [260/1724] loss: 0.388, ave_loss: 0.478
+[15]  [280/1724] loss: 0.465, ave_loss: 0.477
+[16]  [300/1724] loss: 0.504, ave_loss: 0.479
+[17]  [320/1724] loss: 0.662, ave_loss: 0.490
+[18]  [340/1724] loss: 0.386, ave_loss: 0.484
+[19]  [360/1724] loss: 0.571, ave_loss: 0.488
+[20]  [380/1724] loss: 0.448, ave_loss: 0.486
+[21]  [400/1724] loss: 0.495, ave_loss: 0.487
+[22]  [420/1724] loss: 0.372, ave_loss: 0.482
+[23]  [440/1724] loss: 0.371, ave_loss: 0.477
+[24]  [460/1724] loss: 0.342, ave_loss: 0.471
+[25]  [480/1724] loss: 0.393, ave_loss: 0.468
+[26]  [500/1724] loss: 0.599, ave_loss: 0.473
+[27]  [520/1724] loss: 0.448, ave_loss: 0.472
+[28]  [540/1724] loss: 0.542, ave_loss: 0.475
+[29]  [560/1724] loss: 0.389, ave_loss: 0.472
+[30]  [580/1724] loss: 0.669, ave_loss: 0.478
+[31]  [600/1724] loss: 0.612, ave_loss: 0.483
+[32]  [620/1724] loss: 0.456, ave_loss: 0.482
+[33]  [640/1724] loss: 0.389, ave_loss: 0.479
+[34]  [660/1724] loss: 0.258, ave_loss: 0.472
+[35]  [680/1724] loss: 0.344, ave_loss: 0.469
+[36]  [700/1724] loss: 0.611, ave_loss: 0.473
+[37]  [720/1724] loss: 0.392, ave_loss: 0.471
+[38]  [740/1724] loss: 0.624, ave_loss: 0.475
+[39]  [760/1724] loss: 0.541, ave_loss: 0.476
+[40]  [780/1724] loss: 0.482, ave_loss: 0.476
+[41]  [800/1724] loss: 0.398, ave_loss: 0.474
+[42]  [820/1724] loss: 0.525, ave_loss: 0.476
+[43]  [840/1724] loss: 0.393, ave_loss: 0.474
+[44]  [860/1724] loss: 0.515, ave_loss: 0.475
+[45]  [880/1724] loss: 0.397, ave_loss: 0.473
+[46]  [900/1724] loss: 0.491, ave_loss: 0.473
+[47]  [920/1724] loss: 0.436, ave_loss: 0.473
+[48]  [940/1724] loss: 0.395, ave_loss: 0.471
+[49]  [960/1724] loss: 0.464, ave_loss: 0.471
+[50]  [980/1724] loss: 0.376, ave_loss: 0.469
+[51]  [1000/1724] loss: 0.470, ave_loss: 0.469
+[52]  [1020/1724] loss: 0.513, ave_loss: 0.470
+[53]  [1040/1724] loss: 0.565, ave_loss: 0.472
+[54]  [1060/1724] loss: 0.480, ave_loss: 0.472
+[55]  [1080/1724] loss: 0.574, ave_loss: 0.474
+[56]  [1100/1724] loss: 0.508, ave_loss: 0.474
+[57]  [1120/1724] loss: 0.464, ave_loss: 0.474
+[58]  [1140/1724] loss: 0.471, ave_loss: 0.474
+[59]  [1160/1724] loss: 0.553, ave_loss: 0.475
+[60]  [1180/1724] loss: 0.320, ave_loss: 0.473
+[61]  [1200/1724] loss: 0.306, ave_loss: 0.470
+[62]  [1220/1724] loss: 0.366, ave_loss: 0.468
+[63]  [1240/1724] loss: 0.504, ave_loss: 0.469
+[64]  [1260/1724] loss: 0.519, ave_loss: 0.470
+[65]  [1280/1724] loss: 0.410, ave_loss: 0.469
+[66]  [1300/1724] loss: 0.415, ave_loss: 0.468
+[67]  [1320/1724] loss: 0.538, ave_loss: 0.469
+[68]  [1340/1724] loss: 0.491, ave_loss: 0.469
+[69]  [1360/1724] loss: 0.464, ave_loss: 0.469
+[70]  [1380/1724] loss: 0.361, ave_loss: 0.468
+[71]  [1400/1724] loss: 0.647, ave_loss: 0.470
+[72]  [1420/1724] loss: 0.421, ave_loss: 0.470
+[73]  [1440/1724] loss: 0.392, ave_loss: 0.468
+[74]  [1460/1724] loss: 0.438, ave_loss: 0.468
+[75]  [1480/1724] loss: 0.644, ave_loss: 0.470
+[76]  [1500/1724] loss: 0.439, ave_loss: 0.470
+[77]  [1520/1724] loss: 0.426, ave_loss: 0.469
+[78]  [1540/1724] loss: 0.474, ave_loss: 0.469
+[79]  [1560/1724] loss: 0.346, ave_loss: 0.468
+[80]  [1580/1724] loss: 0.430, ave_loss: 0.467
+[81]  [1600/1724] loss: 0.437, ave_loss: 0.467
+[82]  [1620/1724] loss: 0.420, ave_loss: 0.466
+[83]  [1640/1724] loss: 0.503, ave_loss: 0.467
+[84]  [1660/1724] loss: 0.408, ave_loss: 0.466
+[85]  [1680/1724] loss: 0.479, ave_loss: 0.466
+[86]  [1700/1724] loss: 0.661, ave_loss: 0.469
+[87]  [1720/1724] loss: 0.443, ave_loss: 0.468
+[88]  [1740/1724] loss: 0.673, ave_loss: 0.471
+
+Finished Training finishing at 2021-08-29 19:21:07.320681
+printing_out epoch  13.271461716937354 learning rate: 0.0005153561248318907
+0.00034684863309461403
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.707e-01
+Validation Loss: 4.511e+04
+Validation ROC: 0.7565
+No improvement, still saving model
+15.728538283062646 epochs left to go
+
+Training Epoch 13.271461716937354/30 starting at 2021-08-29 19:22:00.243493
+[1]  [0/1724] loss: 0.669, ave_loss: 0.669
+[2]  [20/1724] loss: 0.231, ave_loss: 0.450
+[3]  [40/1724] loss: 0.288, ave_loss: 0.396
+[4]  [60/1724] loss: 0.523, ave_loss: 0.428
+[5]  [80/1724] loss: 0.426, ave_loss: 0.427
+[6]  [100/1724] loss: 0.502, ave_loss: 0.440
+[7]  [120/1724] loss: 0.663, ave_loss: 0.472
+[8]  [140/1724] loss: 0.597, ave_loss: 0.487
+[9]  [160/1724] loss: 0.517, ave_loss: 0.491
+[10]  [180/1724] loss: 0.513, ave_loss: 0.493
+[11]  [200/1724] loss: 0.660, ave_loss: 0.508
+[12]  [220/1724] loss: 0.414, ave_loss: 0.500
+[13]  [240/1724] loss: 0.403, ave_loss: 0.493
+[14]  [260/1724] loss: 0.564, ave_loss: 0.498
+[15]  [280/1724] loss: 0.450, ave_loss: 0.495
+[16]  [300/1724] loss: 0.443, ave_loss: 0.491
+[17]  [320/1724] loss: 0.541, ave_loss: 0.494
+[18]  [340/1724] loss: 0.308, ave_loss: 0.484
+[19]  [360/1724] loss: 0.523, ave_loss: 0.486
+[20]  [380/1724] loss: 0.548, ave_loss: 0.489
+[21]  [400/1724] loss: 0.376, ave_loss: 0.484
+[22]  [420/1724] loss: 0.312, ave_loss: 0.476
+[23]  [440/1724] loss: 0.405, ave_loss: 0.473
+[24]  [460/1724] loss: 0.660, ave_loss: 0.481
+[25]  [480/1724] loss: 0.580, ave_loss: 0.485
+[26]  [500/1724] loss: 0.504, ave_loss: 0.485
+[27]  [520/1724] loss: 0.542, ave_loss: 0.487
+[28]  [540/1724] loss: 0.451, ave_loss: 0.486
+[29]  [560/1724] loss: 0.428, ave_loss: 0.484
+[30]  [580/1724] loss: 0.543, ave_loss: 0.486
+[31]  [600/1724] loss: 0.588, ave_loss: 0.489
+[32]  [620/1724] loss: 0.388, ave_loss: 0.486
+[33]  [640/1724] loss: 0.345, ave_loss: 0.482
+[34]  [660/1724] loss: 0.610, ave_loss: 0.486
+[35]  [680/1724] loss: 0.354, ave_loss: 0.482
+[36]  [700/1724] loss: 0.404, ave_loss: 0.480
+[37]  [720/1724] loss: 0.508, ave_loss: 0.481
+[38]  [740/1724] loss: 0.487, ave_loss: 0.481
+[39]  [760/1724] loss: 0.609, ave_loss: 0.484
+[40]  [780/1724] loss: 0.312, ave_loss: 0.480
+[41]  [800/1724] loss: 0.429, ave_loss: 0.478
+[42]  [820/1724] loss: 0.377, ave_loss: 0.476
+[43]  [840/1724] loss: 0.580, ave_loss: 0.478
+[44]  [860/1724] loss: 0.320, ave_loss: 0.475
+[45]  [880/1724] loss: 0.462, ave_loss: 0.475
+[46]  [900/1724] loss: 0.504, ave_loss: 0.475
+[47]  [920/1724] loss: 0.435, ave_loss: 0.474
+[48]  [940/1724] loss: 0.398, ave_loss: 0.473
+[49]  [960/1724] loss: 0.526, ave_loss: 0.474
+[50]  [980/1724] loss: 0.431, ave_loss: 0.473
+[51]  [1000/1724] loss: 0.465, ave_loss: 0.473
+[52]  [1020/1724] loss: 0.409, ave_loss: 0.472
+[53]  [1040/1724] loss: 0.600, ave_loss: 0.474
+[54]  [1060/1724] loss: 0.392, ave_loss: 0.473
+[55]  [1080/1724] loss: 0.431, ave_loss: 0.472
+[56]  [1100/1724] loss: 0.749, ave_loss: 0.477
+[57]  [1120/1724] loss: 0.393, ave_loss: 0.475
+[58]  [1140/1724] loss: 0.550, ave_loss: 0.477
+[59]  [1160/1724] loss: 0.439, ave_loss: 0.476
+[60]  [1180/1724] loss: 0.635, ave_loss: 0.479
+[61]  [1200/1724] loss: 0.475, ave_loss: 0.479
+[62]  [1220/1724] loss: 0.398, ave_loss: 0.477
+[63]  [1240/1724] loss: 0.487, ave_loss: 0.477
+[64]  [1260/1724] loss: 0.394, ave_loss: 0.476
+[65]  [1280/1724] loss: 0.517, ave_loss: 0.477
+[66]  [1300/1724] loss: 0.542, ave_loss: 0.478
+[67]  [1320/1724] loss: 0.615, ave_loss: 0.480
+[68]  [1340/1724] loss: 0.439, ave_loss: 0.479
+[69]  [1360/1724] loss: 0.369, ave_loss: 0.478
+[70]  [1380/1724] loss: 0.396, ave_loss: 0.476
+[71]  [1400/1724] loss: 0.375, ave_loss: 0.475
+[72]  [1420/1724] loss: 0.547, ave_loss: 0.476
+[73]  [1440/1724] loss: 0.343, ave_loss: 0.474
+[74]  [1460/1724] loss: 0.486, ave_loss: 0.474
+[75]  [1480/1724] loss: 0.460, ave_loss: 0.474
+[76]  [1500/1724] loss: 0.397, ave_loss: 0.473
+[77]  [1520/1724] loss: 0.353, ave_loss: 0.472
+[78]  [1540/1724] loss: 0.523, ave_loss: 0.472
+[79]  [1560/1724] loss: 0.554, ave_loss: 0.473
+[80]  [1580/1724] loss: 0.350, ave_loss: 0.472
+[81]  [1600/1724] loss: 0.509, ave_loss: 0.472
+[82]  [1620/1724] loss: 0.289, ave_loss: 0.470
+[83]  [1640/1724] loss: 0.469, ave_loss: 0.470
+[84]  [1660/1724] loss: 0.428, ave_loss: 0.469
+[85]  [1680/1724] loss: 0.464, ave_loss: 0.469
+[86]  [1700/1724] loss: 0.371, ave_loss: 0.468
+[87]  [1720/1724] loss: 0.483, ave_loss: 0.468
+[88]  [1740/1724] loss: 0.586, ave_loss: 0.470
+
+Finished Training finishing at 2021-08-29 19:24:25.735484
+printing_out epoch  14.292343387470998 learning rate: 0.0005153561248318907
+0.0003364431741017756
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.697e-01
+Validation Loss: 4.358e+04
+Validation ROC: 0.7620
+Saving model
+14.707656612529002 epochs left to go
+
+Training Epoch 14.292343387470998/30 starting at 2021-08-29 19:25:20.874959
+[1]  [0/1724] loss: 0.703, ave_loss: 0.703
+[2]  [20/1724] loss: 0.425, ave_loss: 0.564
+[3]  [40/1724] loss: 0.492, ave_loss: 0.540
+[4]  [60/1724] loss: 0.491, ave_loss: 0.528
+[5]  [80/1724] loss: 0.502, ave_loss: 0.523
+[6]  [100/1724] loss: 0.453, ave_loss: 0.511
+[7]  [120/1724] loss: 0.600, ave_loss: 0.524
+[8]  [140/1724] loss: 0.244, ave_loss: 0.489
+[9]  [160/1724] loss: 0.458, ave_loss: 0.486
+[10]  [180/1724] loss: 0.368, ave_loss: 0.474
+[11]  [200/1724] loss: 0.458, ave_loss: 0.472
+[12]  [220/1724] loss: 0.558, ave_loss: 0.480
+[13]  [240/1724] loss: 0.481, ave_loss: 0.480
+[14]  [260/1724] loss: 0.521, ave_loss: 0.483
+[15]  [280/1724] loss: 0.391, ave_loss: 0.476
+[16]  [300/1724] loss: 0.459, ave_loss: 0.475
+[17]  [320/1724] loss: 0.464, ave_loss: 0.475
+[18]  [340/1724] loss: 0.561, ave_loss: 0.480
+[19]  [360/1724] loss: 0.570, ave_loss: 0.484
+[20]  [380/1724] loss: 0.433, ave_loss: 0.482
+[21]  [400/1724] loss: 0.520, ave_loss: 0.484
+[22]  [420/1724] loss: 0.490, ave_loss: 0.484
+[23]  [440/1724] loss: 0.513, ave_loss: 0.485
+[24]  [460/1724] loss: 0.325, ave_loss: 0.478
+[25]  [480/1724] loss: 0.490, ave_loss: 0.479
+[26]  [500/1724] loss: 0.517, ave_loss: 0.480
+[27]  [520/1724] loss: 0.452, ave_loss: 0.479
+[28]  [540/1724] loss: 0.380, ave_loss: 0.476
+[29]  [560/1724] loss: 0.524, ave_loss: 0.477
+[30]  [580/1724] loss: 0.606, ave_loss: 0.482
+[31]  [600/1724] loss: 0.321, ave_loss: 0.476
+[32]  [620/1724] loss: 0.419, ave_loss: 0.475
+[33]  [640/1724] loss: 0.382, ave_loss: 0.472
+[34]  [660/1724] loss: 0.432, ave_loss: 0.471
+[35]  [680/1724] loss: 0.487, ave_loss: 0.471
+[36]  [700/1724] loss: 0.510, ave_loss: 0.472
+[37]  [720/1724] loss: 0.569, ave_loss: 0.475
+[38]  [740/1724] loss: 0.448, ave_loss: 0.474
+[39]  [760/1724] loss: 0.503, ave_loss: 0.475
+[40]  [780/1724] loss: 0.396, ave_loss: 0.473
+[41]  [800/1724] loss: 0.562, ave_loss: 0.475
+[42]  [820/1724] loss: 0.414, ave_loss: 0.474
+[43]  [840/1724] loss: 0.372, ave_loss: 0.471
+[44]  [860/1724] loss: 0.523, ave_loss: 0.472
+[45]  [880/1724] loss: 0.601, ave_loss: 0.475
+[46]  [900/1724] loss: 0.393, ave_loss: 0.474
+[47]  [920/1724] loss: 0.706, ave_loss: 0.478
+[48]  [940/1724] loss: 0.500, ave_loss: 0.479
+[49]  [960/1724] loss: 0.451, ave_loss: 0.478
+[50]  [980/1724] loss: 0.479, ave_loss: 0.478
+[51]  [1000/1724] loss: 0.386, ave_loss: 0.477
+[52]  [1020/1724] loss: 0.434, ave_loss: 0.476
+[53]  [1040/1724] loss: 0.429, ave_loss: 0.475
+[54]  [1060/1724] loss: 0.451, ave_loss: 0.474
+[55]  [1080/1724] loss: 0.396, ave_loss: 0.473
+[56]  [1100/1724] loss: 0.417, ave_loss: 0.472
+[57]  [1120/1724] loss: 0.419, ave_loss: 0.471
+[58]  [1140/1724] loss: 0.689, ave_loss: 0.475
+[59]  [1160/1724] loss: 0.312, ave_loss: 0.472
+[60]  [1180/1724] loss: 0.314, ave_loss: 0.469
+[61]  [1200/1724] loss: 0.411, ave_loss: 0.468
+[62]  [1220/1724] loss: 0.331, ave_loss: 0.466
+[63]  [1240/1724] loss: 0.364, ave_loss: 0.465
+[64]  [1260/1724] loss: 0.548, ave_loss: 0.466
+[65]  [1280/1724] loss: 0.567, ave_loss: 0.467
+[66]  [1300/1724] loss: 0.517, ave_loss: 0.468
+[67]  [1320/1724] loss: 0.517, ave_loss: 0.469
+[68]  [1340/1724] loss: 0.403, ave_loss: 0.468
+[69]  [1360/1724] loss: 0.471, ave_loss: 0.468
+[70]  [1380/1724] loss: 0.600, ave_loss: 0.470
+[71]  [1400/1724] loss: 0.481, ave_loss: 0.470
+[72]  [1420/1724] loss: 0.381, ave_loss: 0.469
+[73]  [1440/1724] loss: 0.429, ave_loss: 0.468
+[74]  [1460/1724] loss: 0.501, ave_loss: 0.469
+[75]  [1480/1724] loss: 0.339, ave_loss: 0.467
+[76]  [1500/1724] loss: 0.408, ave_loss: 0.466
+[77]  [1520/1724] loss: 0.409, ave_loss: 0.466
+[78]  [1540/1724] loss: 0.401, ave_loss: 0.465
+[79]  [1560/1724] loss: 0.422, ave_loss: 0.464
+[80]  [1580/1724] loss: 0.328, ave_loss: 0.462
+[81]  [1600/1724] loss: 0.536, ave_loss: 0.463
+[82]  [1620/1724] loss: 0.488, ave_loss: 0.464
+[83]  [1640/1724] loss: 0.476, ave_loss: 0.464
+[84]  [1660/1724] loss: 0.407, ave_loss: 0.463
+[85]  [1680/1724] loss: 0.450, ave_loss: 0.463
+[86]  [1700/1724] loss: 0.545, ave_loss: 0.464
+[87]  [1720/1724] loss: 0.477, ave_loss: 0.464
+[88]  [1740/1724] loss: 0.491, ave_loss: 0.464
+
+Finished Training finishing at 2021-08-29 19:27:46.646711
+printing_out epoch  15.31322505800464 learning rate: 0.0005153561248318907
+0.0003263498788787223
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.644e-01
+Validation Loss: 4.806e+04
+Validation ROC: 0.7630
+Saving model
+13.68677494199536 epochs left to go
+
+Training Epoch 15.31322505800464/30 starting at 2021-08-29 19:28:44.845594
+[1]  [0/1724] loss: 0.665, ave_loss: 0.665
+[2]  [20/1724] loss: 0.499, ave_loss: 0.582
+[3]  [40/1724] loss: 0.404, ave_loss: 0.523
+[4]  [60/1724] loss: 0.543, ave_loss: 0.528
+[5]  [80/1724] loss: 0.532, ave_loss: 0.528
+[6]  [100/1724] loss: 0.442, ave_loss: 0.514
+[7]  [120/1724] loss: 0.724, ave_loss: 0.544
+[8]  [140/1724] loss: 0.373, ave_loss: 0.523
+[9]  [160/1724] loss: 0.359, ave_loss: 0.504
+[10]  [180/1724] loss: 0.488, ave_loss: 0.503
+[11]  [200/1724] loss: 0.410, ave_loss: 0.494
+[12]  [220/1724] loss: 0.295, ave_loss: 0.478
+[13]  [240/1724] loss: 0.577, ave_loss: 0.485
+[14]  [260/1724] loss: 0.471, ave_loss: 0.484
+[15]  [280/1724] loss: 0.441, ave_loss: 0.481
+[16]  [300/1724] loss: 0.334, ave_loss: 0.472
+[17]  [320/1724] loss: 0.275, ave_loss: 0.461
+[18]  [340/1724] loss: 0.510, ave_loss: 0.463
+[19]  [360/1724] loss: 0.399, ave_loss: 0.460
+[20]  [380/1724] loss: 0.499, ave_loss: 0.462
+[21]  [400/1724] loss: 0.424, ave_loss: 0.460
+[22]  [420/1724] loss: 0.524, ave_loss: 0.463
+[23]  [440/1724] loss: 0.397, ave_loss: 0.460
+[24]  [460/1724] loss: 0.524, ave_loss: 0.463
+[25]  [480/1724] loss: 0.497, ave_loss: 0.464
+[26]  [500/1724] loss: 0.480, ave_loss: 0.465
+[27]  [520/1724] loss: 0.594, ave_loss: 0.470
+[28]  [540/1724] loss: 0.527, ave_loss: 0.472
+[29]  [560/1724] loss: 0.482, ave_loss: 0.472
+[30]  [580/1724] loss: 0.525, ave_loss: 0.474
+[31]  [600/1724] loss: 0.394, ave_loss: 0.471
+[32]  [620/1724] loss: 0.427, ave_loss: 0.470
+[33]  [640/1724] loss: 0.438, ave_loss: 0.469
+[34]  [660/1724] loss: 0.355, ave_loss: 0.465
+[35]  [680/1724] loss: 0.469, ave_loss: 0.466
+[36]  [700/1724] loss: 0.401, ave_loss: 0.464
+[37]  [720/1724] loss: 0.447, ave_loss: 0.463
+[38]  [740/1724] loss: 0.515, ave_loss: 0.465
+[39]  [760/1724] loss: 0.479, ave_loss: 0.465
+[40]  [780/1724] loss: 0.580, ave_loss: 0.468
+[41]  [800/1724] loss: 0.442, ave_loss: 0.467
+[42]  [820/1724] loss: 0.438, ave_loss: 0.467
+[43]  [840/1724] loss: 0.431, ave_loss: 0.466
+[44]  [860/1724] loss: 0.348, ave_loss: 0.463
+[45]  [880/1724] loss: 0.439, ave_loss: 0.463
+[46]  [900/1724] loss: 0.489, ave_loss: 0.463
+[47]  [920/1724] loss: 0.301, ave_loss: 0.460
+[48]  [940/1724] loss: 0.621, ave_loss: 0.463
+[49]  [960/1724] loss: 0.433, ave_loss: 0.462
+[50]  [980/1724] loss: 0.478, ave_loss: 0.463
+[51]  [1000/1724] loss: 0.504, ave_loss: 0.464
+[52]  [1020/1724] loss: 0.401, ave_loss: 0.462
+[53]  [1040/1724] loss: 0.352, ave_loss: 0.460
+[54]  [1060/1724] loss: 0.417, ave_loss: 0.459
+[55]  [1080/1724] loss: 0.392, ave_loss: 0.458
+[56]  [1100/1724] loss: 0.496, ave_loss: 0.459
+[57]  [1120/1724] loss: 0.653, ave_loss: 0.462
+[58]  [1140/1724] loss: 0.390, ave_loss: 0.461
+[59]  [1160/1724] loss: 0.365, ave_loss: 0.459
+[60]  [1180/1724] loss: 0.433, ave_loss: 0.459
+[61]  [1200/1724] loss: 0.455, ave_loss: 0.459
+[62]  [1220/1724] loss: 0.400, ave_loss: 0.458
+[63]  [1240/1724] loss: 0.347, ave_loss: 0.456
+[64]  [1260/1724] loss: 0.496, ave_loss: 0.457
+[65]  [1280/1724] loss: 0.415, ave_loss: 0.456
+[66]  [1300/1724] loss: 0.413, ave_loss: 0.456
+[67]  [1320/1724] loss: 0.438, ave_loss: 0.455
+[68]  [1340/1724] loss: 0.393, ave_loss: 0.454
+[69]  [1360/1724] loss: 0.394, ave_loss: 0.454
+[70]  [1380/1724] loss: 0.341, ave_loss: 0.452
+[71]  [1400/1724] loss: 0.430, ave_loss: 0.452
+[72]  [1420/1724] loss: 0.417, ave_loss: 0.451
+[73]  [1440/1724] loss: 0.589, ave_loss: 0.453
+[74]  [1460/1724] loss: 0.501, ave_loss: 0.454
+[75]  [1480/1724] loss: 0.435, ave_loss: 0.453
+[76]  [1500/1724] loss: 0.442, ave_loss: 0.453
+[77]  [1520/1724] loss: 0.334, ave_loss: 0.452
+[78]  [1540/1724] loss: 0.427, ave_loss: 0.451
+[79]  [1560/1724] loss: 0.442, ave_loss: 0.451
+[80]  [1580/1724] loss: 0.432, ave_loss: 0.451
+[81]  [1600/1724] loss: 0.350, ave_loss: 0.450
+[82]  [1620/1724] loss: 0.533, ave_loss: 0.451
+[83]  [1640/1724] loss: 0.306, ave_loss: 0.449
+[84]  [1660/1724] loss: 0.359, ave_loss: 0.448
+[85]  [1680/1724] loss: 0.505, ave_loss: 0.449
+[86]  [1700/1724] loss: 0.367, ave_loss: 0.448
+[87]  [1720/1724] loss: 0.529, ave_loss: 0.449
+[88]  [1740/1724] loss: 0.457, ave_loss: 0.449
+
+Finished Training finishing at 2021-08-29 19:31:17.061448
+printing_out epoch  16.334106728538284 learning rate: 0.0005153561248318907
+0.00031655938251236066
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.487e-01
+Validation Loss: 5.053e+04
+Validation ROC: 0.7648
+Saving model
+12.665893271461716 epochs left to go
+
+Training Epoch 16.334106728538284/30 starting at 2021-08-29 19:32:13.904714
+[1]  [0/1724] loss: 0.683, ave_loss: 0.683
+[2]  [20/1724] loss: 0.229, ave_loss: 0.456
+[3]  [40/1724] loss: 0.426, ave_loss: 0.446
+[4]  [60/1724] loss: 0.362, ave_loss: 0.425
+[5]  [80/1724] loss: 0.355, ave_loss: 0.411
+[6]  [100/1724] loss: 0.579, ave_loss: 0.439
+[7]  [120/1724] loss: 0.575, ave_loss: 0.458
+[8]  [140/1724] loss: 0.390, ave_loss: 0.450
+[9]  [160/1724] loss: 0.600, ave_loss: 0.467
+[10]  [180/1724] loss: 0.530, ave_loss: 0.473
+[11]  [200/1724] loss: 0.435, ave_loss: 0.469
+[12]  [220/1724] loss: 0.405, ave_loss: 0.464
+[13]  [240/1724] loss: 0.457, ave_loss: 0.464
+[14]  [260/1724] loss: 0.361, ave_loss: 0.456
+[15]  [280/1724] loss: 0.427, ave_loss: 0.454
+[16]  [300/1724] loss: 0.668, ave_loss: 0.468
+[17]  [320/1724] loss: 0.550, ave_loss: 0.472
+[18]  [340/1724] loss: 0.691, ave_loss: 0.485
+[19]  [360/1724] loss: 0.415, ave_loss: 0.481
+[20]  [380/1724] loss: 0.540, ave_loss: 0.484
+[21]  [400/1724] loss: 0.413, ave_loss: 0.481
+[22]  [420/1724] loss: 0.336, ave_loss: 0.474
+[23]  [440/1724] loss: 0.473, ave_loss: 0.474
+[24]  [460/1724] loss: 0.356, ave_loss: 0.469
+[25]  [480/1724] loss: 0.548, ave_loss: 0.472
+[26]  [500/1724] loss: 0.663, ave_loss: 0.480
+[27]  [520/1724] loss: 0.475, ave_loss: 0.479
+[28]  [540/1724] loss: 0.406, ave_loss: 0.477
+[29]  [560/1724] loss: 0.427, ave_loss: 0.475
+[30]  [580/1724] loss: 0.675, ave_loss: 0.482
+[31]  [600/1724] loss: 0.402, ave_loss: 0.479
+[32]  [620/1724] loss: 0.490, ave_loss: 0.479
+[33]  [640/1724] loss: 0.482, ave_loss: 0.480
+[34]  [660/1724] loss: 0.392, ave_loss: 0.477
+[35]  [680/1724] loss: 0.562, ave_loss: 0.479
+[36]  [700/1724] loss: 0.312, ave_loss: 0.475
+[37]  [720/1724] loss: 0.447, ave_loss: 0.474
+[38]  [740/1724] loss: 0.296, ave_loss: 0.469
+[39]  [760/1724] loss: 0.486, ave_loss: 0.470
+[40]  [780/1724] loss: 0.404, ave_loss: 0.468
+[41]  [800/1724] loss: 0.513, ave_loss: 0.469
+[42]  [820/1724] loss: 0.514, ave_loss: 0.470
+[43]  [840/1724] loss: 0.406, ave_loss: 0.469
+[44]  [860/1724] loss: 0.477, ave_loss: 0.469
+[45]  [880/1724] loss: 0.382, ave_loss: 0.467
+[46]  [900/1724] loss: 0.301, ave_loss: 0.463
+[47]  [920/1724] loss: 0.456, ave_loss: 0.463
+[48]  [940/1724] loss: 0.390, ave_loss: 0.462
+[49]  [960/1724] loss: 0.562, ave_loss: 0.464
+[50]  [980/1724] loss: 0.382, ave_loss: 0.462
+[51]  [1000/1724] loss: 0.363, ave_loss: 0.460
+[52]  [1020/1724] loss: 0.389, ave_loss: 0.459
+[53]  [1040/1724] loss: 0.315, ave_loss: 0.456
+[54]  [1060/1724] loss: 0.386, ave_loss: 0.455
+[55]  [1080/1724] loss: 0.493, ave_loss: 0.456
+[56]  [1100/1724] loss: 0.368, ave_loss: 0.454
+[57]  [1120/1724] loss: 0.512, ave_loss: 0.455
+[58]  [1140/1724] loss: 0.462, ave_loss: 0.455
+[59]  [1160/1724] loss: 0.478, ave_loss: 0.456
+[60]  [1180/1724] loss: 0.457, ave_loss: 0.456
+[61]  [1200/1724] loss: 0.356, ave_loss: 0.454
+[62]  [1220/1724] loss: 0.354, ave_loss: 0.452
+[63]  [1240/1724] loss: 0.306, ave_loss: 0.450
+[64]  [1260/1724] loss: 0.299, ave_loss: 0.448
+[65]  [1280/1724] loss: 0.559, ave_loss: 0.449
+[66]  [1300/1724] loss: 0.358, ave_loss: 0.448
+[67]  [1320/1724] loss: 0.676, ave_loss: 0.451
+[68]  [1340/1724] loss: 0.432, ave_loss: 0.451
+[69]  [1360/1724] loss: 0.308, ave_loss: 0.449
+[70]  [1380/1724] loss: 0.559, ave_loss: 0.451
+[71]  [1400/1724] loss: 0.539, ave_loss: 0.452
+[72]  [1420/1724] loss: 0.295, ave_loss: 0.450
+[73]  [1440/1724] loss: 0.434, ave_loss: 0.449
+[74]  [1460/1724] loss: 0.529, ave_loss: 0.451
+[75]  [1480/1724] loss: 0.439, ave_loss: 0.450
+[76]  [1500/1724] loss: 0.427, ave_loss: 0.450
+[77]  [1520/1724] loss: 0.435, ave_loss: 0.450
+[78]  [1540/1724] loss: 0.447, ave_loss: 0.450
+[79]  [1560/1724] loss: 0.490, ave_loss: 0.450
+[80]  [1580/1724] loss: 0.609, ave_loss: 0.452
+[81]  [1600/1724] loss: 0.397, ave_loss: 0.452
+[82]  [1620/1724] loss: 0.412, ave_loss: 0.451
+[83]  [1640/1724] loss: 0.505, ave_loss: 0.452
+[84]  [1660/1724] loss: 0.369, ave_loss: 0.451
+[85]  [1680/1724] loss: 0.548, ave_loss: 0.452
+[86]  [1700/1724] loss: 0.426, ave_loss: 0.452
+[87]  [1720/1724] loss: 0.296, ave_loss: 0.450
+[88]  [1740/1724] loss: 0.545, ave_loss: 0.451
+
+Finished Training finishing at 2021-08-29 19:34:44.699163
+printing_out epoch  17.354988399071924 learning rate: 0.0005153561248318907
+0.00030706260103698985
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.509e-01
+Validation Loss: 5.241e+04
+Validation ROC: 0.7663
+Saving model
+11.645011600928076 epochs left to go
+
+Training Epoch 17.354988399071924/30 starting at 2021-08-29 19:35:36.503940
+[1]  [0/1724] loss: 0.429, ave_loss: 0.429
+[2]  [20/1724] loss: 0.448, ave_loss: 0.438
+[3]  [40/1724] loss: 0.486, ave_loss: 0.454
+[4]  [60/1724] loss: 0.466, ave_loss: 0.457
+[5]  [80/1724] loss: 0.417, ave_loss: 0.449
+[6]  [100/1724] loss: 0.468, ave_loss: 0.452
+[7]  [120/1724] loss: 0.451, ave_loss: 0.452
+[8]  [140/1724] loss: 0.408, ave_loss: 0.447
+[9]  [160/1724] loss: 0.470, ave_loss: 0.449
+[10]  [180/1724] loss: 0.316, ave_loss: 0.436
+[11]  [200/1724] loss: 0.300, ave_loss: 0.423
+[12]  [220/1724] loss: 0.440, ave_loss: 0.425
+[13]  [240/1724] loss: 0.567, ave_loss: 0.436
+[14]  [260/1724] loss: 0.371, ave_loss: 0.431
+[15]  [280/1724] loss: 0.396, ave_loss: 0.429
+[16]  [300/1724] loss: 0.384, ave_loss: 0.426
+[17]  [320/1724] loss: 0.465, ave_loss: 0.428
+[18]  [340/1724] loss: 0.438, ave_loss: 0.429
+[19]  [360/1724] loss: 0.620, ave_loss: 0.439
+[20]  [380/1724] loss: 0.427, ave_loss: 0.438
+[21]  [400/1724] loss: 0.400, ave_loss: 0.436
+[22]  [420/1724] loss: 0.414, ave_loss: 0.435
+[23]  [440/1724] loss: 0.569, ave_loss: 0.441
+[24]  [460/1724] loss: 0.546, ave_loss: 0.446
+[25]  [480/1724] loss: 0.510, ave_loss: 0.448
+[26]  [500/1724] loss: 0.458, ave_loss: 0.449
+[27]  [520/1724] loss: 0.516, ave_loss: 0.451
+[28]  [540/1724] loss: 0.426, ave_loss: 0.450
+[29]  [560/1724] loss: 0.420, ave_loss: 0.449
+[30]  [580/1724] loss: 0.507, ave_loss: 0.451
+[31]  [600/1724] loss: 0.445, ave_loss: 0.451
+[32]  [620/1724] loss: 0.462, ave_loss: 0.451
+[33]  [640/1724] loss: 0.478, ave_loss: 0.452
+[34]  [660/1724] loss: 0.506, ave_loss: 0.454
+[35]  [680/1724] loss: 0.434, ave_loss: 0.453
+[36]  [700/1724] loss: 0.434, ave_loss: 0.452
+[37]  [720/1724] loss: 0.461, ave_loss: 0.453
+[38]  [740/1724] loss: 0.414, ave_loss: 0.452
+[39]  [760/1724] loss: 0.354, ave_loss: 0.449
+[40]  [780/1724] loss: 0.417, ave_loss: 0.448
+[41]  [800/1724] loss: 0.359, ave_loss: 0.446
+[42]  [820/1724] loss: 0.366, ave_loss: 0.444
+[43]  [840/1724] loss: 0.389, ave_loss: 0.443
+[44]  [860/1724] loss: 0.422, ave_loss: 0.443
+[45]  [880/1724] loss: 0.354, ave_loss: 0.441
+[46]  [900/1724] loss: 0.667, ave_loss: 0.445
+[47]  [920/1724] loss: 0.548, ave_loss: 0.448
+[48]  [940/1724] loss: 0.357, ave_loss: 0.446
+[49]  [960/1724] loss: 0.475, ave_loss: 0.446
+[50]  [980/1724] loss: 0.327, ave_loss: 0.444
+[51]  [1000/1724] loss: 0.445, ave_loss: 0.444
+[52]  [1020/1724] loss: 0.418, ave_loss: 0.443
+[53]  [1040/1724] loss: 0.520, ave_loss: 0.445
+[54]  [1060/1724] loss: 0.325, ave_loss: 0.443
+[55]  [1080/1724] loss: 0.478, ave_loss: 0.443
+[56]  [1100/1724] loss: 0.646, ave_loss: 0.447
+[57]  [1120/1724] loss: 0.482, ave_loss: 0.448
+[58]  [1140/1724] loss: 0.849, ave_loss: 0.455
+[59]  [1160/1724] loss: 0.488, ave_loss: 0.455
+[60]  [1180/1724] loss: 0.582, ave_loss: 0.457
+[61]  [1200/1724] loss: 0.423, ave_loss: 0.457
+[62]  [1220/1724] loss: 0.268, ave_loss: 0.454
+[63]  [1240/1724] loss: 0.270, ave_loss: 0.451
+[64]  [1260/1724] loss: 0.473, ave_loss: 0.451
+[65]  [1280/1724] loss: 0.599, ave_loss: 0.453
+[66]  [1300/1724] loss: 0.382, ave_loss: 0.452
+[67]  [1320/1724] loss: 0.318, ave_loss: 0.450
+[68]  [1340/1724] loss: 0.379, ave_loss: 0.449
+[69]  [1360/1724] loss: 0.342, ave_loss: 0.448
+[70]  [1380/1724] loss: 0.449, ave_loss: 0.448
+[71]  [1400/1724] loss: 0.348, ave_loss: 0.446
+[72]  [1420/1724] loss: 0.346, ave_loss: 0.445
+[73]  [1440/1724] loss: 0.377, ave_loss: 0.444
+[74]  [1460/1724] loss: 0.319, ave_loss: 0.442
+[75]  [1480/1724] loss: 0.492, ave_loss: 0.443
+[76]  [1500/1724] loss: 0.340, ave_loss: 0.442
+[77]  [1520/1724] loss: 0.437, ave_loss: 0.441
+[78]  [1540/1724] loss: 0.430, ave_loss: 0.441
+[79]  [1560/1724] loss: 0.425, ave_loss: 0.441
+[80]  [1580/1724] loss: 0.558, ave_loss: 0.443
+[81]  [1600/1724] loss: 0.212, ave_loss: 0.440
+[82]  [1620/1724] loss: 0.569, ave_loss: 0.441
+[83]  [1640/1724] loss: 0.489, ave_loss: 0.442
+[84]  [1660/1724] loss: 0.562, ave_loss: 0.443
+[85]  [1680/1724] loss: 0.367, ave_loss: 0.442
+[86]  [1700/1724] loss: 0.404, ave_loss: 0.442
+[87]  [1720/1724] loss: 0.416, ave_loss: 0.442
+[88]  [1740/1724] loss: 0.301, ave_loss: 0.440
+
+Finished Training finishing at 2021-08-29 19:38:03.204905
+printing_out epoch  18.37587006960557 learning rate: 0.0005153561248318907
+0.00029785072300588016
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.401e-01
+Validation Loss: 5.394e+04
+Validation ROC: 0.7705
+Saving model
+10.624129930394432 epochs left to go
+
+Training Epoch 18.37587006960557/30 starting at 2021-08-29 19:39:03.206170
+[1]  [0/1724] loss: 0.660, ave_loss: 0.660
+[2]  [20/1724] loss: 0.529, ave_loss: 0.594
+[3]  [40/1724] loss: 0.457, ave_loss: 0.549
+[4]  [60/1724] loss: 0.406, ave_loss: 0.513
+[5]  [80/1724] loss: 0.332, ave_loss: 0.477
+[6]  [100/1724] loss: 0.471, ave_loss: 0.476
+[7]  [120/1724] loss: 0.448, ave_loss: 0.472
+[8]  [140/1724] loss: 0.416, ave_loss: 0.465
+[9]  [160/1724] loss: 0.371, ave_loss: 0.455
+[10]  [180/1724] loss: 0.395, ave_loss: 0.449
+[11]  [200/1724] loss: 0.491, ave_loss: 0.452
+[12]  [220/1724] loss: 0.377, ave_loss: 0.446
+[13]  [240/1724] loss: 0.418, ave_loss: 0.444
+[14]  [260/1724] loss: 0.391, ave_loss: 0.440
+[15]  [280/1724] loss: 0.504, ave_loss: 0.444
+[16]  [300/1724] loss: 0.330, ave_loss: 0.437
+[17]  [320/1724] loss: 0.543, ave_loss: 0.444
+[18]  [340/1724] loss: 0.526, ave_loss: 0.448
+[19]  [360/1724] loss: 0.388, ave_loss: 0.445
+[20]  [380/1724] loss: 0.595, ave_loss: 0.452
+[21]  [400/1724] loss: 0.847, ave_loss: 0.471
+[22]  [420/1724] loss: 0.437, ave_loss: 0.470
+[23]  [440/1724] loss: 0.542, ave_loss: 0.473
+[24]  [460/1724] loss: 0.328, ave_loss: 0.467
+[25]  [480/1724] loss: 0.314, ave_loss: 0.461
+[26]  [500/1724] loss: 0.392, ave_loss: 0.458
+[27]  [520/1724] loss: 0.552, ave_loss: 0.462
+[28]  [540/1724] loss: 0.427, ave_loss: 0.460
+[29]  [560/1724] loss: 0.293, ave_loss: 0.455
+[30]  [580/1724] loss: 0.547, ave_loss: 0.458
+[31]  [600/1724] loss: 0.336, ave_loss: 0.454
+[32]  [620/1724] loss: 0.420, ave_loss: 0.453
+[33]  [640/1724] loss: 0.474, ave_loss: 0.453
+[34]  [660/1724] loss: 0.394, ave_loss: 0.452
+[35]  [680/1724] loss: 0.547, ave_loss: 0.454
+[36]  [700/1724] loss: 0.400, ave_loss: 0.453
+[37]  [720/1724] loss: 0.667, ave_loss: 0.459
+[38]  [740/1724] loss: 0.351, ave_loss: 0.456
+[39]  [760/1724] loss: 0.429, ave_loss: 0.455
+[40]  [780/1724] loss: 0.421, ave_loss: 0.454
+[41]  [800/1724] loss: 0.529, ave_loss: 0.456
+[42]  [820/1724] loss: 0.304, ave_loss: 0.452
+[43]  [840/1724] loss: 0.362, ave_loss: 0.450
+[44]  [860/1724] loss: 0.354, ave_loss: 0.448
+[45]  [880/1724] loss: 0.484, ave_loss: 0.449
+[46]  [900/1724] loss: 0.361, ave_loss: 0.447
+[47]  [920/1724] loss: 0.536, ave_loss: 0.449
+[48]  [940/1724] loss: 0.449, ave_loss: 0.449
+[49]  [960/1724] loss: 0.603, ave_loss: 0.452
+[50]  [980/1724] loss: 0.393, ave_loss: 0.451
+[51]  [1000/1724] loss: 0.510, ave_loss: 0.452
+[52]  [1020/1724] loss: 0.467, ave_loss: 0.452
+[53]  [1040/1724] loss: 0.546, ave_loss: 0.454
+[54]  [1060/1724] loss: 0.335, ave_loss: 0.452
+[55]  [1080/1724] loss: 0.472, ave_loss: 0.452
+[56]  [1100/1724] loss: 0.319, ave_loss: 0.450
+[57]  [1120/1724] loss: 0.394, ave_loss: 0.449
+[58]  [1140/1724] loss: 0.436, ave_loss: 0.449
+[59]  [1160/1724] loss: 0.662, ave_loss: 0.452
+[60]  [1180/1724] loss: 0.437, ave_loss: 0.452
+[61]  [1200/1724] loss: 0.556, ave_loss: 0.454
+[62]  [1220/1724] loss: 0.465, ave_loss: 0.454
+[63]  [1240/1724] loss: 0.343, ave_loss: 0.452
+[64]  [1260/1724] loss: 0.491, ave_loss: 0.453
+[65]  [1280/1724] loss: 0.434, ave_loss: 0.452
+[66]  [1300/1724] loss: 0.617, ave_loss: 0.455
+[67]  [1320/1724] loss: 0.546, ave_loss: 0.456
+[68]  [1340/1724] loss: 0.398, ave_loss: 0.455
+[69]  [1360/1724] loss: 0.449, ave_loss: 0.455
+[70]  [1380/1724] loss: 0.295, ave_loss: 0.453
+[71]  [1400/1724] loss: 0.444, ave_loss: 0.453
+[72]  [1420/1724] loss: 0.358, ave_loss: 0.452
+[73]  [1440/1724] loss: 0.444, ave_loss: 0.452
+[74]  [1460/1724] loss: 0.300, ave_loss: 0.450
+[75]  [1480/1724] loss: 0.392, ave_loss: 0.449
+[76]  [1500/1724] loss: 0.420, ave_loss: 0.448
+[77]  [1520/1724] loss: 0.349, ave_loss: 0.447
+[78]  [1540/1724] loss: 0.545, ave_loss: 0.448
+[79]  [1560/1724] loss: 0.347, ave_loss: 0.447
+[80]  [1580/1724] loss: 0.489, ave_loss: 0.448
+[81]  [1600/1724] loss: 0.650, ave_loss: 0.450
+[82]  [1620/1724] loss: 0.423, ave_loss: 0.450
+[83]  [1640/1724] loss: 0.293, ave_loss: 0.448
+[84]  [1660/1724] loss: 0.654, ave_loss: 0.450
+[85]  [1680/1724] loss: 0.247, ave_loss: 0.448
+[86]  [1700/1724] loss: 0.438, ave_loss: 0.448
+[87]  [1720/1724] loss: 0.332, ave_loss: 0.446
+[88]  [1740/1724] loss: 0.405, ave_loss: 0.446
+
+Finished Training finishing at 2021-08-29 19:41:30.855315
+printing_out epoch  19.396751740139212 learning rate: 0.0005153561248318907
+0.00028891520131570374
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.460e-01
+Validation Loss: 5.502e+04
+Validation ROC: 0.7674
+No improvement, still saving model
+9.603248259860788 epochs left to go
+
+Training Epoch 19.396751740139212/30 starting at 2021-08-29 19:42:28.306998
+[1]  [0/1724] loss: 0.647, ave_loss: 0.647
+[2]  [20/1724] loss: 0.429, ave_loss: 0.538
+[3]  [40/1724] loss: 0.341, ave_loss: 0.472
+[4]  [60/1724] loss: 0.573, ave_loss: 0.498
+[5]  [80/1724] loss: 0.289, ave_loss: 0.456
+[6]  [100/1724] loss: 0.316, ave_loss: 0.433
+[7]  [120/1724] loss: 0.431, ave_loss: 0.432
+[8]  [140/1724] loss: 0.501, ave_loss: 0.441
+[9]  [160/1724] loss: 0.550, ave_loss: 0.453
+[10]  [180/1724] loss: 0.424, ave_loss: 0.450
+[11]  [200/1724] loss: 0.422, ave_loss: 0.448
+[12]  [220/1724] loss: 0.374, ave_loss: 0.441
+[13]  [240/1724] loss: 0.481, ave_loss: 0.444
+[14]  [260/1724] loss: 0.396, ave_loss: 0.441
+[15]  [280/1724] loss: 0.475, ave_loss: 0.443
+[16]  [300/1724] loss: 0.508, ave_loss: 0.447
+[17]  [320/1724] loss: 0.228, ave_loss: 0.434
+[18]  [340/1724] loss: 0.380, ave_loss: 0.431
+[19]  [360/1724] loss: 0.414, ave_loss: 0.430
+[20]  [380/1724] loss: 0.369, ave_loss: 0.427
+[21]  [400/1724] loss: 0.398, ave_loss: 0.426
+[22]  [420/1724] loss: 0.466, ave_loss: 0.428
+[23]  [440/1724] loss: 0.428, ave_loss: 0.428
+[24]  [460/1724] loss: 0.705, ave_loss: 0.439
+[25]  [480/1724] loss: 0.524, ave_loss: 0.443
+[26]  [500/1724] loss: 0.360, ave_loss: 0.440
+[27]  [520/1724] loss: 0.243, ave_loss: 0.432
+[28]  [540/1724] loss: 0.383, ave_loss: 0.431
+[29]  [560/1724] loss: 0.609, ave_loss: 0.437
+[30]  [580/1724] loss: 0.372, ave_loss: 0.435
+[31]  [600/1724] loss: 0.589, ave_loss: 0.440
+[32]  [620/1724] loss: 0.627, ave_loss: 0.445
+[33]  [640/1724] loss: 0.510, ave_loss: 0.447
+[34]  [660/1724] loss: 0.379, ave_loss: 0.445
+[35]  [680/1724] loss: 0.428, ave_loss: 0.445
+[36]  [700/1724] loss: 0.434, ave_loss: 0.445
+[37]  [720/1724] loss: 0.390, ave_loss: 0.443
+[38]  [740/1724] loss: 0.420, ave_loss: 0.442
+[39]  [760/1724] loss: 0.390, ave_loss: 0.441
+[40]  [780/1724] loss: 0.428, ave_loss: 0.441
+[41]  [800/1724] loss: 0.398, ave_loss: 0.440
+[42]  [820/1724] loss: 0.386, ave_loss: 0.438
+[43]  [840/1724] loss: 0.502, ave_loss: 0.440
+[44]  [860/1724] loss: 0.700, ave_loss: 0.446
+[45]  [880/1724] loss: 0.440, ave_loss: 0.446
+[46]  [900/1724] loss: 0.671, ave_loss: 0.451
+[47]  [920/1724] loss: 0.474, ave_loss: 0.451
+[48]  [940/1724] loss: 0.399, ave_loss: 0.450
+[49]  [960/1724] loss: 0.296, ave_loss: 0.447
+[50]  [980/1724] loss: 0.433, ave_loss: 0.447
+[51]  [1000/1724] loss: 0.441, ave_loss: 0.446
+[52]  [1020/1724] loss: 0.502, ave_loss: 0.448
+[53]  [1040/1724] loss: 0.514, ave_loss: 0.449
+[54]  [1060/1724] loss: 0.396, ave_loss: 0.448
+[55]  [1080/1724] loss: 0.410, ave_loss: 0.447
+[56]  [1100/1724] loss: 0.463, ave_loss: 0.447
+[57]  [1120/1724] loss: 0.426, ave_loss: 0.447
+[58]  [1140/1724] loss: 0.485, ave_loss: 0.448
+[59]  [1160/1724] loss: 0.385, ave_loss: 0.447
+[60]  [1180/1724] loss: 0.440, ave_loss: 0.447
+[61]  [1200/1724] loss: 0.467, ave_loss: 0.447
+[62]  [1220/1724] loss: 0.346, ave_loss: 0.445
+[63]  [1240/1724] loss: 0.409, ave_loss: 0.445
+[64]  [1260/1724] loss: 0.482, ave_loss: 0.445
+[65]  [1280/1724] loss: 0.503, ave_loss: 0.446
+[66]  [1300/1724] loss: 0.376, ave_loss: 0.445
+[67]  [1320/1724] loss: 0.365, ave_loss: 0.444
+[68]  [1340/1724] loss: 0.610, ave_loss: 0.446
+[69]  [1360/1724] loss: 0.506, ave_loss: 0.447
+[70]  [1380/1724] loss: 0.377, ave_loss: 0.446
+[71]  [1400/1724] loss: 0.394, ave_loss: 0.445
+[72]  [1420/1724] loss: 0.380, ave_loss: 0.445
+[73]  [1440/1724] loss: 0.300, ave_loss: 0.443
+[74]  [1460/1724] loss: 0.259, ave_loss: 0.440
+[75]  [1480/1724] loss: 0.453, ave_loss: 0.440
+[76]  [1500/1724] loss: 0.376, ave_loss: 0.439
+[77]  [1520/1724] loss: 0.404, ave_loss: 0.439
+[78]  [1540/1724] loss: 0.569, ave_loss: 0.441
+[79]  [1560/1724] loss: 0.738, ave_loss: 0.444
+[80]  [1580/1724] loss: 0.449, ave_loss: 0.444
+[81]  [1600/1724] loss: 0.327, ave_loss: 0.443
+[82]  [1620/1724] loss: 0.412, ave_loss: 0.443
+[83]  [1640/1724] loss: 0.509, ave_loss: 0.443
+[84]  [1660/1724] loss: 0.380, ave_loss: 0.443
+[85]  [1680/1724] loss: 0.389, ave_loss: 0.442
+[86]  [1700/1724] loss: 0.492, ave_loss: 0.443
+[87]  [1720/1724] loss: 0.620, ave_loss: 0.445
+[88]  [1740/1724] loss: 0.438, ave_loss: 0.445
+
+Finished Training finishing at 2021-08-29 19:45:02.522981
+printing_out epoch  20.417633410672853 learning rate: 0.0005153561248318907
+0.0002802477452762326
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.446e-01
+Validation Loss: 5.958e+04
+Validation ROC: 0.7662
+No improvement, still saving model
+8.582366589327147 epochs left to go
+
+Training Epoch 20.417633410672853/30 starting at 2021-08-29 19:46:00.985353
+[1]  [0/1724] loss: 0.456, ave_loss: 0.456
+[2]  [20/1724] loss: 0.511, ave_loss: 0.484
+[3]  [40/1724] loss: 0.418, ave_loss: 0.462
+[4]  [60/1724] loss: 0.534, ave_loss: 0.480
+[5]  [80/1724] loss: 0.382, ave_loss: 0.460
+[6]  [100/1724] loss: 0.461, ave_loss: 0.460
+[7]  [120/1724] loss: 0.640, ave_loss: 0.486
+[8]  [140/1724] loss: 0.312, ave_loss: 0.464
+[9]  [160/1724] loss: 0.622, ave_loss: 0.482
+[10]  [180/1724] loss: 0.432, ave_loss: 0.477
+[11]  [200/1724] loss: 0.400, ave_loss: 0.470
+[12]  [220/1724] loss: 0.585, ave_loss: 0.479
+[13]  [240/1724] loss: 0.589, ave_loss: 0.488
+[14]  [260/1724] loss: 0.511, ave_loss: 0.490
+[15]  [280/1724] loss: 0.387, ave_loss: 0.483
+[16]  [300/1724] loss: 0.404, ave_loss: 0.478
+[17]  [320/1724] loss: 0.433, ave_loss: 0.475
+[18]  [340/1724] loss: 0.490, ave_loss: 0.476
+[19]  [360/1724] loss: 0.447, ave_loss: 0.475
+[20]  [380/1724] loss: 0.343, ave_loss: 0.468
+[21]  [400/1724] loss: 0.326, ave_loss: 0.461
+[22]  [420/1724] loss: 0.423, ave_loss: 0.459
+[23]  [440/1724] loss: 0.486, ave_loss: 0.461
+[24]  [460/1724] loss: 0.544, ave_loss: 0.464
+[25]  [480/1724] loss: 0.310, ave_loss: 0.458
+[26]  [500/1724] loss: 0.508, ave_loss: 0.460
+[27]  [520/1724] loss: 0.395, ave_loss: 0.457
+[28]  [540/1724] loss: 0.469, ave_loss: 0.458
+[29]  [560/1724] loss: 0.496, ave_loss: 0.459
+[30]  [580/1724] loss: 0.387, ave_loss: 0.457
+[31]  [600/1724] loss: 0.496, ave_loss: 0.458
+[32]  [620/1724] loss: 0.467, ave_loss: 0.458
+[33]  [640/1724] loss: 0.461, ave_loss: 0.458
+[34]  [660/1724] loss: 0.354, ave_loss: 0.455
+[35]  [680/1724] loss: 0.425, ave_loss: 0.454
+[36]  [700/1724] loss: 0.424, ave_loss: 0.454
+[37]  [720/1724] loss: 0.441, ave_loss: 0.453
+[38]  [740/1724] loss: 0.409, ave_loss: 0.452
+[39]  [760/1724] loss: 0.717, ave_loss: 0.459
+[40]  [780/1724] loss: 0.434, ave_loss: 0.458
+[41]  [800/1724] loss: 0.391, ave_loss: 0.457
+[42]  [820/1724] loss: 0.361, ave_loss: 0.454
+[43]  [840/1724] loss: 0.453, ave_loss: 0.454
+[44]  [860/1724] loss: 0.308, ave_loss: 0.451
+[45]  [880/1724] loss: 0.419, ave_loss: 0.450
+[46]  [900/1724] loss: 0.565, ave_loss: 0.453
+[47]  [920/1724] loss: 0.320, ave_loss: 0.450
+[48]  [940/1724] loss: 0.434, ave_loss: 0.450
+[49]  [960/1724] loss: 0.435, ave_loss: 0.449
+[50]  [980/1724] loss: 0.616, ave_loss: 0.453
+[51]  [1000/1724] loss: 0.519, ave_loss: 0.454
+[52]  [1020/1724] loss: 0.699, ave_loss: 0.459
+[53]  [1040/1724] loss: 0.370, ave_loss: 0.457
+[54]  [1060/1724] loss: 0.680, ave_loss: 0.461
+[55]  [1080/1724] loss: 0.548, ave_loss: 0.463
+[56]  [1100/1724] loss: 0.444, ave_loss: 0.462
+[57]  [1120/1724] loss: 0.492, ave_loss: 0.463
+[58]  [1140/1724] loss: 0.624, ave_loss: 0.466
+[59]  [1160/1724] loss: 0.472, ave_loss: 0.466
+[60]  [1180/1724] loss: 0.430, ave_loss: 0.465
+[61]  [1200/1724] loss: 0.320, ave_loss: 0.463
+[62]  [1220/1724] loss: 0.394, ave_loss: 0.462
+[63]  [1240/1724] loss: 0.510, ave_loss: 0.462
+[64]  [1260/1724] loss: 0.430, ave_loss: 0.462
+[65]  [1280/1724] loss: 0.292, ave_loss: 0.459
+[66]  [1300/1724] loss: 0.369, ave_loss: 0.458
+[67]  [1320/1724] loss: 0.489, ave_loss: 0.458
+[68]  [1340/1724] loss: 0.373, ave_loss: 0.457
+[69]  [1360/1724] loss: 0.328, ave_loss: 0.455
+[70]  [1380/1724] loss: 0.324, ave_loss: 0.453
+[71]  [1400/1724] loss: 0.584, ave_loss: 0.455
+[72]  [1420/1724] loss: 0.526, ave_loss: 0.456
+[73]  [1440/1724] loss: 0.403, ave_loss: 0.456
+[74]  [1460/1724] loss: 0.424, ave_loss: 0.455
+[75]  [1480/1724] loss: 0.527, ave_loss: 0.456
+[76]  [1500/1724] loss: 0.361, ave_loss: 0.455
+[77]  [1520/1724] loss: 0.432, ave_loss: 0.455
+[78]  [1540/1724] loss: 0.530, ave_loss: 0.455
+[79]  [1560/1724] loss: 0.519, ave_loss: 0.456
+[80]  [1580/1724] loss: 0.434, ave_loss: 0.456
+[81]  [1600/1724] loss: 0.547, ave_loss: 0.457
+[82]  [1620/1724] loss: 0.404, ave_loss: 0.456
+[83]  [1640/1724] loss: 0.540, ave_loss: 0.457
+[84]  [1660/1724] loss: 0.497, ave_loss: 0.458
+[85]  [1680/1724] loss: 0.468, ave_loss: 0.458
+[86]  [1700/1724] loss: 0.392, ave_loss: 0.457
+[87]  [1720/1724] loss: 0.424, ave_loss: 0.457
+[88]  [1740/1724] loss: 0.473, ave_loss: 0.457
+
+Finished Training finishing at 2021-08-29 19:48:32.511995
+printing_out epoch  21.438515081206496 learning rate: 0.0005153561248318907
+0.00027184031291794565
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.571e-01
+Validation Loss: 5.955e+04
+Validation ROC: 0.7707
+Saving model
+7.561484918793504 epochs left to go
+
+Training Epoch 21.438515081206496/30 starting at 2021-08-29 19:49:24.185530
+[1]  [0/1724] loss: 0.335, ave_loss: 0.335
+[2]  [20/1724] loss: 0.454, ave_loss: 0.395
+[3]  [40/1724] loss: 0.355, ave_loss: 0.381
+[4]  [60/1724] loss: 0.509, ave_loss: 0.413
+[5]  [80/1724] loss: 0.584, ave_loss: 0.448
+[6]  [100/1724] loss: 0.465, ave_loss: 0.450
+[7]  [120/1724] loss: 0.252, ave_loss: 0.422
+[8]  [140/1724] loss: 0.431, ave_loss: 0.423
+[9]  [160/1724] loss: 0.444, ave_loss: 0.425
+[10]  [180/1724] loss: 0.569, ave_loss: 0.440
+[11]  [200/1724] loss: 0.370, ave_loss: 0.433
+[12]  [220/1724] loss: 0.364, ave_loss: 0.428
+[13]  [240/1724] loss: 0.427, ave_loss: 0.428
+[14]  [260/1724] loss: 0.310, ave_loss: 0.419
+[15]  [280/1724] loss: 0.360, ave_loss: 0.415
+[16]  [300/1724] loss: 0.387, ave_loss: 0.414
+[17]  [320/1724] loss: 0.422, ave_loss: 0.414
+[18]  [340/1724] loss: 0.461, ave_loss: 0.417
+[19]  [360/1724] loss: 0.424, ave_loss: 0.417
+[20]  [380/1724] loss: 0.500, ave_loss: 0.421
+[21]  [400/1724] loss: 0.565, ave_loss: 0.428
+[22]  [420/1724] loss: 0.450, ave_loss: 0.429
+[23]  [440/1724] loss: 0.419, ave_loss: 0.429
+[24]  [460/1724] loss: 0.412, ave_loss: 0.428
+[25]  [480/1724] loss: 0.375, ave_loss: 0.426
+[26]  [500/1724] loss: 0.436, ave_loss: 0.426
+[27]  [520/1724] loss: 0.440, ave_loss: 0.427
+[28]  [540/1724] loss: 0.380, ave_loss: 0.425
+[29]  [560/1724] loss: 0.498, ave_loss: 0.428
+[30]  [580/1724] loss: 0.442, ave_loss: 0.428
+[31]  [600/1724] loss: 0.557, ave_loss: 0.432
+[32]  [620/1724] loss: 0.331, ave_loss: 0.429
+[33]  [640/1724] loss: 0.468, ave_loss: 0.430
+[34]  [660/1724] loss: 0.375, ave_loss: 0.429
+[35]  [680/1724] loss: 0.293, ave_loss: 0.425
+[36]  [700/1724] loss: 0.462, ave_loss: 0.426
+[37]  [720/1724] loss: 0.398, ave_loss: 0.425
+[38]  [740/1724] loss: 0.330, ave_loss: 0.422
+[39]  [760/1724] loss: 0.303, ave_loss: 0.419
+[40]  [780/1724] loss: 0.311, ave_loss: 0.417
+[41]  [800/1724] loss: 0.447, ave_loss: 0.417
+[42]  [820/1724] loss: 0.441, ave_loss: 0.418
+[43]  [840/1724] loss: 0.636, ave_loss: 0.423
+[44]  [860/1724] loss: 0.502, ave_loss: 0.425
+[45]  [880/1724] loss: 0.550, ave_loss: 0.428
+[46]  [900/1724] loss: 0.465, ave_loss: 0.428
+[47]  [920/1724] loss: 0.661, ave_loss: 0.433
+[48]  [940/1724] loss: 0.281, ave_loss: 0.430
+[49]  [960/1724] loss: 0.400, ave_loss: 0.430
+[50]  [980/1724] loss: 0.410, ave_loss: 0.429
+[51]  [1000/1724] loss: 0.655, ave_loss: 0.434
+[52]  [1020/1724] loss: 0.356, ave_loss: 0.432
+[53]  [1040/1724] loss: 0.617, ave_loss: 0.436
+[54]  [1060/1724] loss: 0.230, ave_loss: 0.432
+[55]  [1080/1724] loss: 0.428, ave_loss: 0.432
+[56]  [1100/1724] loss: 0.376, ave_loss: 0.431
+[57]  [1120/1724] loss: 0.354, ave_loss: 0.429
+[58]  [1140/1724] loss: 0.385, ave_loss: 0.429
+[59]  [1160/1724] loss: 0.328, ave_loss: 0.427
+[60]  [1180/1724] loss: 0.433, ave_loss: 0.427
+[61]  [1200/1724] loss: 0.343, ave_loss: 0.426
+[62]  [1220/1724] loss: 0.477, ave_loss: 0.426
+[63]  [1240/1724] loss: 0.538, ave_loss: 0.428
+[64]  [1260/1724] loss: 0.359, ave_loss: 0.427
+[65]  [1280/1724] loss: 0.368, ave_loss: 0.426
+[66]  [1300/1724] loss: 0.412, ave_loss: 0.426
+[67]  [1320/1724] loss: 0.646, ave_loss: 0.429
+[68]  [1340/1724] loss: 0.471, ave_loss: 0.430
+[69]  [1360/1724] loss: 0.457, ave_loss: 0.430
+[70]  [1380/1724] loss: 0.443, ave_loss: 0.431
+[71]  [1400/1724] loss: 0.377, ave_loss: 0.430
+[72]  [1420/1724] loss: 0.332, ave_loss: 0.428
+[73]  [1440/1724] loss: 0.418, ave_loss: 0.428
+[74]  [1460/1724] loss: 0.397, ave_loss: 0.428
+[75]  [1480/1724] loss: 0.424, ave_loss: 0.428
+[76]  [1500/1724] loss: 0.458, ave_loss: 0.428
+[77]  [1520/1724] loss: 0.379, ave_loss: 0.428
+[78]  [1540/1724] loss: 0.289, ave_loss: 0.426
+[79]  [1560/1724] loss: 0.300, ave_loss: 0.424
+[80]  [1580/1724] loss: 0.556, ave_loss: 0.426
+[81]  [1600/1724] loss: 0.279, ave_loss: 0.424
+[82]  [1620/1724] loss: 0.515, ave_loss: 0.425
+[83]  [1640/1724] loss: 0.454, ave_loss: 0.425
+[84]  [1660/1724] loss: 0.500, ave_loss: 0.426
+[85]  [1680/1724] loss: 0.413, ave_loss: 0.426
+[86]  [1700/1724] loss: 0.355, ave_loss: 0.425
+[87]  [1720/1724] loss: 0.422, ave_loss: 0.425
+[88]  [1740/1724] loss: 0.364, ave_loss: 0.425
+
+Finished Training finishing at 2021-08-29 19:51:48.618594
+printing_out epoch  22.45939675174014 learning rate: 0.0005153561248318907
+0.0002636851035304073
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.246e-01
+Validation Loss: 6.225e+04
+Validation ROC: 0.7690
+No improvement, still saving model
+6.54060324825986 epochs left to go
+
+Training Epoch 22.45939675174014/30 starting at 2021-08-29 19:52:38.258621
+[1]  [0/1724] loss: 0.398, ave_loss: 0.398
+[2]  [20/1724] loss: 0.551, ave_loss: 0.475
+[3]  [40/1724] loss: 0.333, ave_loss: 0.428
+[4]  [60/1724] loss: 0.329, ave_loss: 0.403
+[5]  [80/1724] loss: 0.558, ave_loss: 0.434
+[6]  [100/1724] loss: 0.359, ave_loss: 0.421
+[7]  [120/1724] loss: 0.384, ave_loss: 0.416
+[8]  [140/1724] loss: 0.399, ave_loss: 0.414
+[9]  [160/1724] loss: 0.231, ave_loss: 0.394
+[10]  [180/1724] loss: 0.397, ave_loss: 0.394
+[11]  [200/1724] loss: 0.559, ave_loss: 0.409
+[12]  [220/1724] loss: 0.444, ave_loss: 0.412
+[13]  [240/1724] loss: 0.329, ave_loss: 0.405
+[14]  [260/1724] loss: 0.374, ave_loss: 0.403
+[15]  [280/1724] loss: 0.460, ave_loss: 0.407
+[16]  [300/1724] loss: 0.502, ave_loss: 0.413
+[17]  [320/1724] loss: 0.363, ave_loss: 0.410
+[18]  [340/1724] loss: 0.699, ave_loss: 0.426
+[19]  [360/1724] loss: 0.529, ave_loss: 0.431
+[20]  [380/1724] loss: 0.486, ave_loss: 0.434
+[21]  [400/1724] loss: 0.450, ave_loss: 0.435
+[22]  [420/1724] loss: 0.389, ave_loss: 0.433
+[23]  [440/1724] loss: 0.610, ave_loss: 0.441
+[24]  [460/1724] loss: 0.464, ave_loss: 0.442
+[25]  [480/1724] loss: 0.386, ave_loss: 0.439
+[26]  [500/1724] loss: 0.619, ave_loss: 0.446
+[27]  [520/1724] loss: 0.514, ave_loss: 0.449
+[28]  [540/1724] loss: 0.411, ave_loss: 0.447
+[29]  [560/1724] loss: 0.555, ave_loss: 0.451
+[30]  [580/1724] loss: 0.416, ave_loss: 0.450
+[31]  [600/1724] loss: 0.472, ave_loss: 0.451
+[32]  [620/1724] loss: 0.497, ave_loss: 0.452
+[33]  [640/1724] loss: 0.383, ave_loss: 0.450
+[34]  [660/1724] loss: 0.426, ave_loss: 0.449
+[35]  [680/1724] loss: 0.437, ave_loss: 0.449
+[36]  [700/1724] loss: 0.328, ave_loss: 0.445
+[37]  [720/1724] loss: 0.303, ave_loss: 0.442
+[38]  [740/1724] loss: 0.489, ave_loss: 0.443
+[39]  [760/1724] loss: 0.537, ave_loss: 0.445
+[40]  [780/1724] loss: 0.384, ave_loss: 0.444
+[41]  [800/1724] loss: 0.635, ave_loss: 0.448
+[42]  [820/1724] loss: 0.580, ave_loss: 0.452
+[43]  [840/1724] loss: 0.384, ave_loss: 0.450
+[44]  [860/1724] loss: 0.338, ave_loss: 0.447
+[45]  [880/1724] loss: 0.417, ave_loss: 0.447
+[46]  [900/1724] loss: 0.452, ave_loss: 0.447
+[47]  [920/1724] loss: 0.246, ave_loss: 0.443
+[48]  [940/1724] loss: 0.419, ave_loss: 0.442
+[49]  [960/1724] loss: 0.429, ave_loss: 0.442
+[50]  [980/1724] loss: 0.467, ave_loss: 0.442
+[51]  [1000/1724] loss: 0.495, ave_loss: 0.443
+[52]  [1020/1724] loss: 0.556, ave_loss: 0.446
+[53]  [1040/1724] loss: 0.434, ave_loss: 0.445
+[54]  [1060/1724] loss: 0.468, ave_loss: 0.446
+[55]  [1080/1724] loss: 0.433, ave_loss: 0.445
+[56]  [1100/1724] loss: 0.445, ave_loss: 0.445
+[57]  [1120/1724] loss: 0.427, ave_loss: 0.445
+[58]  [1140/1724] loss: 0.521, ave_loss: 0.446
+[59]  [1160/1724] loss: 0.311, ave_loss: 0.444
+[60]  [1180/1724] loss: 0.514, ave_loss: 0.445
+[61]  [1200/1724] loss: 0.392, ave_loss: 0.444
+[62]  [1220/1724] loss: 0.330, ave_loss: 0.443
+[63]  [1240/1724] loss: 0.482, ave_loss: 0.443
+[64]  [1260/1724] loss: 0.311, ave_loss: 0.441
+[65]  [1280/1724] loss: 0.565, ave_loss: 0.443
+[66]  [1300/1724] loss: 0.473, ave_loss: 0.444
+[67]  [1320/1724] loss: 0.506, ave_loss: 0.444
+[68]  [1340/1724] loss: 0.499, ave_loss: 0.445
+[69]  [1360/1724] loss: 0.396, ave_loss: 0.445
+[70]  [1380/1724] loss: 0.473, ave_loss: 0.445
+[71]  [1400/1724] loss: 0.589, ave_loss: 0.447
+[72]  [1420/1724] loss: 0.357, ave_loss: 0.446
+[73]  [1440/1724] loss: 0.470, ave_loss: 0.446
+[74]  [1460/1724] loss: 0.519, ave_loss: 0.447
+[75]  [1480/1724] loss: 0.495, ave_loss: 0.448
+[76]  [1500/1724] loss: 0.455, ave_loss: 0.448
+[77]  [1520/1724] loss: 0.493, ave_loss: 0.448
+[78]  [1540/1724] loss: 0.367, ave_loss: 0.447
+[79]  [1560/1724] loss: 0.386, ave_loss: 0.447
+[80]  [1580/1724] loss: 0.381, ave_loss: 0.446
+[81]  [1600/1724] loss: 0.310, ave_loss: 0.444
+[82]  [1620/1724] loss: 0.439, ave_loss: 0.444
+[83]  [1640/1724] loss: 0.495, ave_loss: 0.445
+[84]  [1660/1724] loss: 0.409, ave_loss: 0.444
+[85]  [1680/1724] loss: 0.438, ave_loss: 0.444
+[86]  [1700/1724] loss: 0.422, ave_loss: 0.444
+[87]  [1720/1724] loss: 0.526, ave_loss: 0.445
+[88]  [1740/1724] loss: 0.473, ave_loss: 0.445
+
+Finished Training finishing at 2021-08-29 19:54:57.012448
+printing_out epoch  23.48027842227378 learning rate: 0.0005153561248318907
+0.00025577455042449505
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.451e-01
+Validation Loss: 6.379e+04
+Validation ROC: 0.7709
+Saving model
+5.519721577726219 epochs left to go
+
+Training Epoch 23.48027842227378/30 starting at 2021-08-29 19:55:47.756966
+[1]  [0/1724] loss: 0.648, ave_loss: 0.648
+[2]  [20/1724] loss: 0.623, ave_loss: 0.636
+[3]  [40/1724] loss: 0.487, ave_loss: 0.586
+[4]  [60/1724] loss: 0.397, ave_loss: 0.539
+[5]  [80/1724] loss: 0.406, ave_loss: 0.512
+[6]  [100/1724] loss: 0.317, ave_loss: 0.480
+[7]  [120/1724] loss: 0.207, ave_loss: 0.441
+[8]  [140/1724] loss: 0.598, ave_loss: 0.460
+[9]  [160/1724] loss: 0.355, ave_loss: 0.449
+[10]  [180/1724] loss: 0.209, ave_loss: 0.425
+[11]  [200/1724] loss: 0.468, ave_loss: 0.429
+[12]  [220/1724] loss: 0.371, ave_loss: 0.424
+[13]  [240/1724] loss: 0.435, ave_loss: 0.425
+[14]  [260/1724] loss: 0.387, ave_loss: 0.422
+[15]  [280/1724] loss: 0.572, ave_loss: 0.432
+[16]  [300/1724] loss: 0.350, ave_loss: 0.427
+[17]  [320/1724] loss: 0.550, ave_loss: 0.434
+[18]  [340/1724] loss: 0.439, ave_loss: 0.434
+[19]  [360/1724] loss: 0.488, ave_loss: 0.437
+[20]  [380/1724] loss: 0.338, ave_loss: 0.432
+[21]  [400/1724] loss: 0.356, ave_loss: 0.429
+[22]  [420/1724] loss: 0.588, ave_loss: 0.436
+[23]  [440/1724] loss: 0.419, ave_loss: 0.435
+[24]  [460/1724] loss: 0.618, ave_loss: 0.443
+[25]  [480/1724] loss: 0.365, ave_loss: 0.440
+[26]  [500/1724] loss: 0.470, ave_loss: 0.441
+[27]  [520/1724] loss: 0.343, ave_loss: 0.437
+[28]  [540/1724] loss: 0.541, ave_loss: 0.441
+[29]  [560/1724] loss: 0.471, ave_loss: 0.442
+[30]  [580/1724] loss: 0.269, ave_loss: 0.436
+[31]  [600/1724] loss: 0.543, ave_loss: 0.440
+[32]  [620/1724] loss: 0.333, ave_loss: 0.436
+[33]  [640/1724] loss: 0.580, ave_loss: 0.441
+[34]  [660/1724] loss: 0.340, ave_loss: 0.438
+[35]  [680/1724] loss: 0.395, ave_loss: 0.436
+[36]  [700/1724] loss: 0.293, ave_loss: 0.432
+[37]  [720/1724] loss: 0.322, ave_loss: 0.429
+[38]  [740/1724] loss: 0.428, ave_loss: 0.429
+[39]  [760/1724] loss: 0.550, ave_loss: 0.432
+[40]  [780/1724] loss: 0.312, ave_loss: 0.429
+[41]  [800/1724] loss: 0.527, ave_loss: 0.432
+[42]  [820/1724] loss: 0.444, ave_loss: 0.432
+[43]  [840/1724] loss: 0.302, ave_loss: 0.429
+[44]  [860/1724] loss: 0.358, ave_loss: 0.427
+[45]  [880/1724] loss: 0.536, ave_loss: 0.430
+[46]  [900/1724] loss: 0.507, ave_loss: 0.432
+[47]  [920/1724] loss: 0.465, ave_loss: 0.432
+[48]  [940/1724] loss: 0.354, ave_loss: 0.431
+[49]  [960/1724] loss: 0.545, ave_loss: 0.433
+[50]  [980/1724] loss: 0.401, ave_loss: 0.432
+[51]  [1000/1724] loss: 0.523, ave_loss: 0.434
+[52]  [1020/1724] loss: 0.333, ave_loss: 0.432
+[53]  [1040/1724] loss: 0.417, ave_loss: 0.432
+[54]  [1060/1724] loss: 0.361, ave_loss: 0.431
+[55]  [1080/1724] loss: 0.419, ave_loss: 0.430
+[56]  [1100/1724] loss: 0.578, ave_loss: 0.433
+[57]  [1120/1724] loss: 0.438, ave_loss: 0.433
+[58]  [1140/1724] loss: 0.357, ave_loss: 0.432
+[59]  [1160/1724] loss: 0.434, ave_loss: 0.432
+[60]  [1180/1724] loss: 0.360, ave_loss: 0.431
+[61]  [1200/1724] loss: 0.617, ave_loss: 0.434
+[62]  [1220/1724] loss: 0.584, ave_loss: 0.436
+[63]  [1240/1724] loss: 0.455, ave_loss: 0.436
+[64]  [1260/1724] loss: 0.413, ave_loss: 0.436
+[65]  [1280/1724] loss: 0.272, ave_loss: 0.433
+[66]  [1300/1724] loss: 0.433, ave_loss: 0.433
+[67]  [1320/1724] loss: 0.456, ave_loss: 0.434
+[68]  [1340/1724] loss: 0.316, ave_loss: 0.432
+[69]  [1360/1724] loss: 0.342, ave_loss: 0.431
+[70]  [1380/1724] loss: 0.487, ave_loss: 0.432
+[71]  [1400/1724] loss: 0.298, ave_loss: 0.430
+[72]  [1420/1724] loss: 0.469, ave_loss: 0.430
+[73]  [1440/1724] loss: 0.359, ave_loss: 0.429
+[74]  [1460/1724] loss: 0.410, ave_loss: 0.429
+[75]  [1480/1724] loss: 0.438, ave_loss: 0.429
+[76]  [1500/1724] loss: 0.351, ave_loss: 0.428
+[77]  [1520/1724] loss: 0.479, ave_loss: 0.429
+[78]  [1540/1724] loss: 0.510, ave_loss: 0.430
+[79]  [1560/1724] loss: 0.284, ave_loss: 0.428
+[80]  [1580/1724] loss: 0.559, ave_loss: 0.430
+[81]  [1600/1724] loss: 0.347, ave_loss: 0.429
+[82]  [1620/1724] loss: 0.403, ave_loss: 0.428
+[83]  [1640/1724] loss: 0.468, ave_loss: 0.429
+[84]  [1660/1724] loss: 0.437, ave_loss: 0.429
+[85]  [1680/1724] loss: 0.340, ave_loss: 0.428
+[86]  [1700/1724] loss: 0.307, ave_loss: 0.426
+[87]  [1720/1724] loss: 0.468, ave_loss: 0.427
+[88]  [1740/1724] loss: 0.423, ave_loss: 0.427
+
+Finished Training finishing at 2021-08-29 19:58:12.089929
+printing_out epoch  24.501160092807424 learning rate: 0.0005153561248318907
+0.0002481013139117602
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.268e-01
+Validation Loss: 6.386e+04
+Validation ROC: 0.7668
+No improvement, still saving model
+4.4988399071925755 epochs left to go
+
+Training Epoch 24.501160092807424/30 starting at 2021-08-29 19:59:02.522696
+[1]  [0/1724] loss: 0.607, ave_loss: 0.607
+[2]  [20/1724] loss: 0.397, ave_loss: 0.502
+[3]  [40/1724] loss: 0.505, ave_loss: 0.503
+[4]  [60/1724] loss: 0.433, ave_loss: 0.485
+[5]  [80/1724] loss: 0.455, ave_loss: 0.479
+[6]  [100/1724] loss: 0.431, ave_loss: 0.471
+[7]  [120/1724] loss: 0.298, ave_loss: 0.447
+[8]  [140/1724] loss: 0.591, ave_loss: 0.465
+[9]  [160/1724] loss: 0.371, ave_loss: 0.454
+[10]  [180/1724] loss: 0.410, ave_loss: 0.450
+[11]  [200/1724] loss: 0.508, ave_loss: 0.455
+[12]  [220/1724] loss: 0.404, ave_loss: 0.451
+[13]  [240/1724] loss: 0.456, ave_loss: 0.451
+[14]  [260/1724] loss: 0.341, ave_loss: 0.443
+[15]  [280/1724] loss: 0.477, ave_loss: 0.446
+[16]  [300/1724] loss: 0.360, ave_loss: 0.440
+[17]  [320/1724] loss: 0.377, ave_loss: 0.437
+[18]  [340/1724] loss: 0.406, ave_loss: 0.435
+[19]  [360/1724] loss: 0.488, ave_loss: 0.438
+[20]  [380/1724] loss: 0.590, ave_loss: 0.445
+[21]  [400/1724] loss: 0.305, ave_loss: 0.439
+[22]  [420/1724] loss: 0.410, ave_loss: 0.437
+[23]  [440/1724] loss: 0.490, ave_loss: 0.440
+[24]  [460/1724] loss: 0.552, ave_loss: 0.444
+[25]  [480/1724] loss: 0.270, ave_loss: 0.437
+[26]  [500/1724] loss: 0.372, ave_loss: 0.435
+[27]  [520/1724] loss: 0.658, ave_loss: 0.443
+[28]  [540/1724] loss: 0.568, ave_loss: 0.447
+[29]  [560/1724] loss: 0.517, ave_loss: 0.450
+[30]  [580/1724] loss: 0.402, ave_loss: 0.448
+[31]  [600/1724] loss: 0.563, ave_loss: 0.452
+[32]  [620/1724] loss: 0.535, ave_loss: 0.455
+[33]  [640/1724] loss: 0.463, ave_loss: 0.455
+[34]  [660/1724] loss: 0.334, ave_loss: 0.451
+[35]  [680/1724] loss: 0.347, ave_loss: 0.448
+[36]  [700/1724] loss: 0.553, ave_loss: 0.451
+[37]  [720/1724] loss: 0.515, ave_loss: 0.453
+[38]  [740/1724] loss: 0.371, ave_loss: 0.451
+[39]  [760/1724] loss: 0.351, ave_loss: 0.448
+[40]  [780/1724] loss: 0.531, ave_loss: 0.450
+[41]  [800/1724] loss: 0.283, ave_loss: 0.446
+[42]  [820/1724] loss: 0.485, ave_loss: 0.447
+[43]  [840/1724] loss: 0.432, ave_loss: 0.447
+[44]  [860/1724] loss: 0.384, ave_loss: 0.445
+[45]  [880/1724] loss: 0.339, ave_loss: 0.443
+[46]  [900/1724] loss: 0.343, ave_loss: 0.441
+[47]  [920/1724] loss: 0.292, ave_loss: 0.438
+[48]  [940/1724] loss: 0.798, ave_loss: 0.445
+[49]  [960/1724] loss: 0.313, ave_loss: 0.442
+[50]  [980/1724] loss: 0.496, ave_loss: 0.444
+[51]  [1000/1724] loss: 0.511, ave_loss: 0.445
+[52]  [1020/1724] loss: 0.398, ave_loss: 0.444
+[53]  [1040/1724] loss: 0.556, ave_loss: 0.446
+[54]  [1060/1724] loss: 0.437, ave_loss: 0.446
+[55]  [1080/1724] loss: 0.407, ave_loss: 0.445
+[56]  [1100/1724] loss: 0.455, ave_loss: 0.445
+[57]  [1120/1724] loss: 0.513, ave_loss: 0.447
+[58]  [1140/1724] loss: 0.463, ave_loss: 0.447
+[59]  [1160/1724] loss: 0.619, ave_loss: 0.450
+[60]  [1180/1724] loss: 0.316, ave_loss: 0.448
+[61]  [1200/1724] loss: 0.452, ave_loss: 0.448
+[62]  [1220/1724] loss: 0.350, ave_loss: 0.446
+[63]  [1240/1724] loss: 0.422, ave_loss: 0.446
+[64]  [1260/1724] loss: 0.383, ave_loss: 0.445
+[65]  [1280/1724] loss: 0.474, ave_loss: 0.445
+[66]  [1300/1724] loss: 0.454, ave_loss: 0.445
+[67]  [1320/1724] loss: 0.356, ave_loss: 0.444
+[68]  [1340/1724] loss: 0.490, ave_loss: 0.445
+[69]  [1360/1724] loss: 0.509, ave_loss: 0.446
+[70]  [1380/1724] loss: 0.433, ave_loss: 0.445
+[71]  [1400/1724] loss: 0.496, ave_loss: 0.446
+[72]  [1420/1724] loss: 0.377, ave_loss: 0.445
+[73]  [1440/1724] loss: 0.331, ave_loss: 0.444
+[74]  [1460/1724] loss: 0.475, ave_loss: 0.444
+[75]  [1480/1724] loss: 0.344, ave_loss: 0.443
+[76]  [1500/1724] loss: 0.433, ave_loss: 0.443
+[77]  [1520/1724] loss: 0.453, ave_loss: 0.443
+[78]  [1540/1724] loss: 0.502, ave_loss: 0.443
+[79]  [1560/1724] loss: 0.512, ave_loss: 0.444
+[80]  [1580/1724] loss: 0.618, ave_loss: 0.446
+[81]  [1600/1724] loss: 0.380, ave_loss: 0.446
+[82]  [1620/1724] loss: 0.364, ave_loss: 0.445
+[83]  [1640/1724] loss: 0.465, ave_loss: 0.445
+[84]  [1660/1724] loss: 0.398, ave_loss: 0.444
+[85]  [1680/1724] loss: 0.483, ave_loss: 0.445
+[86]  [1700/1724] loss: 0.351, ave_loss: 0.444
+[87]  [1720/1724] loss: 0.403, ave_loss: 0.443
+[88]  [1740/1724] loss: 0.341, ave_loss: 0.442
+
+Finished Training finishing at 2021-08-29 20:01:18.578216
+printing_out epoch  25.52204176334107 learning rate: 0.00046850556802899155
+0.0004544504009881218
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.420e-01
+Validation Loss: 7.102e+04
+Validation ROC: 0.7677
+No improvement, still saving model
+3.4779582366589317 epochs left to go
+
+Training Epoch 25.52204176334107/30 starting at 2021-08-29 20:02:06.750703
+[1]  [0/1724] loss: 0.692, ave_loss: 0.692
+[2]  [20/1724] loss: 0.505, ave_loss: 0.599
+[3]  [40/1724] loss: 0.638, ave_loss: 0.612
+[4]  [60/1724] loss: 0.317, ave_loss: 0.538
+[5]  [80/1724] loss: 0.490, ave_loss: 0.528
+[6]  [100/1724] loss: 0.501, ave_loss: 0.524
+[7]  [120/1724] loss: 0.657, ave_loss: 0.543
+[8]  [140/1724] loss: 0.341, ave_loss: 0.518
+[9]  [160/1724] loss: 0.595, ave_loss: 0.526
+[10]  [180/1724] loss: 0.624, ave_loss: 0.536
+[11]  [200/1724] loss: 0.342, ave_loss: 0.518
+[12]  [220/1724] loss: 0.481, ave_loss: 0.515
+[13]  [240/1724] loss: 0.328, ave_loss: 0.501
+[14]  [260/1724] loss: 0.520, ave_loss: 0.502
+[15]  [280/1724] loss: 0.559, ave_loss: 0.506
+[16]  [300/1724] loss: 0.622, ave_loss: 0.513
+[17]  [320/1724] loss: 0.374, ave_loss: 0.505
+[18]  [340/1724] loss: 0.469, ave_loss: 0.503
+[19]  [360/1724] loss: 0.457, ave_loss: 0.501
+[20]  [380/1724] loss: 0.412, ave_loss: 0.496
+[21]  [400/1724] loss: 0.561, ave_loss: 0.499
+[22]  [420/1724] loss: 0.538, ave_loss: 0.501
+[23]  [440/1724] loss: 0.461, ave_loss: 0.499
+[24]  [460/1724] loss: 0.318, ave_loss: 0.492
+[25]  [480/1724] loss: 0.541, ave_loss: 0.494
+[26]  [500/1724] loss: 0.366, ave_loss: 0.489
+[27]  [520/1724] loss: 0.640, ave_loss: 0.494
+[28]  [540/1724] loss: 0.488, ave_loss: 0.494
+[29]  [560/1724] loss: 0.590, ave_loss: 0.497
+[30]  [580/1724] loss: 0.495, ave_loss: 0.497
+[31]  [600/1724] loss: 0.525, ave_loss: 0.498
+[32]  [620/1724] loss: 0.534, ave_loss: 0.499
+[33]  [640/1724] loss: 0.492, ave_loss: 0.499
+[34]  [660/1724] loss: 0.418, ave_loss: 0.497
+[35]  [680/1724] loss: 0.338, ave_loss: 0.492
+[36]  [700/1724] loss: 0.401, ave_loss: 0.490
+[37]  [720/1724] loss: 0.342, ave_loss: 0.486
+[38]  [740/1724] loss: 0.374, ave_loss: 0.483
+[39]  [760/1724] loss: 0.346, ave_loss: 0.479
+[40]  [780/1724] loss: 0.399, ave_loss: 0.477
+[41]  [800/1724] loss: 0.588, ave_loss: 0.480
+[42]  [820/1724] loss: 0.604, ave_loss: 0.483
+[43]  [840/1724] loss: 0.374, ave_loss: 0.480
+[44]  [860/1724] loss: 0.503, ave_loss: 0.481
+[45]  [880/1724] loss: 0.527, ave_loss: 0.482
+[46]  [900/1724] loss: 0.339, ave_loss: 0.479
+[47]  [920/1724] loss: 0.410, ave_loss: 0.477
+[48]  [940/1724] loss: 0.409, ave_loss: 0.476
+[49]  [960/1724] loss: 0.406, ave_loss: 0.475
+[50]  [980/1724] loss: 0.372, ave_loss: 0.472
+[51]  [1000/1724] loss: 0.473, ave_loss: 0.472
+[52]  [1020/1724] loss: 0.498, ave_loss: 0.473
+[53]  [1040/1724] loss: 0.368, ave_loss: 0.471
+[54]  [1060/1724] loss: 0.375, ave_loss: 0.469
+[55]  [1080/1724] loss: 0.290, ave_loss: 0.466
+[56]  [1100/1724] loss: 0.461, ave_loss: 0.466
+[57]  [1120/1724] loss: 0.494, ave_loss: 0.466
+[58]  [1140/1724] loss: 0.491, ave_loss: 0.467
+[59]  [1160/1724] loss: 0.403, ave_loss: 0.466
+[60]  [1180/1724] loss: 0.544, ave_loss: 0.467
+[61]  [1200/1724] loss: 0.574, ave_loss: 0.469
+[62]  [1220/1724] loss: 0.523, ave_loss: 0.470
+[63]  [1240/1724] loss: 0.353, ave_loss: 0.468
+[64]  [1260/1724] loss: 0.454, ave_loss: 0.468
+[65]  [1280/1724] loss: 0.488, ave_loss: 0.468
+[66]  [1300/1724] loss: 0.348, ave_loss: 0.466
+[67]  [1320/1724] loss: 0.420, ave_loss: 0.465
+[68]  [1340/1724] loss: 0.479, ave_loss: 0.466
+[69]  [1360/1724] loss: 0.496, ave_loss: 0.466
+[70]  [1380/1724] loss: 0.386, ave_loss: 0.465
+[71]  [1400/1724] loss: 0.435, ave_loss: 0.464
+[72]  [1420/1724] loss: 0.468, ave_loss: 0.465
+[73]  [1440/1724] loss: 0.431, ave_loss: 0.464
+[74]  [1460/1724] loss: 0.424, ave_loss: 0.464
+[75]  [1480/1724] loss: 0.337, ave_loss: 0.462
+[76]  [1500/1724] loss: 0.268, ave_loss: 0.459
+[77]  [1520/1724] loss: 0.419, ave_loss: 0.459
+[78]  [1540/1724] loss: 0.648, ave_loss: 0.461
+[79]  [1560/1724] loss: 0.502, ave_loss: 0.462
+[80]  [1580/1724] loss: 0.417, ave_loss: 0.461
+[81]  [1600/1724] loss: 0.484, ave_loss: 0.461
+[82]  [1620/1724] loss: 0.402, ave_loss: 0.461
+[83]  [1640/1724] loss: 0.478, ave_loss: 0.461
+[84]  [1660/1724] loss: 0.582, ave_loss: 0.462
+[85]  [1680/1724] loss: 0.449, ave_loss: 0.462
+[86]  [1700/1724] loss: 0.541, ave_loss: 0.463
+[87]  [1720/1724] loss: 0.517, ave_loss: 0.464
+[88]  [1740/1724] loss: 0.609, ave_loss: 0.465
+
+Finished Training finishing at 2021-08-29 20:04:26.779690
+printing_out epoch  26.54292343387471 learning rate: 0.00042591415275362865
+0.0004131367281710198
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.654e-01
+Validation Loss: 7.185e+04
+Validation ROC: 0.7710
+Saving model
+2.4570765661252914 epochs left to go
+
+Training Epoch 26.54292343387471/30 starting at 2021-08-29 20:05:18.630700
+[1]  [0/1724] loss: 0.887, ave_loss: 0.887
+[2]  [20/1724] loss: 0.461, ave_loss: 0.674
+[3]  [40/1724] loss: 0.526, ave_loss: 0.625
+[4]  [60/1724] loss: 0.276, ave_loss: 0.537
+[5]  [80/1724] loss: 0.439, ave_loss: 0.518
+[6]  [100/1724] loss: 0.418, ave_loss: 0.501
+[7]  [120/1724] loss: 0.264, ave_loss: 0.467
+[8]  [140/1724] loss: 0.560, ave_loss: 0.479
+[9]  [160/1724] loss: 0.452, ave_loss: 0.476
+[10]  [180/1724] loss: 0.463, ave_loss: 0.474
+[11]  [200/1724] loss: 0.358, ave_loss: 0.464
+[12]  [220/1724] loss: 0.275, ave_loss: 0.448
+[13]  [240/1724] loss: 0.475, ave_loss: 0.450
+[14]  [260/1724] loss: 0.505, ave_loss: 0.454
+[15]  [280/1724] loss: 0.385, ave_loss: 0.450
+[16]  [300/1724] loss: 0.391, ave_loss: 0.446
+[17]  [320/1724] loss: 0.449, ave_loss: 0.446
+[18]  [340/1724] loss: 0.387, ave_loss: 0.443
+[19]  [360/1724] loss: 0.344, ave_loss: 0.438
+[20]  [380/1724] loss: 0.426, ave_loss: 0.437
+[21]  [400/1724] loss: 0.527, ave_loss: 0.441
+[22]  [420/1724] loss: 0.418, ave_loss: 0.440
+[23]  [440/1724] loss: 0.650, ave_loss: 0.449
+[24]  [460/1724] loss: 0.345, ave_loss: 0.445
+[25]  [480/1724] loss: 0.355, ave_loss: 0.441
+[26]  [500/1724] loss: 0.422, ave_loss: 0.441
+[27]  [520/1724] loss: 0.261, ave_loss: 0.434
+[28]  [540/1724] loss: 0.461, ave_loss: 0.435
+[29]  [560/1724] loss: 0.610, ave_loss: 0.441
+[30]  [580/1724] loss: 0.321, ave_loss: 0.437
+[31]  [600/1724] loss: 0.349, ave_loss: 0.434
+[32]  [620/1724] loss: 0.308, ave_loss: 0.430
+[33]  [640/1724] loss: 0.490, ave_loss: 0.432
+[34]  [660/1724] loss: 0.594, ave_loss: 0.437
+[35]  [680/1724] loss: 0.464, ave_loss: 0.438
+[36]  [700/1724] loss: 0.583, ave_loss: 0.442
+[37]  [720/1724] loss: 0.508, ave_loss: 0.443
+[38]  [740/1724] loss: 0.440, ave_loss: 0.443
+[39]  [760/1724] loss: 0.585, ave_loss: 0.447
+[40]  [780/1724] loss: 0.338, ave_loss: 0.444
+[41]  [800/1724] loss: 0.501, ave_loss: 0.446
+[42]  [820/1724] loss: 0.459, ave_loss: 0.446
+[43]  [840/1724] loss: 0.303, ave_loss: 0.443
+[44]  [860/1724] loss: 0.430, ave_loss: 0.442
+[45]  [880/1724] loss: 0.404, ave_loss: 0.441
+[46]  [900/1724] loss: 0.549, ave_loss: 0.444
+[47]  [920/1724] loss: 0.497, ave_loss: 0.445
+[48]  [940/1724] loss: 0.371, ave_loss: 0.443
+[49]  [960/1724] loss: 0.387, ave_loss: 0.442
+[50]  [980/1724] loss: 0.327, ave_loss: 0.440
+[51]  [1000/1724] loss: 0.570, ave_loss: 0.442
+[52]  [1020/1724] loss: 0.285, ave_loss: 0.439
+[53]  [1040/1724] loss: 0.512, ave_loss: 0.441
+[54]  [1060/1724] loss: 0.293, ave_loss: 0.438
+[55]  [1080/1724] loss: 0.489, ave_loss: 0.439
+[56]  [1100/1724] loss: 0.599, ave_loss: 0.442
+[57]  [1120/1724] loss: 0.389, ave_loss: 0.441
+[58]  [1140/1724] loss: 0.336, ave_loss: 0.439
+[59]  [1160/1724] loss: 0.424, ave_loss: 0.439
+[60]  [1180/1724] loss: 0.367, ave_loss: 0.438
+[61]  [1200/1724] loss: 0.623, ave_loss: 0.441
+[62]  [1220/1724] loss: 0.410, ave_loss: 0.440
+[63]  [1240/1724] loss: 0.277, ave_loss: 0.438
+[64]  [1260/1724] loss: 0.409, ave_loss: 0.437
+[65]  [1280/1724] loss: 0.401, ave_loss: 0.437
+[66]  [1300/1724] loss: 0.511, ave_loss: 0.438
+[67]  [1320/1724] loss: 0.337, ave_loss: 0.436
+[68]  [1340/1724] loss: 0.384, ave_loss: 0.435
+[69]  [1360/1724] loss: 0.508, ave_loss: 0.437
+[70]  [1380/1724] loss: 0.467, ave_loss: 0.437
+[71]  [1400/1724] loss: 0.468, ave_loss: 0.437
+[72]  [1420/1724] loss: 0.349, ave_loss: 0.436
+[73]  [1440/1724] loss: 0.433, ave_loss: 0.436
+[74]  [1460/1724] loss: 0.515, ave_loss: 0.437
+[75]  [1480/1724] loss: 0.486, ave_loss: 0.438
+[76]  [1500/1724] loss: 0.394, ave_loss: 0.437
+[77]  [1520/1724] loss: 0.477, ave_loss: 0.438
+[78]  [1540/1724] loss: 0.373, ave_loss: 0.437
+[79]  [1560/1724] loss: 0.409, ave_loss: 0.437
+[80]  [1580/1724] loss: 0.495, ave_loss: 0.437
+[81]  [1600/1724] loss: 0.305, ave_loss: 0.436
+[82]  [1620/1724] loss: 0.414, ave_loss: 0.435
+[83]  [1640/1724] loss: 0.346, ave_loss: 0.434
+[84]  [1660/1724] loss: 0.432, ave_loss: 0.434
+[85]  [1680/1724] loss: 0.382, ave_loss: 0.434
+[86]  [1700/1724] loss: 0.378, ave_loss: 0.433
+[87]  [1720/1724] loss: 0.440, ave_loss: 0.433
+[88]  [1740/1724] loss: 0.487, ave_loss: 0.434
+
+Finished Training finishing at 2021-08-29 20:07:47.225907
+printing_out epoch  27.563805104408353 learning rate: 0.00042591415275362865
+0.00040074262632588915
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.338e-01
+Validation Loss: 7.001e+04
+Validation ROC: 0.7705
+No improvement, still saving model
+1.4361948955916475 epochs left to go
+
+Training Epoch 27.563805104408353/30 starting at 2021-08-29 20:08:41.018701
+[1]  [0/1724] loss: 0.178, ave_loss: 0.178
+[2]  [20/1724] loss: 0.641, ave_loss: 0.410
+[3]  [40/1724] loss: 0.328, ave_loss: 0.383
+[4]  [60/1724] loss: 0.387, ave_loss: 0.384
+[5]  [80/1724] loss: 0.243, ave_loss: 0.356
+[6]  [100/1724] loss: 0.547, ave_loss: 0.387
+[7]  [120/1724] loss: 0.428, ave_loss: 0.393
+[8]  [140/1724] loss: 0.325, ave_loss: 0.385
+[9]  [160/1724] loss: 0.412, ave_loss: 0.388
+[10]  [180/1724] loss: 0.490, ave_loss: 0.398
+[11]  [200/1724] loss: 0.623, ave_loss: 0.418
+[12]  [220/1724] loss: 0.483, ave_loss: 0.424
+[13]  [240/1724] loss: 0.388, ave_loss: 0.421
+[14]  [260/1724] loss: 0.540, ave_loss: 0.430
+[15]  [280/1724] loss: 0.448, ave_loss: 0.431
+[16]  [300/1724] loss: 0.345, ave_loss: 0.425
+[17]  [320/1724] loss: 0.566, ave_loss: 0.434
+[18]  [340/1724] loss: 0.387, ave_loss: 0.431
+[19]  [360/1724] loss: 0.338, ave_loss: 0.426
+[20]  [380/1724] loss: 0.388, ave_loss: 0.424
+[21]  [400/1724] loss: 0.379, ave_loss: 0.422
+[22]  [420/1724] loss: 0.288, ave_loss: 0.416
+[23]  [440/1724] loss: 0.588, ave_loss: 0.423
+[24]  [460/1724] loss: 0.355, ave_loss: 0.421
+[25]  [480/1724] loss: 0.290, ave_loss: 0.415
+[26]  [500/1724] loss: 0.365, ave_loss: 0.413
+[27]  [520/1724] loss: 0.415, ave_loss: 0.414
+[28]  [540/1724] loss: 0.344, ave_loss: 0.411
+[29]  [560/1724] loss: 0.415, ave_loss: 0.411
+[30]  [580/1724] loss: 0.413, ave_loss: 0.411
+[31]  [600/1724] loss: 0.561, ave_loss: 0.416
+[32]  [620/1724] loss: 0.515, ave_loss: 0.419
+[33]  [640/1724] loss: 0.300, ave_loss: 0.416
+[34]  [660/1724] loss: 0.648, ave_loss: 0.422
+[35]  [680/1724] loss: 0.500, ave_loss: 0.425
+[36]  [700/1724] loss: 0.285, ave_loss: 0.421
+[37]  [720/1724] loss: 0.506, ave_loss: 0.423
+[38]  [740/1724] loss: 0.584, ave_loss: 0.427
+[39]  [760/1724] loss: 0.418, ave_loss: 0.427
+[40]  [780/1724] loss: 0.338, ave_loss: 0.425
+[41]  [800/1724] loss: 0.458, ave_loss: 0.426
+[42]  [820/1724] loss: 0.428, ave_loss: 0.426
+[43]  [840/1724] loss: 0.477, ave_loss: 0.427
+[44]  [860/1724] loss: 0.416, ave_loss: 0.427
+[45]  [880/1724] loss: 0.571, ave_loss: 0.430
+[46]  [900/1724] loss: 0.448, ave_loss: 0.430
+[47]  [920/1724] loss: 0.376, ave_loss: 0.429
+[48]  [940/1724] loss: 0.320, ave_loss: 0.427
+[49]  [960/1724] loss: 0.360, ave_loss: 0.425
+[50]  [980/1724] loss: 0.482, ave_loss: 0.427
+[51]  [1000/1724] loss: 0.535, ave_loss: 0.429
+[52]  [1020/1724] loss: 0.550, ave_loss: 0.431
+[53]  [1040/1724] loss: 0.417, ave_loss: 0.431
+[54]  [1060/1724] loss: 0.350, ave_loss: 0.429
+[55]  [1080/1724] loss: 0.329, ave_loss: 0.427
+[56]  [1100/1724] loss: 0.513, ave_loss: 0.429
+[57]  [1120/1724] loss: 0.360, ave_loss: 0.428
+[58]  [1140/1724] loss: 0.418, ave_loss: 0.428
+[59]  [1160/1724] loss: 0.324, ave_loss: 0.426
+[60]  [1180/1724] loss: 0.354, ave_loss: 0.425
+[61]  [1200/1724] loss: 0.306, ave_loss: 0.423
+[62]  [1220/1724] loss: 0.500, ave_loss: 0.424
+[63]  [1240/1724] loss: 0.202, ave_loss: 0.420
+[64]  [1260/1724] loss: 0.450, ave_loss: 0.421
+[65]  [1280/1724] loss: 0.489, ave_loss: 0.422
+[66]  [1300/1724] loss: 0.449, ave_loss: 0.422
+[67]  [1320/1724] loss: 0.471, ave_loss: 0.423
+[68]  [1340/1724] loss: 0.307, ave_loss: 0.421
+[69]  [1360/1724] loss: 0.332, ave_loss: 0.420
+[70]  [1380/1724] loss: 0.368, ave_loss: 0.419
+[71]  [1400/1724] loss: 0.552, ave_loss: 0.421
+[72]  [1420/1724] loss: 0.341, ave_loss: 0.420
+[73]  [1440/1724] loss: 0.312, ave_loss: 0.419
+[74]  [1460/1724] loss: 0.605, ave_loss: 0.421
+[75]  [1480/1724] loss: 0.510, ave_loss: 0.422
+[76]  [1500/1724] loss: 0.540, ave_loss: 0.424
+[77]  [1520/1724] loss: 0.512, ave_loss: 0.425
+[78]  [1540/1724] loss: 0.543, ave_loss: 0.426
+[79]  [1560/1724] loss: 0.312, ave_loss: 0.425
+[80]  [1580/1724] loss: 0.378, ave_loss: 0.424
+[81]  [1600/1724] loss: 0.317, ave_loss: 0.423
+[82]  [1620/1724] loss: 0.553, ave_loss: 0.425
+[83]  [1640/1724] loss: 0.416, ave_loss: 0.425
+[84]  [1660/1724] loss: 0.349, ave_loss: 0.424
+[85]  [1680/1724] loss: 0.489, ave_loss: 0.424
+[86]  [1700/1724] loss: 0.409, ave_loss: 0.424
+[87]  [1720/1724] loss: 0.494, ave_loss: 0.425
+[88]  [1740/1724] loss: 0.523, ave_loss: 0.426
+
+Finished Training finishing at 2021-08-29 20:12:11.656295
+printing_out epoch  28.584686774941996 learning rate: 0.00038719468432148055
+0.0003755788437918361
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.262e-01
+Validation Loss: 7.320e+04
+Validation ROC: 0.7663
+No improvement, still saving model
+0.4153132250580036 epochs left to go
+
+Training Epoch 28.584686774941996/30 starting at 2021-08-29 20:13:57.693723
+[1]  [0/1724] loss: 0.699, ave_loss: 0.699
+[2]  [20/1724] loss: 0.397, ave_loss: 0.548
+[3]  [40/1724] loss: 0.495, ave_loss: 0.530
+[4]  [60/1724] loss: 0.385, ave_loss: 0.494
+[5]  [80/1724] loss: 0.308, ave_loss: 0.457
+[6]  [100/1724] loss: 0.316, ave_loss: 0.433
+[7]  [120/1724] loss: 0.493, ave_loss: 0.442
+[8]  [140/1724] loss: 0.336, ave_loss: 0.428
+[9]  [160/1724] loss: 0.542, ave_loss: 0.441
+[10]  [180/1724] loss: 0.505, ave_loss: 0.447
+[11]  [200/1724] loss: 0.539, ave_loss: 0.456
+[12]  [220/1724] loss: 0.482, ave_loss: 0.458
+[13]  [240/1724] loss: 0.447, ave_loss: 0.457
+[14]  [260/1724] loss: 0.555, ave_loss: 0.464
+[15]  [280/1724] loss: 0.314, ave_loss: 0.454
+[16]  [300/1724] loss: 0.423, ave_loss: 0.452
+[17]  [320/1724] loss: 0.255, ave_loss: 0.441
+[18]  [340/1724] loss: 0.375, ave_loss: 0.437
+[19]  [360/1724] loss: 0.458, ave_loss: 0.438
+[20]  [380/1724] loss: 0.420, ave_loss: 0.437
+[21]  [400/1724] loss: 0.531, ave_loss: 0.442
+[22]  [420/1724] loss: 0.368, ave_loss: 0.438
+[23]  [440/1724] loss: 0.412, ave_loss: 0.437
+[24]  [460/1724] loss: 0.417, ave_loss: 0.436
+[25]  [480/1724] loss: 0.261, ave_loss: 0.429
+[26]  [500/1724] loss: 0.544, ave_loss: 0.434
+[27]  [520/1724] loss: 0.551, ave_loss: 0.438
+[28]  [540/1724] loss: 0.352, ave_loss: 0.435
+[29]  [560/1724] loss: 0.366, ave_loss: 0.432
+[30]  [580/1724] loss: 0.497, ave_loss: 0.435
+[31]  [600/1724] loss: 0.344, ave_loss: 0.432
+[32]  [620/1724] loss: 0.446, ave_loss: 0.432
+[33]  [640/1724] loss: 0.463, ave_loss: 0.433
+[34]  [660/1724] loss: 0.336, ave_loss: 0.430
+[35]  [680/1724] loss: 0.412, ave_loss: 0.430
+[36]  [700/1724] loss: 0.400, ave_loss: 0.429
+[37]  [720/1724] loss: 0.397, ave_loss: 0.428
+[38]  [740/1724] loss: 0.321, ave_loss: 0.425
+[39]  [760/1724] loss: 0.374, ave_loss: 0.424
+[40]  [780/1724] loss: 0.414, ave_loss: 0.424
+[41]  [800/1724] loss: 0.367, ave_loss: 0.422
+[42]  [820/1724] loss: 0.477, ave_loss: 0.424
+[43]  [840/1724] loss: 0.623, ave_loss: 0.428
+[44]  [860/1724] loss: 0.337, ave_loss: 0.426
+[45]  [880/1724] loss: 0.467, ave_loss: 0.427
+[46]  [900/1724] loss: 0.271, ave_loss: 0.424
+[47]  [920/1724] loss: 0.365, ave_loss: 0.422
+[48]  [940/1724] loss: 0.650, ave_loss: 0.427
+[49]  [960/1724] loss: 0.403, ave_loss: 0.427
+[50]  [980/1724] loss: 0.364, ave_loss: 0.425
+[51]  [1000/1724] loss: 0.397, ave_loss: 0.425
+[52]  [1020/1724] loss: 0.346, ave_loss: 0.423
+[53]  [1040/1724] loss: 0.333, ave_loss: 0.422
+[54]  [1060/1724] loss: 0.489, ave_loss: 0.423
+[55]  [1080/1724] loss: 0.423, ave_loss: 0.423
+[56]  [1100/1724] loss: 0.370, ave_loss: 0.422
+[57]  [1120/1724] loss: 0.364, ave_loss: 0.421
+[58]  [1140/1724] loss: 0.280, ave_loss: 0.418
+[59]  [1160/1724] loss: 0.438, ave_loss: 0.419
+[60]  [1180/1724] loss: 0.555, ave_loss: 0.421
+[61]  [1200/1724] loss: 0.493, ave_loss: 0.422
+[62]  [1220/1724] loss: 0.292, ave_loss: 0.420
+[63]  [1240/1724] loss: 0.462, ave_loss: 0.421
+[64]  [1260/1724] loss: 0.452, ave_loss: 0.421
+[65]  [1280/1724] loss: 0.470, ave_loss: 0.422
+[66]  [1300/1724] loss: 0.323, ave_loss: 0.421
+[67]  [1320/1724] loss: 0.456, ave_loss: 0.421
+[68]  [1340/1724] loss: 0.362, ave_loss: 0.420
+[69]  [1360/1724] loss: 0.312, ave_loss: 0.419
+[70]  [1380/1724] loss: 0.353, ave_loss: 0.418
+[71]  [1400/1724] loss: 0.418, ave_loss: 0.418
+[72]  [1420/1724] loss: 0.648, ave_loss: 0.421
+[73]  [1440/1724] loss: 0.435, ave_loss: 0.421
+[74]  [1460/1724] loss: 0.365, ave_loss: 0.420
+[75]  [1480/1724] loss: 0.302, ave_loss: 0.419
+[76]  [1500/1724] loss: 0.393, ave_loss: 0.418
+[77]  [1520/1724] loss: 0.314, ave_loss: 0.417
+[78]  [1540/1724] loss: 0.519, ave_loss: 0.418
+[79]  [1560/1724] loss: 0.570, ave_loss: 0.420
+[80]  [1580/1724] loss: 0.280, ave_loss: 0.419
+[81]  [1600/1724] loss: 0.503, ave_loss: 0.420
+[82]  [1620/1724] loss: 0.358, ave_loss: 0.419
+[83]  [1640/1724] loss: 0.366, ave_loss: 0.418
+[84]  [1660/1724] loss: 0.496, ave_loss: 0.419
+[85]  [1680/1724] loss: 0.401, ave_loss: 0.419
+[86]  [1700/1724] loss: 0.512, ave_loss: 0.420
+[87]  [1720/1724] loss: 0.403, ave_loss: 0.420
+[88]  [1740/1724] loss: 0.535, ave_loss: 0.421
+
+Finished Training finishing at 2021-08-29 20:17:56.887284
+printing_out epoch  29.605568445475637 learning rate: 0.0003519951675649823
+0.00034143531253803285
+y_prime, 849 434
+y_gold, 849 434
+disruptive, 849
+=========Summary======== for epoch88
+Training Loss numpy: 4.211e-01
+Validation Loss: 7.561e+04
+Validation ROC: 0.7720
+Saving model
+saving results

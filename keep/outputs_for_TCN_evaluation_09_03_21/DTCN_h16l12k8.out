@@ -1,0 +1,19 @@
+reading from multiple data folder!**********************************************
+Selected signals (determines which signals are used for training):
+[q95 safety factor, internal inductance, plasma current, Locked mode amplitude, Normalized Beta, stored energy, Plasma density, Radiated Power Core, Radiated Power Edge, Input Power (beam for d3d), Input Beam Torque, plasma current direction, plasma current target, plasma current error, Electron temperature profile, Electron density profile]
+Arguments:  Namespace(channels_spatial=['c16', 'c8', 'c4', 'c2'], channels_temporal=['c16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16'], input_div=1.0, kernel_spatial=4, kernel_temporal=8, linear_sizes=[20, 5], no_scalars=False, subsampling=10, tcn_hidden=16, tcn_layers=12, tcn_type='d')
+...done
+Training on 1724 shots, testing on 857 shots
+Classical convolution with channels  2 16
+Classical convolution with channels  16 8
+Classical convolution with channels  8 4
+Classical convolution with channels  4 2
+InputBlock parameters:  14 2 64 ['c16', 'c8', 'c4', 'c2'] 4 [20, 5] 0.08
+TCN parameters:  19 1 ['c16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16', 'd16'] 8 0.08
+29 epochs left to go
+
+Training Epoch 0/30 starting at 2021-08-30 11:21:24.475149
+[1]  [0/1724] loss: 0.328, ave_loss: 0.328
+[2]  [1/1724] loss: 4.818, ave_loss: 2.573
+[3]  [2/1724] loss: 0.675, ave_loss: 1.940
+[4]  [3/1724] loss: 1.637, ave_loss: 1.864

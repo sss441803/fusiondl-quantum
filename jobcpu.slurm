@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=10        # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem=50G                 # total memory per node (4G per cpu-core is default)
-#SBATCH --time=00:05:00          # total run time limit (HH:MM:SS)
+#SBATCH --time=05:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin        # send email when job begins
 #SBATCH --mail-type=end          # send email when job ends
 #SBATCH --mail-type=fail         # send email if job fails
@@ -14,4 +14,4 @@ module purge
 module load anaconda3/2020.7
 conda activate qfusion
 
-python -u quantum_learn.py > outputs/cpu_test.out
+python -u quantum_learn.py > outputs/1D_only_c4c3k3_even_smaller_TCN.out

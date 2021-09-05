@@ -1,14 +1,11 @@
 import torch
 import numpy as np
-from .QConv_Kernel_copy import single_qubit_z_rot, higher_order_encoding, Encoder
-from .QConv1D import newQConv1D
+from .QConv_Kernel import single_qubit_z_rot, higher_order_encoding, Encoder
+from .QConv1D import QConv1D
 
-conv = newQConv1D(1,1,2)
-out = conv(torch.randn(5,1,7))
-print(out)
 
-'''
-e = Encoder()
+
+e = Encoder
 print(torch.square(e(torch.randn(2,5,dtype=torch.float32)).abs()).sum())
 
 states = torch.randn(5,8, dtype=torch.cfloat, requires_grad=True)
@@ -24,7 +21,7 @@ out = higher_order_encoding(states, inputs)
 print(out.shape)
 loss = out.abs().sum()
 loss.backward()
-print(states.grad, inputs.grad)'''
+print(states.grad, inputs.grad)
 
 '''import torch
 #from torch.utils.tensorboard import SummaryWriter
