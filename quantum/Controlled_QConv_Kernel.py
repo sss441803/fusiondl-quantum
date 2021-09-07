@@ -33,13 +33,17 @@ class Encoder(nn.Module):
             print('The input size must be compatible with the channel and kernel size. Channel and kernel size must also be powers of two.')
             quit()
         # Calculate the magnitude of inputs
-        mag = inputs.square().sum(1).sqrt().reshape(-1,1)
+        mag = inputs.square().sum(1).sqrt().reshape(-1,1)+0.0000001
+        print(mag)
         # Turn the inputs into a normalized vector
         vector = torch.div(inputs, mag)
+        print(vector.square().sum(1))
         # Add kernel ancilla qubits
         vector = vector.repeat_interleave(2**self.kernel_ancillas, dim=1)/np.sqrt(2**self.kernel_ancillas)
+        print(vector)
         # Add channel ancilla qubits
         vector = vector.reshape(-1,2**(self.kernel_qubits+self.kernel_ancillas)).unsqueeze(1).repeat_interleave(2**self.channel_ancillas,dim=1).reshape(n_batch, -1)/np.sqrt(2**self.channel_ancillas)
+        print(vector)
         return mag.reshape(-1), vector.cfloat()
 
 '''Given concatenated single qubit matrices, return the tensor product'''
@@ -88,7 +92,7 @@ def kernel_rot_mat(channel_qubits: int, weights: nn.Parameter) -> torch.Tensor:
     # Rotation matrix for the kernel qubits only
     rot_matrix = mat_tensor_product(mats)
     # Adds control channel qubits
-    return torch.block_diag( torch.eye((2**channel_qubits - 1)*(2**kernel_qubits)), rot_matrix )
+    return torch.block_diag( torch.eye((2**channel_qubits - 1)*(2**kernel_qubits)).to(weights.device), rot_matrix )
 
 '''Rotation of channel qubits independent of kernel qubits'''
 def channel_rot_mat(kernel_qubits: int, weights: nn.Parameter) -> torch.Tensor:
@@ -101,7 +105,7 @@ def channel_rot_mat(kernel_qubits: int, weights: nn.Parameter) -> torch.Tensor:
     rot_matrix = mat_tensor_product(mats)
     # Adding independent kernel qubits
     channel_mat = rot_matrix
-    kernel_mat = torch.eye(2**kernel_qubits).cfloat()
+    kernel_mat = torch.eye(2**kernel_qubits).cfloat().to(weights.device)
     return channel_kernel_mat_tensor(channel_mat, kernel_mat)
     #return torch.tensordot(rot_matrix.unsqueeze(-1), torch.eye(2**kernel_qubits).cfloat().unsqueeze(-1), dims=([-1],[-1])).permute(0,2,1,3).reshape(2**(kernel_qubits+channel_qubits),-1)
 
@@ -131,7 +135,6 @@ class ConvKernel(nn.Module):
     def forward(self, inputs):
         '''Construct the variational circuit'''
         device = str(inputs.device)
-        print(self.channel_angles[0,0].item(),self.kernel_angles[0,0].item())
         # Calculate all rotation matrices
         channel_rot_matrices_futures = [torch.jit.fork(channel_rot_mat, self.kernel_qubits, self.channel_angles[layer]) for layer in range(self.layers)]
         channel_rot_matrices = [torch.jit.wait(fut) for fut in channel_rot_matrices_futures]
@@ -163,4 +166,5 @@ class ConvKernel(nn.Module):
         vector = torch.tensordot(vector, matrix, dims=([-1],[-1]))
         # Parity Measurement
         val = torch.tensordot(vector.abs().square(), self.parity_vector.to(inputs.device), dims=([-1],[-1]))
+        #print('vvvvvveeeeeecccccc', vector ,'mmmmmaaaaaagggggg: ', mag, 'vvvvvvaaaaaallllll: ', val, 'ooooouuuuuutttttt: ', torch.mul(mag,val))
         return torch.mul(val, mag)
