@@ -215,7 +215,7 @@ class ConvKernel(nn.Module):
         device = str(inputs.device)
         #if inputs.max() > 1:
         #    inputs = torch.arctan(inputs)
-        '''Calculate rotated states'''
+        '''Calculate amplitude encoded states'''
         vector = self.encoding(inputs) # vector.shape (n_batch, n_qubits)
         '''Product of entangle matrix and rotation matrix'''
         rot_matrix1 = rot_mat(self.weight[3:3+self.n_qubits])

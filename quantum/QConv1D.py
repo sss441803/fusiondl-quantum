@@ -1,11 +1,14 @@
 import torch
 import torch.nn as nn
 
+import numpy as np
+
 import time
 
 from .QConv_Kernel import ConvKernel, entangle_mat
 from .Easy_QConv_Kernel import ConvKernel as EasyConvKernel, entangle_mat as easy_entangle_mat
 from .Dense_QConv_Kernel import ConvKernel as DenseConvKernel, MoreParamConvKernel as MoreParamDenseConvKernel, entangle_mat as dense_entangle_mat, isPowerOfTwo
+from .Controlled_QConv_Kernel import ConvKernel as ControlledConvKernel, channel_kernel_mat_tensor
 
 # Need decompose a multichannel quantum convolution layer into many single channel quantum convolution. This is because each torch.nn.Module converted from a qml.qnode must be associated with a device that contains all the needed qubits. Having all the qubits in one layer is too many for one device.
 
@@ -175,6 +178,55 @@ class MoreParamDenseQConv1D(nn.Module):
         output = output.squeeze(-2)
         #print('Convolution output shape', output.shape)
         return output
+
+class Controlled_Q_MulIn1Out_Conv1D(nn.Module):
+    def __init__(self, channel_entangle_matrices, kernel_entangle_matrices, channels, kernel, channel_ancillas=1, kernel_ancillas=1, layers=2, dilation=1, padding=0, stride=1):
+        super().__init__()
+        self.channels = channels
+        self.kernel = kernel
+        self.q_kernel = ControlledConvKernel(channel_entangle_matrices, kernel_entangle_matrices, channels, kernel, channel_ancillas=channel_ancillas, kernel_ancillas=kernel_ancillas, layers=layers)
+        self.unfold = nn.Unfold(kernel_size=(kernel,1), dilation=(dilation,1), padding=(padding,0), stride=(stride,1))
+    def memory_strided_im2col(self, x):
+        # x has dimension (n_batch, n_channels, length)
+        x=x.unsqueeze(-1)
+        out = self.unfold(x)
+        out = torch.transpose(out, 1, 2)
+        return out
+    def forward(self, x):
+        n_batch = x.size(0)
+        x = self.memory_strided_im2col(x)
+        #print('memory strided im2col succeed')
+        x = x.reshape(-1, self.kernel*self.channels)
+        output = self.q_kernel(x)
+        #print('q_kernel successful with output shape ', output.shape)
+        output = output.reshape(n_batch, 1, 1, -1)
+        return output
+
+# Quantum convolution 2D layer
+class ControlledQConv1D(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel, channel_ancillas=1, kernel_ancillas=1, layers=2, dilation=1, padding=0, stride=1):
+        super().__init__()
+        channel_qubits = int(np.log2(in_channels)) + channel_ancillas
+        kernel_qubits = int(np.log2(kernel)) + kernel_ancillas
+        channel_entangle_matrix = entangle_mat(channel_qubits)
+        channel_identity = torch.eye(2**channel_qubits).cfloat()
+        kernel_entangle_matrix = entangle_mat(kernel_qubits)
+        kernel_identity = torch.eye(2**kernel_qubits).cfloat()
+        channel_entangle_matrix = channel_kernel_mat_tensor(channel_entangle_matrix, kernel_identity)
+        kernel_entangle_matrix = channel_kernel_mat_tensor(channel_identity, kernel_entangle_matrix)
+        ngpus = torch.cuda.device_count()
+        channel_entangle_matrices = channel_entangle_matrix if ngpus == 0 else [channel_entangle_matrix.to('cuda:'+str(gpu)) for gpu in range(ngpus)]
+        kernel_entangle_matrices = kernel_entangle_matrix if ngpus == 0 else [kernel_entangle_matrix.to('cuda:'+str(gpu)) for gpu in range(ngpus)]
+        self.convs = []
+        for _ in range(out_channels):
+            self.convs.append(Controlled_Q_MulIn1Out_Conv1D(channel_entangle_matrices, kernel_entangle_matrices, in_channels, kernel, channel_ancillas=channel_ancillas, kernel_ancillas=kernel_ancillas, layers=layers, dilation=dilation, padding=padding, stride=stride))
+        self.convs = nn.ModuleList(self.convs)
+        #self.weight = nn.Parameter([conv.weight for conv in self.convs])
+    def forward(self, x):
+        device = x.device
+        futures = [torch.jit.fork(conv, x) for conv in self.convs]
+        results = [torch.jit.wait(fut) for fut in futures]
+        return torch.cat(results,1).squeeze(-2)
 
 # Multichannel input one channel output quantum convolution 2D
 class Q_MulIn1Out_Conv1D(nn.Module):

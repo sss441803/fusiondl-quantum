@@ -3,7 +3,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.optim as opt
 from torch.nn.utils import weight_norm
-from .QConv1D import QConv1D, EasyQConv1D, DenseQConv1D, MoreParamDenseQConv1D
+from .QConv1D import QConv1D, EasyQConv1D, DenseQConv1D, MoreParamDenseQConv1D, ControlledQConv1D
 import numpy as np
 
 class FTCN(nn.Module):
@@ -131,6 +131,10 @@ class TemporalBlock(nn.Module):
             print('More Param Dense quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size)
             self.conv1 = MoreParamDenseQConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
             self.conv2 = MoreParamDenseQConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
+        elif layer_type == 't':
+            print('Controlled quantum convolution with channels ', n_inputs, n_outputs, ' with kernel size ', kernel_size)
+            self.conv1 = ControlledQConv1D(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
+            self.conv2 = ControlledQConv1D(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
         else:
             self.conv1 = nn.Conv1d(n_inputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
             self.conv2 = nn.Conv1d(n_outputs, n_outputs, kernel_size, stride=stride, padding=padding, dilation=dilation)
